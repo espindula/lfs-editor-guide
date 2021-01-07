@@ -9,11 +9,11 @@
   <?dbhtml filename="add.html"?>
 
   <para>
-    <userinput>git add [<replaceable>modified-file]</replaceable></userinput>.
+    <userinput>git add [<replaceable>modified-files</replaceable>]</userinput>.
     This stages the modifications to all the <filename>modified-files</filename>
-    (including creating the files) to the index. The default if
-    <filename>modified-files</filename> is not specified is to stage all the
-    modified files in the tree, but not the created ones. The change is not in
+    (including creating the files) to the index. If you specifies a directory
+    in <filename>modified-files</filename>, all the files modified in this
+    directory or its subdirectories are staged. The change is not in
     the local repository until you do a <userinput>git commit</userinput>.
     We'll touch on this more as we continue in the chapter.
   </para>
