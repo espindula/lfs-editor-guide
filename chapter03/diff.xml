@@ -5,7 +5,7 @@
 ]>
 
 <sect1 id="ch03-diff">
-  <title>svn diff/di</title>
+  <title>git diff</title>
   <?dbhtml filename="diff.html"?>
 
   <para><userinput>svn diff</userinput>, or <userinput>svn di</userinput>.

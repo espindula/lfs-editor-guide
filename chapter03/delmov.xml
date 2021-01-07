@@ -4,14 +4,21 @@
   %general-entities;
 ]>
 
-<sect1 id="ch03-delete">
-  <title>svn delete/del/remove/rm</title>
-  <?dbhtml filename="delete.html"?>
+<sect1 id="ch03-delmov">
+  <title>git rm and git mv</title>
+  <?dbhtml filename="delmov.html"?>
 
-  <para><userinput>svn delete</userinput>, <userinput>svn del</userinput>,
-    <userinput>svn remove</userinput>, or <userinput>svn rm</userinput>.
-    This does what it says: remove (a) file(s) from the repository on belgarath.
-    Again, the file will not be deleted from the server until you do a
-    <userinput>svn commit</userinput>.
+
+  <para><userinput>git rm</userinput>.
+    This removes a file and let Git know about it. Various options allow
+    to select whther the file is only deleted in the index or both in the
+    index and the working directory. Note that you need to commit
+    (and possibly push) for the removal to appear in the repository.
+  </para>
+
+  <para><userinput>git mv</userinput>.
+    This rename or move a file and let Git know about it.
+    Again, you need to commit
+    (and possibly push) for the change to appear in the repository.
   </para>
 </sect1>

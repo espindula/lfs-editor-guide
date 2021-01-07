@@ -5,23 +5,36 @@
 ]>
 
 <sect1 id="ch03-commit">
-  <title>svn commit/ci</title>
+  <title>git commit</title>
   <?dbhtml filename="commit.html"?>
 
-  <para><command>svn <option>commit</option></command> or <command>svn
-    <option>ci</option></command>. This command recursively sends your changes
-    to the Subversion server. It will commit changed files, added files and
-    deleted files. The <option>-m</option> and <option>-F</option> options can
+  <para>
+    <command>git <option>commit</option></command>. This command
+    stores your changes to the <emphasis>local</repository>.
+    Normally, it commits changes staged in the index, but various
+    options allow to bypass staging. Note that nothing is changed
+    on the server until you issue <userinput>git pull</userinput>.
+    The <option>-m</option> and <option>-F</option> options can
     be used to pass a log message to the command. If you don't specify a
     <emphasis>-m "MESSAGE"</emphasis> or <emphasis>-F "Filename"</emphasis>
-    option, Subversion will open the default editor and ask you to type in a log
-    message. The default editor is specified by the environment variable,
-    $SVN_EDITOR. For example, to set your default editor to vim, run:</para>
+    option, Git will open the default editor and ask you to type in a log
+    message. The default editor is specified by the environment variables,
+    <envar>GIT_EDITOR</envar> or <envar>VISUAL</envar> or
+    <envar>EDITOR</envar> (checked in that order) or by a configuration
+    parameter in <filename class="directory">~/.git/config</filename>.
+    For example, to set your default editor to vim, run:</para>
 
-   <screen><userinput>export SVN_EDITOR=vim</userinput></screen>
+<screen><userinput>export GIT_EDITOR=vim</userinput></screen>
+
+  <para>
+    or:
+  </para>
+
+<screen><userinput>git config --global core.editor vim</userinput></screen>
 
   <para>
     Please don't use empty log messages (see later in this document on the
     policy which governs them).
   </para>
+
 </sect1>

@@ -5,17 +5,26 @@
 ]>
 
 <sect1 id="ch03-checkout">
-  <title>svn checkout/co</title>
+  <title>git checkout/co</title>
   <?dbhtml filename="checkout.html"?>
 
-  <para><userinput>svn checkout</userinput> or <userinput>svn co</userinput>.
-    This command is used to pull a Subversion directory such as
-    <filename>LFS/BOOK</filename> (the LFS book) or <filename>BLFS</filename>
-    (the BLFS book) from the server.  You should only need to do this once. If
-    we rearrange the directory structure (as is sometimes necessary), you may
-    need to delete your local working copy and re-check it out.
-    If this is going to be needed, it will usually be because an editor will
-    have made a <emphasis>large</emphasis> change and it will be announced at
-    least on the <email>lfs-book@linuxfromscratch.org</email> list.
+  <para><userinput>git checkout</userinput> or <userinput>svn co</userinput>.
+    This command is used to make a branch of the local repository visible in
+    the working directory.
   </para>
+
+  <note>
+    <title>Note to Subversion Users</title>
+
+    <para>
+      <userinput>git checkout</userinput> is somehow confusing to subversion
+      users because it is very different from
+      <userinput>svn checkout</userinput>. The former is closer to
+      <userinput>svn switch</userinput>. When using Git, you'll find yourself
+      creating branches rather often, and using
+      <userinput>git checkout</userinput> to switch between them, so it is
+      a rather common command.
+    </para>
+  </note>
+      
 </sect1>

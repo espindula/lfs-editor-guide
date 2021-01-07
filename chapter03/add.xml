@@ -9,10 +9,21 @@
   <?dbhtml filename="add.html"?>
 
   <para>
-    <userinput>git add <replaceable>modified-file</replaceable></userinput>.
-    This stages the modifications to <filename>modified-file</filename>
-    (including creating the file) to the index. It is not in the local
-    repository until you do a <userinput>gitœ commit</userinput>. We'll
-    touch on this more as we continue in the chapter.
+    <userinput>git add [<replaceable>modified-file]</replaceable></userinput>.
+    This stages the modifications to all the <filename>modified-files</filename>
+    (including creating the files) to the index. The default if
+    <filename>modified-files</filename> is not specified is to stage all the
+    modified files in the tree, but not the created ones. The change is not in
+    the local repository until you do a <userinput>git commit</userinput>.
+    We'll touch on this more as we continue in the chapter.
   </para>
+
+  <para>
+    This command can be used in a very flexible way by using the
+    <option>-p</option> option. You can select each hunk of the diff that
+    is staged into the index. This allows to test a full change, then divide
+    commits into small <quote>atomic</quote> pieces that are easier to review
+    and/or understand.
+  </para>
+
 </sect1>
