@@ -38,15 +38,16 @@ running:</para>
 
 <para>If this works, you'll download a copy of the current repository to
 <filename class="directory">lfs-trunk/.git</filename> and you will check out 
-the master branch. You will also have write access so from now on be extra
+the default branch, which is named <emphasis>trunk</emphasis> in LFS. You
+will also have write access so from now on be extra
 careful, but note that <emphasis>no</emphasis> changes will be made until you
 issue a <userinput>git push</userinput> command.</para>
 
-<para>The above is fine for getting the master branch, but you may
-want to work on a public branch. To set up a local branch that tracks
-the public branch just issue:</para>
+<para>The above is fine for getting the default branch, but you may
+want to work on a different public branch. To set up a local branch that tracks
+a public branch named <emphasis>new_branch</emphasis>just issue:</para>
 
-<screen><userinput>git checkout --track origin/<replaceable>&lt;branchname&gt;</replaceable></userinput></screen>
+<screen><userinput>git checkout --track origin/<replaceable>&lt;new_branch&gt;</replaceable></userinput></screen>
 
 <note>
 <title>Note to Subversion Users</title>
@@ -57,24 +58,23 @@ does not exist anymore.</para>
 </note>
 
 <para>
-If you need to work on the master branch, just commit your changes (if any)
-to the new branch (the commit is local), and switch back to the master
-copy with:
+If you need to work on the default branch named <emphasis>trunk</emphasis>,
+just commit your changes (if any) to the new branch (the commit is local),
+and switch back to trunk with:
 </para>
 
-<screen><userinput>git checkout master</userinput></screen>
+<screen><userinput>git checkout trunk</userinput></screen>
 
 <para>
-Since the new branch is already set up, if you want to work on the new branch,
-just do:
+Since the new branch is already set up, if you want again to work on the new
+branch, just do:
 </para>
 
-<screen><userinput>git checkout <replaceable>&lt;branchname&gt;</replaceable></userinput></screen>
+<screen><userinput>git checkout <replaceable>&lt;new_branch&gt;</replaceable></userinput></screen>
 
-<para>As with anonymous access, you can update your local copy by simply
+<para>As with anonymous access, you can update your local repository by simply
 <command>cd</command>'ing into the LFS directory and running:</para>
 
 <para><screen><userinput>git pull</userinput></screen></para>
-
 
 </sect1>
