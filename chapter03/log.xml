@@ -14,7 +14,7 @@
     information given for each commit. It is strongly advised to run this
     command before pushing to the remote repository, or merging. If the
     history is too convoluted, it may be necessary to run
-    <xref linkend="rebase"/> in order to simplify it. Your co-editors will
+    <xref linkend="ch03-rebase"/> in order to simplify it. Your co-editors will
     hate you if you change the history after pushing it.
   </para>
 

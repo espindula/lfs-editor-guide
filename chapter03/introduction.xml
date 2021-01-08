@@ -26,7 +26,7 @@
       As already said, the Git repository is on the local machine. More
       precisely, the directory holds a working copy of some branch
       of the repository, and the repository itself is stored under the
-      <filename class="directory">.git</filename>, along with various
+      <filename class="directory">.git</filename> directory, along with various
       configuration settings. The command <xref linkend="ch03-checkout"/>
       is used to switch branches.
     </para>
