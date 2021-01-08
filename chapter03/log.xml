@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.4//EN" "http://www.oasis-open.org/docbook/xml/4.4/docbookx.dtd" [
+  <!ENTITY % general-entities SYSTEM "../general.ent">
+  %general-entities;
+]>
+
+<sect1 id="ch03-log" xreflabel="git log">
+  <title>git log</title>
+  <?dbhtml filename="log.html"?>
+
+  <para><userinput>git log</userinput>.
+    Outputs the commit log of the branch currently in the working
+    directory. Various options allow to customize the level of
+    information given for each commit. It is strongly advised to run this
+    command before pushing to the remote repository, or merging. If the
+    history is too convoluted, it may be necessary to run
+    <xref linkend="rebase"/> in order to simplify it. Your co-editors will
+    hate you if you change the history after pushing it.
+  </para>
+
+  <note>
+    <title>Note to Subversion Users</title>
+
+    <para>
+      The ouput is automatically passed to a pager, so that it is not necessary
+      to pipe it to <command>less</command>. Furthermore, no access to the
+      remote repository is needed, so it is ususally much faster to get a
+      long log.
+    </para>
+
+  </note>
+
+</sect1>

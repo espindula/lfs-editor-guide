@@ -14,11 +14,12 @@
   <xi:include xmlns:xi="http://www.w3.org/2003/XInclude" href="pull.xml"/>
   <xi:include xmlns:xi="http://www.w3.org/2003/XInclude" href="add.xml"/>
   <xi:include xmlns:xi="http://www.w3.org/2003/XInclude" href="delmov.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2003/XInclude" href="status.xml"/>
   <xi:include xmlns:xi="http://www.w3.org/2003/XInclude" href="commit.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2003/XInclude" href="log.xml"/>
   <xi:include xmlns:xi="http://www.w3.org/2003/XInclude" href="push.xml"/>
   <xi:include xmlns:xi="http://www.w3.org/2003/XInclude" href="checkout.xml"/>
   <xi:include xmlns:xi="http://www.w3.org/2003/XInclude" href="merge.xml"/>
   <xi:include xmlns:xi="http://www.w3.org/2003/XInclude" href="rebase.xml"/>
-  <xi:include xmlns:xi="http://www.w3.org/2003/XInclude" href="diff.xml"/>
 
 </chapter>
