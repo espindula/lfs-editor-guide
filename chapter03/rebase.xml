@@ -8,10 +8,31 @@
   <title>git rebase</title>
   <?dbhtml filename="rebase.html"?>
 
-  <para><command>svn <option>move</option></command>, <command>svn <option>mv
-    </option></command>, <command>svn <option>rename</option></command> or
-    <command>svn <option>ren</option></command>. These commands move files from
-    one location to another. Note that the changes will only be reflected on the
-    Subversion server after you run the <command>svn <option>commit</option>
-    </command> command.</para>
+  <para><userinput>git rebase</userinput>
+    This is useful to have the current branch start from another point in
+    the history. For example if you have:
+  </para>
+
+<screen><literal>                              B1---B2---B3    my_branch
+                             /
+                            A---C1---C2       trunk
+</literal></screen>
+  <para>
+    rebasing my_branch onto trunk will produce:
+  </para>
+
+<screen><literal>                              B'1---B'2---B'3 my_branch
+                             /
+                   A---C1---C2                trunk
+</literal></screen>
+
+  <para>
+    where the state reached after commit B'3 is the same as it was at B3.
+  </para>
+
+  <para>
+    But the most useful command <userinput>git rebase -i</userinput>
+    that allows to rewrite history when you have made messy commits.
+  </para>
+
 </sect1>

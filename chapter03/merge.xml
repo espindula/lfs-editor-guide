@@ -21,42 +21,15 @@
     that is after committing all changes.
   </para>
 
-  <para><userinput>git rebase</userinput>
-    This is useful to have the current branch start from another point in
-    the history. For example if you have:
-  </para>
-
-<screen><literal>
-                              B1---B2---B3    my_branch
-                             /
-                            A---C1---C2       trunk
-</literal></screen>
-  <para>
-    rebasing my_branch onto trunk will produce:
-  </para>
-
-<screen><literal>
-                              B'1---B'2---B'3 my_branch
-                             /
-                   A---C1---C2                trunk
-</literal></screen>
-
-  <para>
-    where the state reached after commit B'3 is the same as it was at B3.
-  </para>
-
-  <para>
-    But there is a very useful command <userinput>git rebase -i</userinput>
-    that allos to rewrite history when you have made messy commits.
-  </para>
-    
   <note>
+    <title>Note to Subversion Users</title>
+
     <para>
       Contrary to subversion, there is no <option>--dry-run</option> option
       to <userinput>git merge</userinput>. But a repository can always be
       reset to a previous state with
       <userinput>git reset --hard &lt;commit&gt;</userinput>.
     </para>
-  </note>
+  </note>
 
 </sect1>
