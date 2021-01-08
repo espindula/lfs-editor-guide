@@ -5,38 +5,58 @@
 ]>
 
 <sect1 id="ch03-merge" xreflabel="git merge">
-  <title>svn merge</title>
+  <title>git merge and Related Commands</title>
   <?dbhtml filename="merge.html"?>
 
-  <para><userinput>svn merge</userinput>. This is useful to selectively apply changes
-    from one branch to other branches, or to trunk, or vice versa.  This section is
-    only for people with write access to the LFS subversion server.  It also assumes
-    you have a copy of the whole LFS repository.
+  <para><userinput>git merge</userinput>.
+    This is useful to apply changes from another branch (or several branches)
+    to the current one. By default the resulting changes are committed. This
+    can be prevented with the <option>--no-commit</option> option, which
+    allows to review the changes, and possibly reset some of them.
   </para>
 
-  <para>The syntax of the merge command is similar to the syntax of the diff
-    command, and additionally it supports a <emphasis>--dry-run</emphasis> flag to
-    show which will be updated.  But, if a merge creates a conflict (e.g. a change
-    includes a date for the branch in general.ent which cannot be applied because the
-    branch name is different) you will get markers in the conflicted file, and a number
-    of versions of the files, but the only indication of the conflict is that
-    <userinput>svn st</userinput> will show some files not under version control.
+  <para>
+    In some cases, merging results in conflicts that have to be manually
+    resolved. Note that it is recommended to merge only to a clean branch,
+    that is after committing all changes.
   </para>
 
-  <para>For example, revision 7476 corrected an incorrect comment in the text for
-    Man-DB and updated this in the changelog.  I applied it to a branch by changing
-    to the root directory of the branch (that is, above BOOK/) and specifying
-    revision numbers of 7475:7476 in a command similar to this: (NB you will not
-    need your passphrase for this if you have an up to date local copy of the whole
-    repository.) 
+  <para><userinput>git rebase</userinput>
+    This is useful to have the current branch start from another point in
+    the history. For example if you have:
   </para>
 
-  <para><screen><userinput>svn merge --dry-run -r revision1:revision2 svn://svn.linuxfromscratch.org/LFS/trunk</userinput></screen></para>
+<screen><literal>
+                              B1---B2---B3    my_branch
+                             /
+                            A---C1---C2       trunk
+</literal></screen>
+  <para>
+    rebasing my_branch onto trunk will produce:
+  </para>
 
-  <para>After I was sure this was going to update the correct files I ran it for
-    real. The merge command is not clever enough to notice that a change has already
-    been applied, so you must keep a note of which changes need to be applied.  When
-    you commit merges, it is important to state which revisions are being merged in
-    the message.
-  </para> 
+<screen><literal>
+                              B'1---B'2---B'3 my_branch
+                             /
+                   A---C1---C2                trunk
+</literal></screen>
+
+  <para>
+    where the state reached after commit B'3 is the same as it was at B3.
+  </para>
+
+  <para>
+    But there is a very useful command <userinput>git rebase -i</userinput>
+    that allos to rewrite history when you have made messy commits.
+  </para>
+    
+  <note>
+    <para>
+      Contrary to subversion, there is no <option>--dry-run</option> option
+      to <userinput>git merge</userinput>. But a repository can always be
+      reset to a previous state with
+      <userinput>git reset --hard &lt;commit&gt;</userinput>.
+    </para>
+  </note>
+
 </sect1>
