@@ -4,7 +4,7 @@
   %general-entities;
 ]>
 
-<sect1 id="ch03-merge">
+<sect1 id="ch03-merge" xreflabel="git merge">
   <title>svn merge</title>
   <?dbhtml filename="merge.html"?>
 

@@ -4,7 +4,7 @@
   %general-entities;
 ]>
 
-<sect1 id="ch03-diff">
+<sect1 id="ch03-diff" xreflabel="git diff">
   <title>git diff</title>
   <?dbhtml filename="diff.html"?>
 

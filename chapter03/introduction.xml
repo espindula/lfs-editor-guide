@@ -23,15 +23,25 @@
     <title>Note to Subversion Users</title>
 
     <para>
+      As already said, the Git repository is on the local machine. More
+      precisely, the directory holds a working copy of some branch
+      of the repository, and the repository itself is stored under the
+      <filename class="directory">.git</filename>, along with various
+      configuration settings. The command <xref linkend="ch03-checkout"/>
+      is used to switch branches.
+    </para>
+
+    <para>
       In addition to the local repository, git maintains a staging area,
-      also known as the index. The command <command>git add</command>
-      populates that staging area, and <command>git commit</command> is
+      also known as the index. The command <xref linkend="ch03-add"/>
+      populates that staging area, and <xref linkend="ch03-commit"/> is
       used transfer the content of the index to the repository. This
       allows for a fine control of what is committed, but several
-      shortcuts can be taken. Note that <command>git add</command> may not
-      only be used to add files, but also to store modifications to the
-      existing files.
+      shortcuts can be taken. Contrary to subversion,
+      <command>git add</command> may not only be used to add files, but also
+      to store modifications to the existing files.
     </para>
+
   </note>
 
 </sect1>

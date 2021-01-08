@@ -17,8 +17,7 @@
   </para>
 
   <para><userinput>git mv</userinput>.
-    This rename or move a file and let Git know about it.
-    Again, you need to commit
-    (and possibly push) for the change to appear in the repository.
+    This renames or moves a file and lets Git know about it. Again, you need
+    to commit (and possibly push) for the change to appear in the repository.
   </para>
 </sect1>

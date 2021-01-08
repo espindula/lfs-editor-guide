@@ -4,7 +4,7 @@
   %general-entities;
 ]>
 
-<sect1 id="ch03-add">
+<sect1 id="ch03-add" xreflabel="git add">
   <title>git add</title>
   <?dbhtml filename="add.html"?>
 

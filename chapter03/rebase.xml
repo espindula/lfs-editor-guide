@@ -4,9 +4,9 @@
   %general-entities;
 ]>
 
-<sect1 id="ch03-moving">
-  <title>svn move/mv/rename/ren</title>
-  <?dbhtml filename="moving.html"?>
+<sect1 id="ch03-rebase" xreflabel="git rebase">
+  <title>git rebase</title>
+  <?dbhtml filename="rebase.html"?>
 
   <para><command>svn <option>move</option></command>, <command>svn <option>mv
     </option></command>, <command>svn <option>rename</option></command> or

@@ -4,11 +4,11 @@
   %general-entities;
 ]>
 
-<sect1 id="ch03-update">
-  <title>git pull</title>
-  <?dbhtml filename="pull.html"?>
+<sect1 id="ch03-push" xreflabel="git push">
+  <title>git push</title>
+  <?dbhtml filename="push.html"?>
 
-  <para><userinput>git pull</userinput>.
+  <para><userinput>git push</userinput>.
     This command synchronizes your local repository.
     If you have made local changes, Git will try to
     merge any changes on the server with the changes you have committed

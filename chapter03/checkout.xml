@@ -4,11 +4,11 @@
   %general-entities;
 ]>
 
-<sect1 id="ch03-checkout">
-  <title>git checkout/co</title>
+<sect1 id="ch03-checkout" xreflabel="git checkout">
+  <title>git checkout</title>
   <?dbhtml filename="checkout.html"?>
 
-  <para><userinput>git checkout</userinput> or <userinput>svn co</userinput>.
+  <para><userinput>git checkout</userinput>.
     This command is used to make a branch of the local repository visible in
     the working directory.
   </para>

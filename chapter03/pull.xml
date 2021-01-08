@@ -4,7 +4,7 @@
   %general-entities;
 ]>
 
-<sect1 id="ch03-update">
+<sect1 id="ch03-pull" xreflabel="git pull">
   <title>git pull</title>
   <?dbhtml filename="pull.html"?>
 
