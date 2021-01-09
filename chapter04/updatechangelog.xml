@@ -20,6 +20,10 @@
     &lt;listitem&gt;
       &lt;para&gt;[username] - What you changed.&lt;/para&gt;
     &lt;/listitem&gt;
+&lt;!-- if it only applies to the sysv version (adapt for systemd) --&gt;
+    &lt;listitem revision="sysv"&gt;
+      &lt;para&gt;[username] - What you changed only for sysv version.&lt;/para&gt;
+    &lt;/listitem&gt;
     &lt;listitem&gt;
       &lt;para&gt;[username] - Previous changelog entry from the same day,
       by you or another editor.&lt;/para&gt;
