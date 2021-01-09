@@ -13,13 +13,18 @@
     (including small typo fixes) is made:
   </para>
 
-  <para><screen>&lt;!ENTITY version "20020429"&gt;
-    &lt;!ENTITY releasedate "April 29th, 2002"&gt;</screen>
+<screen>&lt;!ENTITY version     "SVN-20200429"&gt;
+&lt;!ENTITY versiond    "20200429-systemd"&gt;
+&lt;!ENTITY releasedate "April 29th, 2020"&gt;</screen>
+
+
+  <para>
+    The three dates must be the same, and the first two are in the
+    YYYYMMDD format.
   </para>
 
-  <para>The two dates must be the same, and the first is in the YYYYMMDD format.
+  <para>
+    Effectively, you'll only do this if you happen to be the first person on
+    a particular day who made a change.
   </para>
-
-  <para>Effectively, you'll only do this if you happen to be the first person on 
-   a particular day who made a change.</para>
 </sect1>
