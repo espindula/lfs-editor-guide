@@ -8,17 +8,37 @@
   <title>Check All Relevant Files</title>
   <?dbhtml filename="checkfiles.html"?>
 
-  <para>If you are adding files, you need to run a
-    <command>svn <option>add</option></command> command on each of them (something like
-    <command>svn <option>add</option> <option>chapter06/kernel*.xml</option></command> will work).</para>
+  <para>
+    If you are adding files, you need to run a <command>git add</command>
+    command on each of them. When you remove files, you should always do that
+    with <command>git rm</command>. Moving or renaming files is done with
+    <command>git mv</command>. Adding a directory and all its children is
+    done with <command>git add &lt;dirname&gt;</command>.
+  </para>
 
-  <para>If you think you're ready to commit, run <command>svn <option>status</option></command>
-    or <command>svn <option>st</option></command> to see what changes the commit will make.</para>
+  <para>
+    If you think you're ready to commit, run <command>git status</command>
+    to see the state of the working copy. The normal process is to first
+    <command>git add</command> the files that are modified to the index, then
+    run <command>git commit</command> to store the set of changes into the
+    local repository. The ouput of git status looks like this:
+  </para>
 
-   <note><para>Example to go here</para></note> 
+<screen>On branch trunk
+Your branch is up to date with 'origin/trunk'.
 
-  <para>Once you know why you're getting each symbol, and they're all correct,
-    you can proceed to the next step.
+Changes to be committed:
+  (use "git restore --staged &lt;file&gt;..." to unstage)
+        modified:   README
+
+Changes not staged for commit:
+  (use "git add &lt;file&gt;..." to update what will be committed)
+  (use "git restore &lt;file&gt;..." to discard changes in working directory)
+        modified:   TODO</screen>
+
+  <para>
+    where the "Changes to be committed" appear in green, while the
+    "Changes not staged for commit" appear in red.
   </para>
 
 </sect1>
