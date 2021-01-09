@@ -13,7 +13,7 @@
     stores your changes to the <emphasis>local</emphasis> repository.
     Normally, it commits changes staged in the index, but various
     options allow to bypass staging. Note that nothing is changed
-    on the server until you issue <userinput>git pull</userinput>.
+    on the server until you issue <userinput>git push</userinput>.
     The <option>-m</option> and <option>-F</option> options can
     be used to pass a log message to the command. If you don't specify a
     <emphasis>-m "MESSAGE"</emphasis> or <emphasis>-F "Filename"</emphasis>

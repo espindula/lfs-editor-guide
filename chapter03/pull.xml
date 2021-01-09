@@ -21,7 +21,7 @@
     </command> before trying to push changes in order to ensure that there are
     no conflicts with changes that have been made since you started your work.
     Note that <command>git <option>push</option></command> will warn you if
-    there is a conflict, in case you forget to perform an <command>git
+    there is a conflict, in case you forget to perform a <command>git
     <option>pull</option></command>.
   </para>
 </sect1>
