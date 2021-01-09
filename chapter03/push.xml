@@ -9,19 +9,13 @@
   <?dbhtml filename="push.html"?>
 
   <para><userinput>git push</userinput>.
-    This command synchronizes your local repository.
-    If you have made local changes, Git will try to
-    merge any changes on the server with the changes you have committed
-    <emphasis>on your machine</emphasis>. If the changes on the server overlap
-    with local uncommitted changes, the merge is cancelled, and the work tree
-    untouched.
+    This command synchronizes the public repository on the server with
+    your local one. You should make sure you want to publish all the commits
+    you have done. Sometimes, it may be useful to run
+    <userinput>git rebase -i</userinput> in order to simplify the history.
+    Also, to prevent conflicts when pusshing, it is better to use first
+    <userinput>git pull</userinput> prior to pushing, and resolve the
+    conflicts locally.
   </para>
 
-  <para>You should always do a manual <command>git <option>pull</option>
-    </command> before trying to push changes in order to ensure that there are
-    no conflicts with changes that have been made since you started your work.
-    Note that <command>git <option>push</option></command> will warn you if
-    there is a conflict, in case you forget to perform an <command>git
-    <option>pull</option></command>.
-  </para>
 </sect1>
