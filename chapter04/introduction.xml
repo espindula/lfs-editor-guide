@@ -17,26 +17,30 @@
     <listitem><para>Update <filename>chapter01/changelog.xml.</filename></para>
     </listitem>
     <listitem><para>Check that all relevant files have been
-      <userinput>svn add</userinput>'d or <userinput>remove</userinput>'d.
+      <userinput>git add</userinput>'d or <userinput>git rm</userinput>'d.
       </para>
     </listitem>
     <listitem><para>Check the validity of the XML.</para></listitem>
     <listitem><para>Check that the book renders properly.</para></listitem>
-    <listitem><para>Commit it.</para></listitem>
+    <listitem><para>Commit; go back to the beginning if you have another set
+    of changes you want to make.</para></listitem>
+    <listitem><para>Push once you are done with all your changes.</para></listitem>
     <listitem><para>Update trac to reflect the changes.</para></listitem>
   </itemizedlist>
 
-  <para>You should normally restrict a revision to one set of changes, so if
+  <para>You should normally restrict a commit to one set of changes, so if
     you are updating the versions of three packages you will usually do that in
-    three separate revisions.  Also, general updates are normally made to the
-    trunk and then merged to branches.  Clearly, what forms a "set" is a matter
-    for your judgement, but at least consider any likely impact on other
-    current branches who may want to merge some or all of your change.
+    three separate commits.  Clearly, what forms a "set" is a matter
+    for your judgement. Always think that a set will have to be merged to (at
+    least) the
+    multilib branch. Pushing is not mandatory after each change if you plan
+    to soon make another one. Once again, it is advised to run
+    <userinput>git pull</userinput> before pushing in order to resolve
+    any conflict locally.
   </para>
 
   <para>
     The editors of the LFS book prefer that changes to the date in
-    general.ent are made as part of a <emphasis>real</emphasis> change, even
-    though this adds to what has to be done in a merge.
+    general.ent are made as part of a <emphasis>real</emphasis> change.
   </para>
 </sect1>
