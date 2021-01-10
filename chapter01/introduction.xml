@@ -16,14 +16,14 @@
     bug tracking system, and thirdly the Git server where the book itself is
     stored. All of these services are provided by the server
     <userinput>linuxfromscratch.org</userinput> also known as
-    <userinput>lists.linuxfromscratch.org</userinput> or more usually,
-    <userinput>lists</userinput>. This single server provides mailing
+    <userinput>gimli.linuxfromscratch.org</userinput> or more usually,
+    <userinput>gimli</userinput>. This single server provides mailing
     lists, web hosting, Git hosting, Trac and
     basically everything we use to work on the LFS project.
   </para>
 
   <para>
-    The LFS book is written using Docbook-XML and is split into a number of
+    The LFS book is written using Docbook-XML 4.5 and is split into a number of
     XML files. The directories in the source tree represent the chapters of
     the book, and each XML file within a directory typically contains the
     text for a section within that chapter.  This structure is designed to
