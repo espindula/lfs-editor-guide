@@ -1,10 +1,5 @@
 <?xml version='1.0' encoding='ISO-8859-1'?>
 
-<!--
-$LastChangedBy: bdubbs $
-$Date: 2017-12-31 10:56:07 -0600 (Sun, 31 Dec 2017) $
--->
-
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
                 xmlns="http://www.w3.org/1999/xhtml"
                 version="1.0">

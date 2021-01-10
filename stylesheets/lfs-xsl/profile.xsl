@@ -1,10 +1,5 @@
 <?xml version='1.0' encoding='ISO-8859-1'?>
 
-<!--
-$LastChangedBy: pierre $
-$Date: 2020-03-13 09:38:37 -0500 (Fri, 13 Mar 2020) $
--->
-
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
                 version="1.0">
 

@@ -1,10 +1,5 @@
 <?xml version='1.0' encoding='ISO-8859-1'?>
 
-<!--
-$LastChangedBy: manuel $
-$Date: 2007-07-05 16:18:33 -0500 (Thu, 05 Jul 2007) $
--->
-
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
                 xmlns:fo="http://www.w3.org/1999/XSL/Format"
                 version="1.0">
