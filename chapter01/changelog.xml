@@ -10,130 +10,144 @@
 <para>This is version &version; of the Linux From Scratch Editor's Manual, dated
 &releasedate;.</para>
 
-<para>Below is a list of changes made since the previous release of the book,
+<para>Below is a list of changes made since the Last SVN version of the book,
 first a summary, then a detailed log.</para>
 
 <itemizedlist>
 
  <listitem><para>Added:</para>
   <itemizedlist>
-   <listitem><para>Added Stylesheets.</para></listitem>
-   <listitem><para>Added a Makefile for easier rendering.</para></listitem>
-   <listitem><para>Added a Changelog.</para></listitem>
+   <listitem><para>Added Current LFS Stylesheets.</para></listitem>
+   <listitem><para>Added entry for git log.</para></listitem>
+   <listitem><para>Added entry for git status.</para></listitem>
+   <listitem><para>Added entry for git push.</para></listitem>
+   <listitem><para>Added entry for git clone.</para></listitem>
+   <listitem><para>Added entry for git pull.</para></listitem>
   </itemizedlist>
  </listitem>
  
  <listitem><para>Removed:</para>
   <itemizedlist>
-   <listitem><para>Removed Stylesheets.</para></listitem>
+   <listitem><para>Removed the entry for svn diff.</para></listitem>
+   <listitem><para>Removed the entry for svn update.</para></listitem>
+   <listitem><para>Renamed all the other svn xxx entries to git xxx.</para></listitem>
+   <listitem><para>Removed Old stylesheets.</para></listitem>
   </itemizedlist>
  </listitem>
 
  <listitem><para>Changelog Entries:</para>
   <itemizedlist>
-   <listitem><para>January 5, 2021 [pierre]</para>
+   <listitem><para>January 10, 2021</para>
      <itemizedlist>
        <listitem>
-         <para>Stylesheets: Remove and use those of the lfs book.</para>
+         <para>[pierre] chapter01/introduction: A few more fixes in the
+         server name and the version of DocBook we are using.</para>
        </listitem>
        <listitem>
-         <para>Makefile: Create variables so that using a local layout is
-         easier. Also fix some obsolete commands.</para>
+         <para>[pierre] stylesheets: remove $LastChangedBy and $Date
+         annotations that are useless in git.</para>
        </listitem>
        <listitem>
-         <para>Chapter 2: Change filenames, rewrite things so that the
-         commands refer to git instead of svn. Also fix hostnames.</para>
+         <para>[pierre] Chapter 4: adapt "commit it!" for git.</para>
        </listitem>
      </itemizedlist>
    </listitem>
-   <listitem><para>January 4, 2021 [pierre]</para>
+   <listitem><para>January 9, 2021</para>
      <itemizedlist>
        <listitem>
-         <para>Makefile: adapt to the new LFS book stylesheets.</para>
+         <para>[pierre] Chapter 4: adapt "check relevant files" for git.</para>
+       </listitem>
+       <listitem>
+         <para>[pierre] Chapter 4 updating changelog: show how to have
+         a changelog entry corresponding to only one revision of the
+         book.</para>
+       </listitem>
+       <listitem>
+         <para>[pierre] Chapter 4: adapt the introduction for git.</para>
+       </listitem>
+       <listitem>
+         <para>[pierre] Chapter 3: rewrite the push command for git.</para>
        </listitem>
      </itemizedlist>
    </listitem>
-   <listitem><para>May 16, 2006 [ken]</para>
+   <listitem><para>January 8, 2021</para>
      <itemizedlist>
-       <listitem><para>stylesheets: Updated to 1.69.1.</para></listitem>
-     </itemizedlist>
-   </listitem>
-   <listitem><para>May 15, 2006 [ken]</para>
-     <itemizedlist>
-       <listitem><para>chapter04/commenting.xml: Added, to document the use of FIXME:.</para></listitem>
-     </itemizedlist>
-   </listitem>
-   <listitem><para>April 10, 2006 [ken]</para>
-     <itemizedlist>
-       <listitem><para>chapter02/svnssh.xml: Explain how to check out the whole tree</para></listitem>
-       <listitem><para>chapter03/merge.xml: Added</para></listitem>
-       <listitem><para>chapter04/introduction.xml: Spell out a little more policy.</para></listitem>
-       <listitem><para>chapter06/updatebook.xml: Remove requirement to upload package source,
-	mention that we prefer the maintainer's native format instead of .bz2, and move
-	'commit your changes' to renderchecklinks.xml.</para></listitem>
-       <listitem><para>General: Replace references to bugzilla by trac</para></listitem>
-       <listitem><para>General: Thanks to Manuel for pointing out some things I had missed.</para></listitem>
-     </itemizedlist>
-   </listitem>
-   <listitem><para>May 12, 2005 [matthew]</para>
-     <itemizedlist>
-       <listitem><para>General: Correctly tag mailing list addresses</para></listitem>
-     </itemizedlist>
-   </listitem>
-   <listitem><para>May 9, 2005 [matthew]</para>
-     <itemizedlist>
-       <listitem><para>chapter06: Minor wording improvements and remove mention
-         of FTP updates as this is handled by the FTP maintainers now.</para>
+       <listitem>
+         <para>[bdubbs] Chapter 3: copy stylesheets and images from the
+         lfs book.</para>
        </listitem>
-       <listitem><para>chapter05/fixbug.xml and chapter05/enternewbugs.xml: Minor wording improvements</para></listitem>
-	 </itemizedlist>
-   </listitem>
-   <listitem><para>May 8, 2005 [matthew]</para>
-     <itemizedlist>
-       <listitem><para>chapter04/checkfiles.xml: Minor tagging improvements</para></listitem>
-       <listitem><para>chapter04/introduction.xml, chapter04/checkrender.xml:
-       Mention the Makefile and validation of XML</para></listitem>
-       <listitem><para>chapter03/moving.xml: Minor tagging improvements</para></listitem>
-       <listitem><para>chapter03/diff.xml: Minor wording improvements</para></listitem>
-       <listitem><para>chapter03/commit.xml: Minor wording and tagging improvements.  Also add explanation of <option>-F</option> option to <command>svn <option>commit</option></command></para></listitem>
-       <listitem><para>Re-arranged most recent Changelog entries</para></listitem>
-       <listitem><para>chapter03/update.xml: Minor wording and tagging improvements</para></listitem>
-       <listitem><para>chapter03/checkout.xml: Minor wording and tagging improvements</para></listitem>
-       <listitem><para>chapter03/introduction.xml: Minor wording and tagging improvements</para></listitem>
-       <listitem><para>chapter02/svnssh.xml: Minor wording and tagging improvements</para></listitem>
-       <listitem><para>chapter02/anonsvn.xml: Improve docbook markup</para></listitem>
-       <listitem><para>chapter02/introduction.xml: We use viewcvs for online repository browsing, not cvsweb</para></listitem>
-       <listitem><para>chapter04/checkfiles.xml: Fix validation error</para></listitem>
-       <listitem><para>chapter01/introduction.xml: Reworded explanation of book XML structure - we use XIncludes now, not entities.</para></listitem>
+       <listitem>
+         <para>[pierre] Chapter 3: rewrite the status command for git.</para>
+       </listitem>
+       <listitem>
+         <para>[pierre] Chapter 2 and 3: remove references to master branch
+         and replace with trunk.</para>
+       </listitem>
+       <listitem>
+         <para>[pierre] Chapter 3: remove diff.xml. Add log.xml and
+         status.xml.</para>
+       </listitem>
+       <listitem>
+         <para>[pierre] Chapter 3: Add xreflabel attributes for git commands,
+         rewrite the introduction using xref.</para>
+       </listitem>
+       <listitem>
+         <para>[pierre] Chapter 3: rewrite the diff, merge, pull,
+         push, rebase commands for git.</para>
+       </listitem>
      </itemizedlist>
    </listitem>
-
-   <listitem><para>May 8, 2005 [jhuntwork]</para>
-    <itemizedlist>
-     <listitem><para>Removed unnecessary comments about CVS in chapter 3 moving, thanks Randy McMurchy</para></listitem>
-     <listitem><para>Swapped revision order in chapter 3 diff, thanks Matthew Burgess</para></listitem>
-     <listitem><para>More text updates in Chapter04.</para></listitem>
-     <listitem><para>Text updates in Chapter05.</para></listitem>
-    </itemizedlist>
+   <listitem><para>January 7, 2021</para>
+     <itemizedlist>
+       <listitem>
+         <para>[pierre] Chapter 3: add push.xml.</para>
+       </listitem>
+       <listitem>
+         <para>[pierre] Chapter 3: rewrite the add, checkout, clone,
+         commit, rm, mv commands for git.</para>
+       </listitem>
+     </itemizedlist>
+   </listitem>
+   <listitem><para>January 5, 2021</para>
+     <itemizedlist>
+       <listitem>
+         <para>[pierre] Chapter 3: Rewrite the introduction for git.</para>
+       </listitem>
+       <listitem>
+         <para>[pierre] Chapter 3: Remove update.xml, moving.xml, delete.xml.
+         Add clone.xml, pull.xml, delmov.xml, rebase.xml (templates).</para>
+       </listitem>
+       <listitem>
+         <para>[pierre] Stylesheets: Remove and use those of the lfs
+         book.</para>
+       </listitem>
+       <listitem>
+         <para>[pierre] Makefile: Create variables so that using a local
+         layout is easier. Fix some obsolete commands.</para>
+       </listitem>
+       <listitem>
+         <para>[pierre] Chapter 2: Change filenames, rewrite things so that the
+         commands refer to git instead of svn. Fix hostnames.</para>
+       </listitem>
+     </itemizedlist>
+   </listitem>
+   <listitem><para>January 4, 2021</para>
+     <itemizedlist>
+       <listitem>
+         <para>[pierre] introduction: Fix hostnames. change subversion to
+         git. Change XML coding style.</para>
+       </listitem>
+       <listitem>
+         <para>[pierre] prologue: slight rewrite. Change XML coding
+         style to what we have in the other books.</para>
+       </listitem>
+       <listitem>
+         <para>[pierre] tag Last_SVN_Version.</para>
+       </listitem>
+     </itemizedlist>
    </listitem>
   </itemizedlist>
-
-  <itemizedlist>
-   <listitem><para>May 7, 2005 [jhuntwork]</para>
-    <itemizedlist>
-     <listitem><para>Upgraded to DocBook 4.4.</para></listitem>
-     <listitem><para>Added a changelog, stylesheets and a Makefile.</para></listitem>
-     <listitem><para>Updated text in the preface, swapped CVS for Subversion.</para></listitem>
-     <listitem><para>Updated text in Chapter01/introduction.</para></listitem>
-     <listitem><para>Updated text in Chapter02.</para></listitem>
-     <listitem><para>Updated text in Chapter03.</para></listitem>
-     <listitem><para>Updated text in Chapter04.</para></listitem>
-    </itemizedlist>
-   </listitem>
-  </itemizedlist>
-
  </listitem>
-
 </itemizedlist>
 
 </sect1>
