@@ -8,35 +8,77 @@
 <title>Commit it!</title>
 <?dbhtml filename="commit.html"?>
 
-<para>Once you are sure that everything renders and that you know which
-files you wish to commit, you're ready. A transaction log of the Subversion commit
-will be emailed to the <email>lfs-book@linuxfromscratch.org</email> mailinglist so we
-all can see right away what you did. The commit emails contain some basic
-info (log, changes to which files) including a <emphasis>diff</emphasis>
-format output.</para>
+<para>
+  Once you are sure that everything renders and that you know which
+  files you wish to commit, you're ready. First commit locally:
+</para>
 
-<para>Before you actually commit, spend two seconds thinking about the
-log you are going to add. As mentioned in the section on Subversion
-commands, comments should <emphasis>always</emphasis> be used when
-commiting to the repository. Even if the comment is just 'small typo fix',
-that'll do. Other usual comments are 'update to package-x.y.z' or 'fixed
-installation instructions of package foo'.</para>
+<itemizedlist>
+  <listitem>
+    <para>Normal Procedure: allows to only commit what you want</para>
+    <itemizedlist>
+      <listitem>
+        <para>
+          Run <command>git add
+          <replaceable>&lt;file1&gt; &lt;file2&gt; ...</replaceable></command>
+        </para>
+      </listitem>
+      <listitem>
+        <para>
+          After verifying that all has been correctly staged (use
+          <command>git status</command> and/or
+          <command>git diff --staged</command>), run
+          <command>git commit</command> and fill up the log message in the
+          editor window. Or for a short log message, run
+          <command>git commit
+                   -m"<replaceable>log message</replaceable>"</command>.
+        </para>
+      </listitem>
+    </itemizedlist>
+  </listitem>
+  <listitem>
+    <para>Shortcut to commit all modified files in one go:</para>
+    <itemizedlist>
+      <listitem>
+        <para>
+          Run <command>git commit -a</command> and fill up the log message in
+          the editor window. As above, you can use the <option>-m</option>
+          option for short log messages.
+        </para>
+      </listitem>
+    </itemizedlist>
+  </listitem>
+</itemizedlist>
 
-<para>To commit, you use the <userinput>svn commit</userinput> or
-<userinput>svn ci</userinput> command. A good example of a commit
-command could be:</para>
+<para>
+  Then push your work: <command>git push</command>. A transaction log of all
+  the commits that make the push will be emailed to the
+  <email>lfs-book@lists.linuxfromscratch.org</email> mailinglist so other
+  editors can see right away what you did. The commit emails contain some
+  basic info (log, changes to which files) including a
+  <emphasis>diff -u</emphasis> format output.
+</para>
 
-<screen><userinput>svn ci -m "Fixed typo in chapter 05/bash-inst.xml" \
-index.xml chapter01/changelog.xml chapter05/bash-inst.xml</userinput></screen>
+<para>
+  <emphasis>About log messages:</emphasis> Due to the way
+  <command>git log</command> displays log messages, it is recommended to
+  keep the size of each line below 72 characters. A good commit message is
+  composed of a short summary (not more than fifty characters),
+  a blank line, then details, reasons, etc on less than 72 characters lines.
+  Log messages should <emphasis>never</emphasis> be empty. Even if the
+  message is just 'small typo fix', that'll do. Other usual messages are
+  'update to package-x.y.z' or 'fixed installation instructions of package
+  foo'. That last one usually needs also explanation lines as said
+  above.
+</para>
 
-<para>If you have only made the changes regarding this package to your tree,
-then you can save time by simply running the following from the root of
-your local LFS working copy:</para>
+<para>
+  <emphasis>Example</emphasis>: If you have modified
+  <filename>general.ent</filename>, the changelog,
+  and fixed a typo in chapter 6 bash installation, the workflow could be:
+</para>
 
-<screen><userinput>svn ci -m "Fixed typo in chapter05/bash-inst.xml"</userinput></screen>
-
-<para>The first command is more useful when you've modified files you don't
-want to commit at this time, or which require a different log message (for
-example a fix to chapter05/binutils-exp.xml).</para>
+<screen><userinput>git add general.ent chapter01/changelog.xml chapter06/bash.xml
+git commit -m'fixed a typo in chapter 6 bash'</userinput></screen>
 
 </sect1>
