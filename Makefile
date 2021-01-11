@@ -13,11 +13,11 @@ lfs:
             $(LFSXSL)/lfs-chunked.xsl \
             index.xml
 
-	mkdir -p $(BASEDIR)/stylesheets 
+	mkdir -p $(BASEDIR)/stylesheets
 	cp $(LFSXSL)/lfs-xsl/*.css $(BASEDIR)/stylesheets
 	cd $(BASEDIR)/; sed -i -e "s@../stylesheets@stylesheets@g" *.html
 
-	mkdir -p $(BASEDIR)/images 
+	mkdir -p $(BASEDIR)/images
 	cp images/*.png $(BASEDIR)/images
 	cd $(BASEDIR)/; sed -i -e "s@../images@images@g" *.html
 

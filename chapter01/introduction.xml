@@ -11,7 +11,7 @@
   <para>
     LFS development takes place using three main systems. Firstly,
     the mailing lists <email>lfs-book@lists.linuxfromscratch.org</email>,
-    <email>lfs-dev@lists.linuxfromscratch.org</email> and (to a lesser extent) 
+    <email>lfs-dev@lists.linuxfromscratch.org</email> and (to a lesser extent)
     <email>lfs-support@lists.linuxfromscratch.org</email>. Secondly the Trac
     bug tracking system, and thirdly the Git server where the book itself is
     stored. All of these services are provided by the server

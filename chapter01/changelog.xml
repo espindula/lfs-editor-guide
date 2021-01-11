@@ -25,7 +25,7 @@ first a summary, then a detailed log.</para>
    <listitem><para>Added entry for git pull.</para></listitem>
   </itemizedlist>
  </listitem>
- 
+
  <listitem><para>Removed:</para>
   <itemizedlist>
    <listitem><para>Removed the entry for svn diff.</para></listitem>
