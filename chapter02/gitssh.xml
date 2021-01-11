@@ -10,7 +10,7 @@
 
 <para>For editors, access is slightly more complicated. You first of all need
 to generate an ssh key-pair. You then need to upload your public key into your
-<filename>~/.ssh</filename> directory on belgarath. To generate the keys run:
+<filename>~/.ssh</filename> directory on gimli. To generate the keys run:
 </para>
 
 <para><screen><userinput>ssh-keygen</userinput></screen></para>
@@ -22,22 +22,26 @@ When prompted for a passphrase just press enter (unless you want to have
 to give the phrase <emphasis>every</emphasis> time you synchronize to the
 server.  But, since the same passphrase will be used when you log in to
 <emphasis>gimli</emphasis> over ssh, it may be advisable to have some
-security in place.   Having generated your keys, upload
-<filename>~/.ssh/id_rsa.pub</filename> to gimli and move it to
-<filename>~/.ssh/authorized_keys2</filename> <emphasis>on
+security in place.) Having generated your keys, send the
+<filename>~/.ssh/id_rsa.pub</filename> to an administrator on gimli,
+in order to have it added to
+<filename>~git/.ssh/authorized_keys</filename> <emphasis>on
 gimli</emphasis>.  (Your local copy of <filename>id_rsa</filename>
 and <filename>id_rsa.pub</filename> should remain untouched by
-this.) Make sure that the ~/.ssh directory on gimli is mode 700:</para>
+this.) The same key may be used to connect without a password to gimli.
+Upload <filename>~/.ssh/id_rsa.pub</filename> to
+<filename>.ssh/authorized_keys</filename> in your home on gimli, and
+make sure that the ~/.ssh directory on gimli is mode 700:</para>
 
 <screen><userinput>chmod -R 700 ~/.ssh</userinput></screen>
 
 <para>Once you have this setup, try to checkout the latest LFS book revision by
-running:</para>
+running (from your local machine):</para>
 
-<screen><userinput>git clone git@gimli.linuxfromscratch.org/LFS lfs-trunk</userinput></screen>
+<screen><userinput>git clone git@gimli.linuxfromscratch.org:LFS lfsbook</userinput></screen>
 
 <para>If this works, you'll download a copy of the current repository to
-<filename class="directory">lfs-trunk/.git</filename> and you will check out 
+<filename class="directory">lfsbook/.git</filename> and you will check out
 the default branch, which is named <emphasis>trunk</emphasis> in LFS. You
 will also have write access so from now on be extra
 careful, but note that <emphasis>no</emphasis> changes will be made until you
@@ -45,7 +49,7 @@ issue a <userinput>git push</userinput> command.</para>
 
 <para>The above is fine for getting the default branch, but you may
 want to work on a different public branch. To set up a local branch that tracks
-a public branch named <emphasis>new_branch</emphasis>just issue:</para>
+a public branch named <emphasis>new_branch</emphasis>, just issue:</para>
 
 <screen><userinput>git checkout --track origin/<replaceable>&lt;new_branch&gt;</replaceable></userinput></screen>
 
