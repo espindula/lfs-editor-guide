@@ -24,14 +24,15 @@ white="\e[1;37m"
 red="\e[01;31m"
 yel="\e[1;33m"
 
-export JAVA_HOME=/usr/jdk
-export FOP_HOME=/usr/fop
-export PATH=$PATH:$JAVA_HOME/bin:$FOP_HOME
+if [ -z "$JAVA_HOME" ]; then nopdf=1; fi
 
 #######################
 # These are the biggies
-stable=n                      # Is this the final release? 'y' or 'n' only
-version=6.6-rc2                   # x.y[.z-preX]
+stable=n                  # Is this the final release? 'y' or 'n' only
+version=6.6-rc2           # x.y[-rcz] (should be the name of the git tag)
+reqhost=gimli             # the script is required to run on this host
+webroot=/srv/www          # the root of the web pages, change if you
+                          # do not want to write to them
 #######################
 
 workarea=~/RELEASE-${version} # This is where you will do all your work
@@ -40,12 +41,12 @@ book=LFS-BOOK-${version}      # I'm lazy, hence the shorthand :)
 group=lfswww                  # Which group will own the files after copying
 
 # Where the books are to be copied to
-view=/srv/www/www.linuxfromscratch.org/lfs/view
-downloads=/srv/www/www.linuxfromscratch.org/lfs/downloads
-archives=/srv/www/archives.linuxfromscratch.org/lfs-museum
+view=$webroot/www.linuxfromscratch.org/lfs/view
+downloads=$webroot/www.linuxfromscratch.org/lfs/downloads
+archives=$webroot/archives.linuxfromscratch.org/lfs-museum
 
-if [ "$host" != "quantum" ]; then
-  echo -e "\n${red}*${white} This script must be run on ${red}quantum${white}."
+if [ "$host" != "$reqhost" ]; then
+  echo -e "\n${red}*${white} This script must be run on ${red}${reqhost}${white}."
   exit 1
 fi
 
@@ -63,21 +64,10 @@ if [ -d "$testarea" ]; then
 fi
 
 echo -e "\n${grn}*${white} Creating directory ${grn}$workarea${white}...${norm}"
-install -d $workarea
-cd $workarea
-echo -e "${grn}*${white} Checking out the sources...${norm}"
-svn export svn://svn.linuxfromscratch.org/LFS/tags/$version/BOOK original >/dev/null
+install -d $workarea/original
 cd $workarea/original
-
-##############
-# BIG NOTE!!!!
-##############
-
-# A bug in libxml2 (http://bugs.gnome.org/show_bug.cgi?id=309616) causes certain
-# failures to still exit with a value of 0. To work around this, stderr must be
-# allowed to output to screen and the person running this script must _WATCH_
-# for errors. At this stage of the release cycle, there is no excuse for
-# validation errors, but never assume they aren't there.
+echo -e "${grn}*${white} Checking out the sources...${norm}"
+git archive --remote=git://gimli.linuxfromscratch.org/LFS $version | tar xf -
 
 echo -e "${grn}*${white} Validating the sources...${norm}\n"
 make validate > $workarea/validate.log || exit 9
@@ -97,7 +87,8 @@ echo -e "${grn}*${yel} Successful!${norm}\n"
 echo -e "${grn}*${white} Preparing ${grn}$book-HTML${white}...${norm}"
 cd $workarea/original
 make BASEDIR=$workarea/$book-HTML >$workarea/html.log 2>&1 || exit 9
-cp lfs-bootscripts-* udev-config-* ../
+# Don't do thatct would change the tagged md5 for the bootscripts
+# cp lfs-bootscripts-* udev-config-* ../
 cd $workarea
 tar cWf $book-HTML.tar $book-HTML || exit 19
 bzip2 $book-HTML.tar || exit 29
@@ -112,33 +103,33 @@ make BASEDIR=$workarea NOCHUNKS_OUTPUT=$book-NOCHUNKS.html nochunks \
   >$workarea/nochunks.log 2>&1 || exit 9
 cd $workarea
 # Before bzipping the NOCHUNKS, create a text dump
-#lynx -dump $book-NOCHUNKS.html >$book.txt
+lynx -dump -nonumbers -nolist $book-NOCHUNKS.html >$book.txt
 #sed -i.bak -e "/^   [0-9]\. /d" -e "/^  [0-9][0-9]\. /d" \
 #  -e "/^ [0-9][0-9][0-9]\. /d" -e "/^[0-9][0-9][0-9][0-9]\. /d" \
 #  $book.txt
-#bzip2 $book.txt
+bzip2 $book.txt
 bzip2 $book-NOCHUNKS.html || exit 29
 rm -rf images
 echo -e "${grn}*${yel} Successful!${norm}\n"
 
 # Finally, the PDF
 
-echo -e "${grn}*${white} Preparing ${grn}$book.pdf${white}...${norm}"
-cd $workarea/original
-make BASEDIR=$workarea PDF_OUTPUT=$book.pdf pdf >$workarea/pdf.log 2>&1 || exit 9
-echo -e "${grn}*${yel} Successful!${norm}\n"
+if [ -z "$nopdf" ]; then
+    echo -e "${grn}*${white} Preparing ${grn}$book.pdf${white}...${norm}"
+    cd $workarea/original
+    make BASEDIR=$workarea PDF_OUTPUT=$book.pdf pdf >$workarea/pdf.log 2>&1 || exit 9
+    echo -e "${grn}*${yel} Successful!${norm}\n"
+fi
 
 # Now that the books are finished, create the script that will copy all patches
 # to their proper location.
 
 echo -e "${grn}*${white} Creating ${grn}copy-lfs-patches.sh ${white}...${norm}"
 cd $workarea/original
-chmod u+x process-scripts.sh
-./process-scripts.sh
 xsltproc --xinclude stylesheets/patcheslist.xsl index.xml \
   >$workarea/copy-lfs-patches.sh || exit 39
 
-# Now to create a temporary area inside the $workarea to inspect the compressed
+# Now to create a temporary area inside the $testarea to inspect the compressed
 # files
 
 echo -e "${grn}*${white} Unpacking compressed files into ${grn}$testarea${white}...${norm}"
@@ -147,8 +138,8 @@ cd $testarea
 tar jxf $workarea/$book-XML.tar.bz2
 tar jxf $workarea/$book-HTML.tar.bz2
 bzcat $workarea/$book-NOCHUNKS.html.bz2 >$book-NOCHUNKS.html
-#bzcat $workarea/$book.txt.bz2 >$book.txt
-cp $workarea/$book.pdf .
+bzcat $workarea/$book.txt.bz2 >$book.txt
+if [ -z "$nopdf" ]; then cp $workarea/$book.pdf .; fi
 
 # Now to cleanup
 echo -e "\n${grn}*${white} Cleaning up...${norm}"
@@ -172,7 +163,7 @@ stable=$stable        # Don't touch this! It is set in release-script.sh
 
 # First make sure everything is as it should be
 
-groups | grep $group >/dev/null || { echo "You need to be a member of the lfswww group to run this script"; exit 1; }
+groups | grep $group >/dev/null || { echo "You need to be a member of the $group group to run this script"; exit 1; }
 
 if [ -d "$view/$version" ]; then
   echo "The $view/$version directory already exists. Halting."
@@ -239,9 +230,8 @@ tar jxf $book-HTML.tar.bz2
 chmod -R g+w $book-HTML
 chgrp -R $group $book-HTML
 
-cd $view/$version
-tar -xjf $downloads/$version/$book-HTML.tar.bz2 --strip-components=1
-cd ..
+cd $view
+tar -xjf $downloads/$version/$book-HTML.tar.bz2
 chmod -R g+w $version
 chgrp -R $group $version
 
