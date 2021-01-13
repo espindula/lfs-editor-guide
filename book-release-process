@@ -1,31 +1,58 @@
-# Checklist for LFS Book releases.
+# Checklist for LFS Book releases. Git version.
 
 # x.y refers to the version you are about to release
 # a.b refers to the next *minor* version after the release
 #  (ex: 6.2 is the minor next version after 6.1)
 
-1.  Ensure that all needed commits have been made by all editors.
+1.  Ensure that all needed pushes have been made by all editors.
 
-2.  Create a tag. All the following steps will be done on that tag (not on the
-    branch):
+2.  If this is the first rc, create a branch. Otherwise, just switch to that
+    branch. All the following steps will be done on that branch.
 
-    svn mkdir svn+ssh://svn.linuxfromscratch.org/LFS/tags/[tag-name] -m "Create [tagname] directory
-    svn cp svn+ssh://svn.linuxfromscratch.org/LFS/trunk/BOOK svn+ssh://svn.linuxfromscratch.org/LFS/tags/[tagname]/BOOK -m "Create [tagname] tag"
+    git checkout -b stable-x.y  # first rc
 
-3.  Change "version" entity to x.y
+        or
 
-4.  Change "releasedate" entity if necessary
+    git checkout stable-x.y     # if the branch already exists
 
-5.  Change "milestone" entity to x.y (shouldn't be needed)
+3.  If the branch already exists, merge changes from trunk
 
-6.  Change "generic-version" entity to x.y
+    git merge trunk # resolve conflicts if needed
 
-8.  Commit all changes
+4.  Edit general.ent
+    a - Change "version" entity to x.y or x.y-rcz for a rc
+    b - Change "short-version" entity to x.y, only for release, not for rc
+    c - Change "generic-version" entity to x.y or x.y-rcz for a rc
+    d - Change "versiond" entity to x.y-systemd or x.y-systemd-rcz for a rc
+    e - Change "releasedate" entity if necessary
+
+4.  Edit packages.ent to make permanent BOOTSCRIPTS-{SIZE,MD5SUM,INSTALL-KB}
+
+5.  Edit changelog with release entry
+
+6.  Commit all changes
+
+    git commit -a    # edit the commit message
+
+7.  Create a tag
+
+    git tag x.y-rcz
+
+8.  You are about to push, double check everything. If this is the
+    first rc, create an upstream branch:
+
+    git push --set-upstream
+
+    otherwise, just:
+
+    git push
+
+9.  Upload the built bootscript tarball to your home on gimli
 
 ## WARNING ##
 #
 # From here on it is assumed that all scripts are run from your home directory
-# on quantum. This is required to ease the automation of the release process.
+# on gimli. This is required to ease the automation of the release process.
 
 9.  Download release-script.sh from the editor-manual directory.
     ENSURE THAT YOU CHECK THE "version" AND "stable" VARIABLES! Then run the
@@ -49,11 +76,13 @@
 14. Once all inspections have been made, run the copy-book.sh and
     copy-lfs-patches.sh scripts to move the books and patches into their final
     location. This time, visually inspect that the HTML was untarred properly in
-    /lfs/view and that www.lfs.org and archive.lfs.org both have all the
-    different book formats. Also ensure that "all" book files and directories
+    /lfs/view and that www.linuxfromscratch.org and
+    archive.linuxfromscratch.org both have all the different book formats.
+    Also ensure that "all" book files and directories
     "must" be group writable and owned by the lfswww group.
 
 # Website changes (you may wish to coordinate with a website maintainer)
+# FIXME: assuming www2 repo is still svn
 
 15. Pull the www2 repository with the following command (minus the quotes):
     "svn co svn+ssh://svn.linuxfromscratch.org/www2/html/trunk www2"
@@ -67,11 +96,7 @@
 
 16. Create the /srv/www/www.linuxfromscratch.org/lfs/build-logs/$version
     directory and if it is a final release (i.e. not a pre-release), recreate
-    the "stable" symlink to it. The build logs will be added by whoever is
-    currently maintaining them. As of this writing it is Archaic. The maintainer
-    of the build logs may have already created this dir in preparation for the
-    release, but the "stable" symlink will not be made until release so ensure
-    that is exists and points to the latest release.
+    the "stable" symlink to it. Upload the build logs.
 
 17. Add the release announcement to www2/lfs/news.html, mention the release in
     www2/lfs/read.html and commit the changes.
