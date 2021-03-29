@@ -17,6 +17,20 @@
     untouched.
   </para>
 
+  <para>Unlike <command>svn <option>up</option></command>, when Git merges
+  your local commits with the changes on the server, it will produce an
+  merge commit.  Too many merge commits may cause the history to be
+  confusing.  As an alternative, one can pass <option>--rebase</option> to
+  <command>git <option>pull</option></command>, telling Git to rebase your
+  local commits onto the changes on the server.  Read
+  <xref linkend="ch03-rebase"/> for the details about rebasing.</para>
+
+  <para>To make a clean history, it's recommended to use rebasing instead of
+  merging for synchronizing the changes on the server, in case you have some
+  local commits.  To make <option>--rebase</option> default for
+  <command>git <option>pull</option></command>, issue:
+  <command>git config pull.rebase true</command>.</para>
+
   <para>You should always do a manual <command>git <option>pull</option>
     </command> before trying to push changes in order to ensure that there are
     no conflicts with changes that have been made since you started your work.
@@ -24,4 +38,5 @@
     there is a conflict, in case you forget to perform a <command>git
     <option>pull</option></command>.
   </para>
+
 </sect1>
