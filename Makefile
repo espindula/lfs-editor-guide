@@ -30,6 +30,7 @@ lfs:
 	  sed -i -e "s@text/html@application/xhtml+xml@g" $$filename; \
 	done;
 
+	@echo "Files are in $(BASEDIR)"
 pdf:
 	xsltproc --xinclude \
             --nonet \
