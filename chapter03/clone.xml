@@ -22,12 +22,12 @@
     To clone the LFS repository with only read access:
   </para>
 
-<screen><userinput>git clone git://gimli.linuxfromscratch.org/srv/git/lfs.git lfsbook</userinput></screen>
+<screen><userinput>git clone git://git.linuxfromscratch.org/lfs.git lfsbook</userinput></screen>
 
   <para>
     To clone with read/write access:
   </para>
 
-<screen><userinput>git clone ssh://git@gimli.linuxfromscratch.org/srv/git/lfs.git lfsbook</userinput></screen>
+<screen><userinput>git clone @git.linuxfromscratch.org:lfs.git lfsbook</userinput></screen>
 
 </sect1>

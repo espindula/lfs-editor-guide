@@ -47,12 +47,12 @@
 
     git push
 
-9.  Upload the built bootscript tarball to your home on gimli
+9.  Upload the built bootscript tarball to your home on rivendell
 
 ## WARNING ##
 #
 # From here on it is assumed that all scripts are run from your home directory
-# on gimli. This is required to ease the automation of the release process.
+# on rivendell. This is required to ease the automation of the release process.
 
 9.  Download release-script.sh from the editor-manual directory.
     ENSURE THAT YOU CHECK THE "version" AND "stable" VARIABLES! Then run the
