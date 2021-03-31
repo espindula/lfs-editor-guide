@@ -11,8 +11,8 @@
   <para>
     <command>git <option>commit</option></command>. This command
     stores your changes to the <emphasis>local</emphasis> repository.
-    Normally, it commits changes staged in the index, but various
-    options allow to bypass staging. Note that nothing is changed
+    Normally it commits changes staged in the index, but various
+    options allow you to bypass staging. Note that nothing is changed
     on the server until you issue <userinput>git push</userinput>.
     The <option>-m</option> and <option>-F</option> options can
     be used to pass a log message to the command. If you don't specify a
@@ -33,7 +33,7 @@
 <screen><userinput>git config --global core.editor vim</userinput></screen>
 
   <para>
-    Please don't use empty log messages (see later in this document on the
+    Do not use empty log messages (see later in this document on the
     policy which governs them).
   </para>
 

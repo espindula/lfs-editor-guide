@@ -32,7 +32,7 @@
 
   <para>
     But the most useful command is <userinput>git rebase -i</userinput>
-    that allows to rewrite history when you have made messy commits.
+    that allows you to rewrite history when you have made messy commits.
   </para>
 
 </sect1>

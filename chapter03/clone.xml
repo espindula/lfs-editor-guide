@@ -11,8 +11,8 @@
   <para><userinput>git clone</userinput>.
     This command is used to copy a public repository to the local machine
     and checkout the default (<emphasis>trunk</emphasis> for LFS) branch.
-    You should only need to do this once. Various options allow to create a
-    <quote>shallow</quote> repository, that does not contain the full history
+    You should only need to do this once. Various options allow creation of a
+    <quote>shallow</quote> repository that does not contain the full history
     or all the branches. See <command>git help clone</command>.
   </para>
 

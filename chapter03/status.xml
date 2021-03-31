@@ -9,14 +9,14 @@
   <?dbhtml filename="status.html"?>
 
   <para><userinput>git status</userinput>.
-    This might be the command you'll be using most often. It outputs the files
+    This is probably the command you'll be using most often. It prints the files
     that have been modified in the working directory, and that are not
-    in the index, or that are in the index, and not committed yet. It also
+    in the index, or that are in the index and not committed yet. It also
     outputs the state of the local repository respective to the remote one.
   </para>
 
   <para>
-     a very handy feature is that it outputs a list of commands that can be
+     A very handy feature is that it outputs a list of commands that can be
      used in the current context.
   </para>
 

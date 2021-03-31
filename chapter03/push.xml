@@ -11,10 +11,10 @@
   <para><userinput>git push</userinput>.
     This command synchronizes the public repository on the server with
     your local one. You should make sure you want to publish all the commits
-    you have done. Sometimes, it may be useful to run
+    you have made. Sometimes it may be useful to run
     <userinput>git rebase -i</userinput> in order to simplify the history.
-    Also, to prevent conflicts when pusshing, it is better to use first
-    <userinput>git pull</userinput> prior to pushing, and resolve the
+    Also, to prevent conflicts when pushing, it is better to first use 
+    <userinput>git pull</userinput> prior to pushing and resolve any
     conflicts locally.
   </para>
 

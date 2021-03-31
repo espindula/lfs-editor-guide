@@ -10,9 +10,9 @@
 
   <para><userinput>git log</userinput>.
     Outputs the commit log of the branch currently in the working
-    directory. Various options allow to customize the level of
-    information given for each commit. It is strongly advised to run this
-    command before pushing to the remote repository, or merging. If the
+    directory. Various options allow customizing the level of
+    information given for each commit. Editors are strongly advised to run this
+    command before pushing to the remote repository or merging. If the
     history is too convoluted, it may be necessary to run
     <xref linkend="ch03-rebase"/> in order to simplify it. Your co-editors will
     hate you if you change the history after pushing it.
@@ -22,7 +22,7 @@
     <title>Note to Subversion Users</title>
 
     <para>
-      The ouput is automatically passed to a pager, so that it is not necessary
+      The ouput is automatically passed to a pager so that it is not necessary
       to pipe it to <command>less</command>. Furthermore, no access to the
       remote repository is needed, so it is ususally much faster to get a
       long log.

@@ -12,13 +12,14 @@
     This is useful to apply changes from another branch (or several branches)
     to the current one. By default the resulting changes are committed. This
     can be prevented with the <option>--no-commit</option> option, which
-    allows to review the changes, and possibly reset some of them.
+    gives you a chance to inspect and further tweak the merge result before
+    committing.
   </para>
 
   <para>
     In some cases, merging results in conflicts that have to be manually
-    resolved. Note that it is recommended to merge only to a clean branch,
-    that is after committing all changes.
+    resolved. Note that edits should merge only to a clean branch,
+    that is, after committing all changes.
   </para>
 
   <note>
@@ -28,7 +29,7 @@
       Contrary to subversion, there is no <option>--dry-run</option> option
       to <userinput>git merge</userinput>. But a repository can always be
       reset to a previous state with
-      <userinput>git reset --hard &lt;commit&gt;</userinput>.
+      <userinput>git reset --hard &lt;commit-id&gt;</userinput>.
     </para>
   </note>
 

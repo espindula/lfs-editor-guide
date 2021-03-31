@@ -8,17 +8,20 @@
 <title>Introduction</title>
 <?dbhtml filename="introduction.html"?>
 
-<para>The rivendell Git server provides repositories for all of the *LFS
-projects (and some others). The repository which we are interested in for
-LFS editing is (unsurprisingly) the LFS repository. A complete list of the
-modules which are available can be found using the Trac source browser
-interface at
-<ulink url="http://wiki.linuxfromscratch.org/lfs/browser"/>.</para>
+<para>
+  The rivendell Git server provides repositories for all of the *LFS
+  projects (and some others). The repository which we are interested in for
+  LFS editing is (unsurprisingly) the LFS repository. A complete list of the
+  modules which are available can be found using the Trac source browser
+  interface at
+  <ulink url="https://wiki4.linuxfromscratch.org/lfs/browser"/>.
+</para>
 
-<para>There are two types of Git access provided to the LFS tree.
-Firstly, there is anonymous read-only access which anyone can use.
-Secondly, there is read-write access granted to active editors who have
-accounts on rivendell.</para>
+<para>
+  There are two types of Git access to the LFS tree.
+  First, there is anonymous read-only access which anyone can use.
+  Second, there is read-write access granted to active editors.
+</para>
 
 <note>
   <title>Note to Subversion Users</title>

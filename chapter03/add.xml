@@ -11,19 +11,19 @@
   <para>
     <userinput>git add [<replaceable>modified-files</replaceable>]</userinput>.
     This stages the modifications to all the <filename>modified-files</filename>
-    (including creating the files) to the index. If you specifies a directory
+    (including newly created files) to the index. If you specify a directory
     in <filename>modified-files</filename>, all the files modified in this
     directory or its subdirectories are staged. The change is not in
     the local repository until you do a <userinput>git commit</userinput>.
-    We'll touch on this more as we continue in the chapter.
+    We will touch on this more as we continue in the chapter.
   </para>
 
   <para>
     This command can be used in a very flexible way by using the
     <option>-p</option> option. You can select each hunk of the diff that
-    is staged into the index. This allows to test a full change, then divide
+    is staged into the index. This allows testing a full change and then divides
     commits into small <quote>atomic</quote> pieces that are easier to review
-    and/or understand.
+    and understand.
   </para>
 
 </sect1>

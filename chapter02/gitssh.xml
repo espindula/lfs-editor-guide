@@ -8,76 +8,100 @@
 <title>Git SSH Access (for editors)</title>
 <?dbhtml filename="gitssh.html"?>
 
-<para>For editors, access is slightly more complicated. You first of all need
-to generate an ssh key-pair. You then need to upload your public key into your
-<filename>~/.ssh</filename> directory on rivendell. To generate the keys run:
+<para>
+  For editors, access is slightly more complicated. You first need
+  to generate an ssh key-pair. To generate the keys run:
 </para>
 
 <para><screen><userinput>ssh-keygen -t ed25519</userinput></screen></para>
 
-<para>When prompted as to where to save them, it's probably best to leave
-them in .ssh (as <filename>id_ed25519</filename> and
-<filename>id_ed25519.pub</filename>) unless you already have ssh keys there.
-When prompted for a passphrase just press enter (unless you want to have
-to give the phrase <emphasis>every</emphasis> time you synchronize to the
-server.  But, since the same passphrase will be used when you log in to
-<emphasis>rivendell</emphasis> over ssh, it may be advisable to have some
-security in place.) Having generated your keys, send the
-<filename>~/.ssh/id_ed25519.pub</filename> to an administrator on rivendell,
-in order to have it added to
-<filename>~git/.ssh/authorized_keys</filename> <emphasis>on
-rivendell</emphasis>.  (Your local copy of <filename>id_ed25519</filename>
-and <filename>id_ed25519.pub</filename> should remain untouched by
-this.) The same key may be used to connect without a password to rivendell.
-Upload <filename>~/.ssh/id_ed25519.pub</filename> to
-<filename>.ssh/authorized_keys</filename> in your home on rivendell, and
-make sure that the ~/.ssh directory on rivendell is mode 700:</para>
+<note>
+  <para>
+    Editors are not required to have an account on the server, but
+    it may be helpful.  
+  </para>
+</note>
 
-<screen><userinput>chmod -R 700 ~/.ssh</userinput></screen>
+<para>
+  When prompted where to save them, it's probably best to leave
+  them in .ssh (as <filename>id_ed25519</filename> and
+  <filename>id_ed25519.pub</filename>).
+  When prompted for a passphrase just press enter unless you want to 
+  give the phrase <emphasis>every</emphasis> time you synchronize to the
+  server.
+  However, since the same passphrase will be used when you log in to
+  <emphasis>rivendell</emphasis> over ssh, it may be advisable to have some
+  security in place. 
+</para>
 
-<para>Once you have this setup, try to checkout the latest LFS book revision by
-running (from your local machine):</para>
+<para>
+  Having generated your keys, send the
+  <filename>~/.ssh/id_ed25519.pub</filename> to an LFS administrator 
+  in order to have it added to
+  <filename>~git/.ssh/authorized_keys</filename> <emphasis>on
+  rivendell</emphasis>.  If you will be obtaining a login  account on the server,
+  the administrator will use the same key to allow you ssh access.
+</para>
+
+<para>
+  Your local copy of <filename>id_ed25519</filename>
+  and <filename>id_ed25519.pub</filename> should remain untouched by
+  this process. 
+</para>
+
+<para>
+  Once this process is set up, try to checkout the latest LFS book revision by
+  running (from your local machine):
+</para>
 
 <screen><userinput>git clone git@git.linuxfromscratch.org:lfs.git lfsbook</userinput></screen>
 
-<para>If this works, you'll download a copy of the current repository to
-<filename class="directory">lfsbook/.git</filename> and you will check out
-the default branch, which is named <emphasis>trunk</emphasis> in LFS. You
-will also have write access so from now on be extra
-careful, but note that <emphasis>no</emphasis> changes will be made until you
-issue a <userinput>git push</userinput> command.</para>
+<para>
+  If all goes well you will download a copy of the current repository to
+  <filename class="directory">lfsbook/.git</filename> and you will check out
+  the default branch, which is named <emphasis>trunk</emphasis>. You
+  will also have write access so from now on be extra
+  careful. Note that <emphasis>no</emphasis> changes will be made until you
+  issue a <userinput>git push</userinput> command.
+</para>
 
-<para>The above is fine for getting the default branch, but you may
-want to work on a different public branch. To set up a local branch that tracks
-a public branch named <emphasis>new_branch</emphasis>, just issue:</para>
+<para>
+  The above is fine for getting the default branch, but you may
+  want to work on a different public branch. To set up a local branch that tracks
+  a public branch named <emphasis>new_branch</emphasis>, just issue:
+</para>
 
 <screen><userinput>git checkout --track origin/<replaceable>&lt;new_branch&gt;</replaceable></userinput></screen>
 
 <note>
-<title>Note to Subversion Users</title>
-<para>Contrary to Subversion, where you need to check out a new working
-copy of the remote branch, with Git almost nothing is downloaded.
-The local directory now reflects the new branch, but the old branch directory
-does not exist anymore.</para>
+  <title>Note to Subversion Users</title>
+  <para>
+    Contrary to Subversion, where you need to check out a new working
+    copy of the remote branch, with Git almost nothing is downloaded.
+    The local directory now reflects the new branch, but the old branch directory
+    does not exist anymore.
+  </para>
 </note>
 
 <para>
-If you need to work on the default branch named <emphasis>trunk</emphasis>,
-just commit your changes (if any) to the new branch (the commit is local),
-and switch back to trunk with:
+  If you need to work on the default branch named <emphasis>trunk</emphasis>,
+  just commit your changes (if any) to the new branch (the commit is local),
+  and switch back to trunk with:
 </para>
 
 <screen><userinput>git checkout trunk</userinput></screen>
 
 <para>
-Since the new branch is already set up, if you want again to work on the new
-branch, just do:
+  Since the new branch is already set up, if you want again to work on the new
+  branch, just do:
 </para>
 
 <screen><userinput>git checkout <replaceable>&lt;new_branch&gt;</replaceable></userinput></screen>
 
-<para>As with anonymous access, you can update your local repository by simply
-<command>cd</command>'ing into the LFS directory and running:</para>
+<para>
+  As with anonymous access, you can update your local repository by simply
+  <command>cd</command>'ing into the LFS directory and running:
+</para>
 
 <para><screen><userinput>git pull</userinput></screen></para>
 

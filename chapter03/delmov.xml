@@ -11,7 +11,7 @@
 
   <para><userinput>git rm</userinput>.
     This removes a file and lets Git know about it. Various options allow
-    to select whther the file is only deleted in the index or both in the
+    selecting whether the file is only deleted in the index or both in the
     index and the working directory. Note that you need to commit
     (and possibly push) for the removal to appear in the repository.
   </para>

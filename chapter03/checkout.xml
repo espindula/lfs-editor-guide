@@ -17,12 +17,12 @@
     <title>Note to Subversion Users</title>
 
     <para>
-      <userinput>git checkout</userinput> is somehow confusing to subversion
+      <userinput>git checkout</userinput> is sometimes confusing to subversion
       users because it is very different from
       <userinput>svn checkout</userinput>. The former is closer to
-      <userinput>svn switch</userinput>. When using Git, you'll find yourself
+      <userinput>svn switch</userinput>. When using Git, you will find yourself
       creating branches rather often, and using
-      <userinput>git checkout</userinput> to switch between them, so it is
+      <userinput>git checkout</userinput> to switch between them is
       a rather common command.
     </para>
   </note>
