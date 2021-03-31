@@ -10,35 +10,35 @@
 
 <para>For editors, access is slightly more complicated. You first of all need
 to generate an ssh key-pair. You then need to upload your public key into your
-<filename>~/.ssh</filename> directory on gimli. To generate the keys run:
+<filename>~/.ssh</filename> directory on rivendell. To generate the keys run:
 </para>
 
-<para><screen><userinput>ssh-keygen</userinput></screen></para>
+<para><screen><userinput>ssh-keygen -t ed25519</userinput></screen></para>
 
 <para>When prompted as to where to save them, it's probably best to leave
-them in .ssh (as <filename>id_rsa</filename> and
-<filename>id_rsa.pub</filename>) unless you already have ssh keys there.
+them in .ssh (as <filename>id_ed25519</filename> and
+<filename>id_ed25519.pub</filename>) unless you already have ssh keys there.
 When prompted for a passphrase just press enter (unless you want to have
 to give the phrase <emphasis>every</emphasis> time you synchronize to the
 server.  But, since the same passphrase will be used when you log in to
-<emphasis>gimli</emphasis> over ssh, it may be advisable to have some
+<emphasis>rivendell</emphasis> over ssh, it may be advisable to have some
 security in place.) Having generated your keys, send the
-<filename>~/.ssh/id_rsa.pub</filename> to an administrator on gimli,
+<filename>~/.ssh/id_ed25519.pub</filename> to an administrator on rivendell,
 in order to have it added to
 <filename>~git/.ssh/authorized_keys</filename> <emphasis>on
-gimli</emphasis>.  (Your local copy of <filename>id_rsa</filename>
-and <filename>id_rsa.pub</filename> should remain untouched by
-this.) The same key may be used to connect without a password to gimli.
-Upload <filename>~/.ssh/id_rsa.pub</filename> to
-<filename>.ssh/authorized_keys</filename> in your home on gimli, and
-make sure that the ~/.ssh directory on gimli is mode 700:</para>
+rivendell</emphasis>.  (Your local copy of <filename>id_ed25519</filename>
+and <filename>id_ed25519.pub</filename> should remain untouched by
+this.) The same key may be used to connect without a password to rivendell.
+Upload <filename>~/.ssh/id_ed25519.pub</filename> to
+<filename>.ssh/authorized_keys</filename> in your home on rivendell, and
+make sure that the ~/.ssh directory on rivendell is mode 700:</para>
 
 <screen><userinput>chmod -R 700 ~/.ssh</userinput></screen>
 
 <para>Once you have this setup, try to checkout the latest LFS book revision by
 running (from your local machine):</para>
 
-<screen><userinput>git clone git@gimli.linuxfromscratch.org:LFS lfsbook</userinput></screen>
+<screen><userinput>git clone git@git.linuxfromscratch.org:lfs.git lfsbook</userinput></screen>
 
 <para>If this works, you'll download a copy of the current repository to
 <filename class="directory">lfsbook/.git</filename> and you will check out

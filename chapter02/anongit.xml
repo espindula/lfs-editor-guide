@@ -11,7 +11,7 @@
 <para>To get anonymous access, simply use the following commands (note
 that these assume you are using bash or a similar shell:</para>
 
-<screen><userinput>git clone git://gimli.linuxfromscratch.org/LFS/ lfs-git</userinput></screen>
+<screen><userinput>git clone git://git.linuxfromscratch.org/lfs.git lfs-git</userinput></screen>
 
 <para>This will copy the public repository to a subdirectory of the <filename
 class="directory">lfs-git</filename> directory, then checkout the default

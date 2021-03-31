@@ -30,7 +30,7 @@ if [ -z "$JAVA_HOME" ]; then nopdf=1; fi
 # These are the biggies
 stable=n                  # Is this the final release? 'y' or 'n' only
 version=6.6-rc2           # x.y[-rcz] (should be the name of the git tag)
-reqhost=gimli             # the script is required to run on this host
+reqhost=rivendell         # the script is required to run on this host
 webroot=/srv/www          # the root of the web pages, change if you
                           # do not want to write to them
 #######################
@@ -67,7 +67,7 @@ echo -e "\n${grn}*${white} Creating directory ${grn}$workarea${white}...${norm}"
 install -d $workarea/original
 cd $workarea/original
 echo -e "${grn}*${white} Checking out the sources...${norm}"
-git archive --remote=git://gimli.linuxfromscratch.org/LFS $version | tar xf -
+git archive --remote=git://git.linuxfromscratch.org/lfs.git $version | tar xf -
 
 echo -e "${grn}*${white} Validating the sources...${norm}\n"
 make validate > $workarea/validate.log || exit 9
