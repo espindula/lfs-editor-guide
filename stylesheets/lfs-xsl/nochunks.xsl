@@ -127,16 +127,12 @@ a:active { color: #6b77b1 ! important;}
 
 .book hr {
   background: #dbddec;
+  background-color: #fff;
   height: .3em;
   border: 0px;
   margin: 0;
   padding: 0;
 }
-
-div.dedication {
-  padding-left: 1em;
-}
-
 
 /* Sections */
 div.sect1, div.appendix {
@@ -178,12 +174,17 @@ h1, h2, h3, h4, h5, h6, b, .strong {
 
 h1 {
   font-size: 173%;
-  text-align: center;
+  /*text-align: center;*/
 }
 
 .book h1 {
   margin: 0;
   padding: 0.4em;
+}
+
+.book .dedication {
+  background: #fff;
+  border: 0.2em;
 }
 
 h1.title sup {
@@ -195,13 +196,13 @@ h2 {
 }
 
 .preface h2, .part h1, .chapter h2, .appendix h2, .index h1, .sect1 h2 {
-  background: #f5f6f7;
+  /*background: #f5f6f7;
   border-top: .2em solid #dbddec;
-  border-bottom: .2em solid #dbddec;
+  border-bottom: .2em solid #dbddec;*/
   margin-bottom: 1em;
   margin-top: 1em;
   padding: .4em;
-  text-align: center;
+  /*text-align: center;*/
 }
 
 .sect1 h2, .appendix h2 {
@@ -217,10 +218,11 @@ h2 {
 }
 
 .book h2.subtitle {
-  text-align: center;
+  /*text-align: center;*/
+  text-align: left;
   background: #dbddec;
   margin: 0;
-  padding: 0.2em;
+  padding: 0.4em;
 }
 
 h3 {
