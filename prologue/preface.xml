@@ -10,7 +10,7 @@
   <?dbhtml dir="preface"?>
 
   <para>
-    This manual will teach you all that you need to know in order to
+    This manual will teach you what you need to know in order to
     properly edit the LFS-Book. It will cover some basic issues like accessing
     Git over SSH and the Git commands you will use. It will also discuss the
     proper sequence of doing things like upgrading a package and how to work

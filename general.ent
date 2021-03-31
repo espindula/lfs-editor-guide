@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
 <!ENTITY year    "2021">
-<!ENTITY month   "01">
-<!ENTITY day     "10">
+<!ENTITY month   "03">
+<!ENTITY day     "31">
 <!ENTITY version "&year;&month;&day;">
-<!ENTITY releasedate "January 10th, 2021">
+<!ENTITY releasedate "March 31st, 2021">
 
 <!ENTITY lfs-root "http://www.linuxfromscratch.org/">
