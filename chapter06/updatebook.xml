@@ -5,7 +5,7 @@
 ]>
 
 <sect1 id="ch06-updatebook">
-  <title>Update the book</title>
+  <title>Update the Book</title>
   <?dbhtml filename="updatebook.html"?>
 
   <para>When you're going to update the book by adding a new package to it,
@@ -18,10 +18,11 @@
 
     <listitem><para>Test build an LFS system to make sure this package compiles
       properly in an LFS environment. Don't use your regular workstation's
-      environment - it may be sufficiently different for the compilation to
-      abort.  A package may depend on something that you have installed but
+      environment - it may be sufficiently different for to affect the 
+      build procedures.
+      A package may depend on something that you have installed but
       which doesn't come with the LFS-Book. Also keep in mind that some packages
-      are used twice, in chapter 5 and in chapter 6.</para>
+      are used more than once in the LFS build process.</para>
     </listitem>
 
     <listitem><para>Update the installation instructions in the book, if
@@ -29,8 +30,8 @@
     </listitem>
 
     <listitem><para>When the package compiles properly and the package works too
-      (doesn't seg. fault or show other errors when trying to execute programs
-      from it), then open the <filename>entities/general.ent</filename> in
+      (doesn't seg fault or show other errors when trying to execute programs
+      from it), then open the <filename>packages.ent</filename> in
       an editor.</para>
     </listitem>
 
@@ -44,14 +45,5 @@
       <command>diff</command>ing the output.</para>
     </listitem>
 
-    <listitem><para>We now prefer to use the package's native format (so that md5sums
-      or signatures can be checked) instead of creating a .tar.bz2 if the package is
-      supplied only in .tar.gz.  The maintenance of package versions on the LFS mirrors
-      is handled separately, and there is no longer a need to copy new versions of
-      packages to your home directory.  Run <userinput>ls -l package-version.tar.{bz2,gz}
-      </userinput> on the source tarball. Divide the filesize by <emphasis>1024</emphasis>
-      to get the number of Kilobytes. Round off to the nearest Kilobyte and update the
-      <emphasis>package-size</emphasis> entity.</para>
-    </listitem>
   </itemizedlist>
 </sect1>

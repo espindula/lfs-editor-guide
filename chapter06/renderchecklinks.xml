@@ -5,7 +5,7 @@
 ]>
 
 <sect1 id="ch06-renderchecklinks">
-  <title>Render the book and check links</title>
+  <title>Render the Book and Check Links</title>
   <?dbhtml filename="renderchecklinks.html"?>
 
   <para>Now that you're done, make sure the book renders properly and check the
@@ -15,6 +15,6 @@
 
   <para>If this checks out, then you're done with the package update.</para>
 
-  <para>Commit your changes to the SVN repository.</para>
+  <para>Commit your changes to the Git repository.</para>
 </sect1>
 

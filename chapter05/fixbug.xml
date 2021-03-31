@@ -5,21 +5,21 @@
 ]>
 
 <sect1 id="ch05-fixbug">
-  <title>Mark a bug fixed</title>
+  <title>Mark an Issue Fixed</title>
   <?dbhtml filename="fixbug.html"?>
 
-  <para>Once you have fixed a bug and have committed the relevant changes into
-        the Subversion repository, you need to mark the bug fixed in Trac.
+  <para>Once you have fixed an issue and have committed the relevant changes into
+        the Subversion repository, you need to mark the ticket fixed in Trac.
   </para>
 
   <itemizedlist>
-    <listitem><para>Go to the bug you fixed and which is assigned to you.</para>
+    <listitem><para>Go to the ticket you fixed and which is assigned to you.</para>
     </listitem>
 
-    <listitem><para>Select the <emphasis>Resolve bug, changing resolution to
-      </emphasis> radio button. Then select the proper resolution. Usually
+    <listitem><para>Select the <quote>resolve as</quote> radio button. 
+      Then select the proper resolution. Usually
       you'll select <emphasis>fixed</emphasis> here, but there are times when
-      you select other ones like cases where a reported bug is invalid
+      you select other ones like cases where a reported issue is 
       (<emphasis>invalid</emphasis>), or we know about it but won't fix it
       (<emphasis>wontfix</emphasis>) and so on.</para>
     </listitem>

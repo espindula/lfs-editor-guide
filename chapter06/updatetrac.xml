@@ -22,7 +22,7 @@
   </listitem>
 
   <listitem><para>Create a new ticket for the new version (as previously
-    discussed under entering a new bug). Make it as an enhancement.  Add any
+    discussed under entering a new bug). Mark it as an enhancement.  Add any
     interesting information, e.g. from the release notes.  When you have put
     in all the information you wish to record, click on <emphasis>Submit ticket
     </emphasis> in the normal way.</para>
@@ -30,7 +30,9 @@
 
   <listitem><para>If there is an existing open ticket for a prior version of the
    package, resolve that as <emphasis>wontfix</emphasis> with a note that it has
-   been superceded by the new ticket.</para>
+   been superceded by the new ticket. Alternatively, select 
+   <emphasis>Modify Ticket</emphasis> and update the Summary and Description 
+   to reflect the new version.</para>
   </listitem>
 
   </itemizedlist>

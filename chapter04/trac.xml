@@ -5,12 +5,12 @@
 ]>
 
 <sect1 id="ch04-trac">
-  <title>Update trac</title>
+  <title>Update Trac</title>
   <?dbhtml filename="trac.html"?>
 
   <para>The final part of updating the book is to update the ticket. This is
     usually as easy as going to the wiki (<ulink
-    url="http://wiki.linuxfromscratch.org/lfs"/>), going to the ticket and choosing
+    url="http://wiki4.linuxfromscratch.org/lfs"/>), going to the ticket and choosing
     resolve, changing resolution to fixed.
   </para>
 

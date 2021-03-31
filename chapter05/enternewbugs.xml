@@ -8,15 +8,17 @@
   <title>Enter a new bug</title>
   <?dbhtml filename="enternewbug.html"?>
 
-  <para>You found a bug, or somebody else found a bug and you decided to add
-    it to Trac.  Or, you want to log a request for a feature that somebody has
-    asked for, or a task of some other type.
+  <para>
+    You found a bug, or somebody else found a bug and you decided to add
+    it to Trac.  Or you want to log a request for a feature that somebody has
+    asked for or a task of some other type.
   </para>
 
   <itemizedlist>
 
   <listitem>
-    <para>Go to <ulink url="http://wiki.linuxfromscratch.org/lfs/newticket"/>
+    <para>
+      Go to <ulink url="http://wiki4.linuxfromscratch.org/lfs/newticket"/>
     </para>
   </listitem>
 
@@ -43,8 +45,8 @@
   </listitem>
 
   <listitem><para>If you don't want to assign yourself to it right away, leave
-    the <emphasis>Assign To</emphasis> field blank. It'll be assigned to
-    <email>lfs-book@linuxfromscratch.org</email> then, until a real editor
+    the <emphasis>Assign To</emphasis> field blank. It will be assigned to
+    <email>lfs-book@linuxfromscratch.org</email> until an editor
     changes that to himself.</para>
   </listitem>
 
@@ -64,7 +66,7 @@
     </emphasis> fields if you wish.</para>
   </listitem>
 
-  <listitem><para>Particularly if you are using any formatting in the Full
+  <listitem><para>If you are using any formatting in the Full
     description field, you may wish to click on the <emphasis>Preview</emphasis>
    button.</para>
   </listitem>

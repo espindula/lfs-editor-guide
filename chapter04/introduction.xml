@@ -25,7 +25,7 @@
     <listitem><para>Commit; go back to the beginning if you have another set
     of changes you want to make.</para></listitem>
     <listitem><para>Push once you are done with all your changes.</para></listitem>
-    <listitem><para>Update trac to reflect the changes.</para></listitem>
+    <listitem><para>Update Trac to reflect the changes.</para></listitem>
   </itemizedlist>
 
   <para>You should normally restrict a commit to one set of changes, so if
@@ -34,7 +34,7 @@
     for your judgement. Always think that a set will have to be merged to (at
     least) the
     multilib branch. Pushing is not mandatory after each change if you plan
-    to soon make another one. Once again, it is advised to run
+    to soon make another one. Once again, editors should run
     <userinput>git pull</userinput> before pushing in order to resolve
     any conflict locally.
   </para>

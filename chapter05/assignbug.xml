@@ -5,17 +5,17 @@
 ]>
 
 <sect1 id="ch05-assignbug">
-  <title>Assigning bugs</title>
+  <title>Assigning Tickets</title>
   <?dbhtml filename="assignbug.html"?>
 
-  <para>You're ready to start working on a bug that's in Trac. Step one is
-    to assign the bug to yourself. This informs us that somebody is working on
-    the bug so we can move onto other bugs.
+  <para>When you are ready to start working on an issue that is in Trac, step one is
+    to assign it to yourself. This informs all the editors that you are
+    working on the issue.
   </para>
 
   <itemizedlist>
 
-    <listitem><para>Go to the bug you want to work on.</para></listitem>
+    <listitem><para>Go to the isssue you want to work on.</para></listitem>
 
     <listitem><para>Select the <emphasis>Accept ticket</emphasis> radio button.</para>
     </listitem>
@@ -23,7 +23,7 @@
     <listitem><para>Click on the <emphasis>Submit changes</emphasis> button.</para>
     </listitem>
 
-    <listitem><para>While working on the bug, sometimes you may want to add
+    <listitem><para>While working on the issue, sometimes you may want to add
       comments to it. Feel free to do so.</para>
     </listitem>
   </itemizedlist>

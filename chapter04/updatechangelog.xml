@@ -10,7 +10,7 @@
 
   <para>Changelog updates should <emphasis>always</emphasis> be provided with
     the exception of small typo fixes. You don't need to add "fixed small typo
-    in XXX" to the changelog otherwise it'd grow like topsy.
+    in XXX" to the changelog otherwise it will grow too much.
   </para>
 
   <para>Changelog updates need to be in the following format:
@@ -36,8 +36,8 @@
   &lt;para&gt;March 3, 2006&lt;/para&gt;
   &lt;itemizedlist&gt;
     &lt;listitem&gt;
-      &lt;para&gt;[gerard] - Remove -D_GNU_SOURCE from chapter 5 - Patch. Thanks
-      to Dan Nicholson for the patch.&lt;/para&gt;
+      &lt;para&gt;[renodr] - Update to attr-2.5.1. Fixes
+      &lt;ulink url="&amp;lfs-ticket-root;4833"&gt;#4833&lt;/ulink>.&lt;/para&gt;
     &lt;/listitem&gt;
   &lt;/itemizedlist&gt;
 &lt;/listitem&gt;</screen>

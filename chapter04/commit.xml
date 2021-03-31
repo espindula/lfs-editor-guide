@@ -31,7 +31,7 @@
           <command>git commit</command> and fill up the log message in the
           editor window. Or for a short log message, run
           <command>git commit
-                   -m"<replaceable>log message</replaceable>"</command>.
+                   -m "<replaceable>log message</replaceable>"</command>.
         </para>
       </listitem>
     </itemizedlist>
@@ -41,7 +41,7 @@
     <itemizedlist>
       <listitem>
         <para>
-          Run <command>git commit -a</command> and fill up the log message in
+          Run <command>git commit -a</command> and write the log message in
           the editor window. As above, you can use the <option>-m</option>
           option for short log messages.
         </para>
@@ -51,8 +51,8 @@
 </itemizedlist>
 
 <para>
-  Then push your work: <command>git push</command>. A transaction log of all
-  the commits that make the push will be emailed to the
+  Now push your work: <command>git push</command>. A transaction log of all
+  the commits that make up the push will be emailed to the
   <email>lfs-book@lists.linuxfromscratch.org</email> mailinglist so other
   editors can see right away what you did. The commit emails contain some
   basic info (log, changes to which files) including a
@@ -61,7 +61,7 @@
 
 <para>
   <emphasis>About log messages:</emphasis> Due to the way
-  <command>git log</command> displays log messages, it is recommended to
+  <command>git log</command> displays log messages, please
   keep the size of each line below 72 characters. A good commit message is
   composed of a short summary (not more than fifty characters),
   a blank line, then details, reasons, etc on less than 72 characters lines.
@@ -79,6 +79,6 @@
 </para>
 
 <screen><userinput>git add general.ent chapter01/changelog.xml chapter06/bash.xml
-git commit -m'fixed a typo in chapter 6 bash'</userinput></screen>
+git commit -m 'fixed a typo in chapter 6 bash'</userinput></screen>
 
 </sect1>
