@@ -8,17 +8,23 @@
 <title>Anonymous Access</title>
 <?dbhtml filename="anongit.html"?>
 
-<para>To get anonymous access, simply use the following command (note
-that this assumes you are using bash or a similar shell:</para>
+<para>
+  To get anonymous access, simply use the following command (note
+  that this assumes you are using bash or a similar shell:
+</para>
 
 <screen><userinput>git clone git://git.linuxfromscratch.org/lfs.git lfs-git</userinput></screen>
 
-<para>This will copy the public repository to a subdirectory named <filename
-class="directory">lfs-git</filename> and then checkout the default
-branch to that directory. It will also set the local repository to track
-the default branch of the public repository so that you can
-update your local repository by simply running (after changing to directory 
-<filename class="directory">lfs-git</filename>):</para>
+<para>
+  This will copy the public repository to a subdirectory named 
+  <filename class="directory">.git</filename> in the directory 
+  <filename class="directory">lfs-git</filename> 
+  and then checkout the default branch to that directory. It will also 
+  set the local repository to track the default branch of the public 
+  repository so that you can update your local repository by simply 
+  running (after changing to directory 
+  <filename class="directory">lfs-git</filename>):
+</para>
 
 <screen><userinput>git pull</userinput></screen>
 
