@@ -6,20 +6,15 @@
 
 1.  Ensure that all needed pushes have been made by all editors.
 
-2.  If this is the first rc, create a branch. Otherwise, just switch to that
-    branch. All the following steps will be done on that branch.
+2.  Create a branch. All the following steps will be done on that branch.
 
-    git checkout -b stable-x.y  # first rc
+    git checkout -b x.y-rcz  # for rc
 
         or
 
-    git checkout stable-x.y     # if the branch already exists
+    git checkout -b x.y      # for releases
 
-3.  If the branch already exists, merge changes from trunk
-
-    git merge trunk # resolve conflicts if needed
-
-4.  Edit general.ent
+3.  Edit general.ent
     a - Change "version" entity to x.y or x.y-rcz for a rc
     b - Change "short-version" entity to x.y, only for release, not for rc
     c - Change "generic-version" entity to x.y or x.y-rcz for a rc
@@ -34,11 +29,7 @@
 
     git commit -a    # edit the commit message
 
-7.  Create a tag
-
-    git tag x.y-rcz
-
-8.  You are about to push, double check everything. If this is the
+7.  You are about to push, double check everything. If this is the
     first rc, create an upstream branch:
 
     git push --set-upstream
@@ -47,7 +38,7 @@
 
     git push
 
-9.  Upload the built bootscript tarball to your home on rivendell
+8.  Upload the built bootscript tarball to your home on rivendell
 
 ## WARNING ##
 #

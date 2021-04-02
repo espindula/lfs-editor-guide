@@ -29,7 +29,7 @@ if [ -z "$JAVA_HOME" ]; then nopdf=1; fi
 #######################
 # These are the biggies
 stable=n                  # Is this the final release? 'y' or 'n' only
-version=6.6-rc2           # x.y[-rcz] (should be the name of the git tag)
+version=6.6-rc2           # x.y[-rcz] (should be the name of the git branch)
 reqhost=rivendell         # the script is required to run on this host
 webroot=/srv/www          # the root of the web pages, change if you
                           # do not want to write to them
