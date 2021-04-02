@@ -1,6 +1,6 @@
 <!ENTITY year    "2021">
 <!ENTITY month   "04">
-<!ENTITY day     "02">
+<!ENTITY day     "03">
 <!ENTITY version "&year;&month;&day;">
 <!ENTITY releasedate "April 3nd, 2021">
 
