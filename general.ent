@@ -3,6 +3,6 @@
 <!ENTITY month   "04">
 <!ENTITY day     "02">
 <!ENTITY version "&year;&month;&day;">
-<!ENTITY releasedate "April 2nd, 2021">
+<!ENTITY releasedate "April 3nd, 2021">
 
 <!ENTITY lfs-root "http://www.linuxfromscratch.org/">
