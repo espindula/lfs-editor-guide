@@ -8,23 +8,20 @@
   <title>Updating general.ent</title>
   <?dbhtml filename="updategeneralent.html"?>
 
-  <para>The following elements should be updated in the
-    <filename>general.ent</filename> file whenever <emphasis>any</emphasis> change
-    (including small typo fixes) is made:
+  <para>The following elements should be uncommented and updated in the
+    <filename>general.ent</filename> file when a release
+    (including -rc releases) is made, and the two lines about
+    <filename>version.ent</filename> should be commented out:
   </para>
 
-<screen>&lt;!ENTITY version     "SVN-20200429"&gt;
-&lt;!ENTITY versiond    "20200429-systemd"&gt;
-&lt;!ENTITY releasedate "April 29th, 2020"&gt;</screen>
-
-
-  <para>
-    The three dates must be the same, and the first two are in the
-    YYYYMMDD format.
-  </para>
+<screen>&lt;!ENTITY version         "10.2-rc1"&gt;
+&lt;!ENTITY versiond        "10.2-rc1"&gt;
+&lt;!ENTITY releasedate     "August 26th, 2021"&gt;
+&lt;!ENTITY copyrightdate   "1999-2021"&gt;</screen>
 
   <para>
-    Effectively, you'll only do this if you happen to be the first person on
-    a particular day who made a change.
+    For development snapshots, these entities are automatically generated
+    from the Git commit info.  So <filename>general.ent</filename> does not
+    need to be updated.
   </para>
 </sect1>
