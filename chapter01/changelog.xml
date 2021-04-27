@@ -10,7 +10,7 @@
 <para>This is version &version; of the Linux From Scratch Editor's Manual, dated
 &releasedate;.</para>
 
-<para>Below is a list of changes made since the Last SVN version of the book,
+<para>Below is a list of changes made since the Last Git version of the book,
 first a summary, then a detailed log.</para>
 
 <itemizedlist>
