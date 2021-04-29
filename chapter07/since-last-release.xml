@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.4//EN" "http://www.oasis-open.org/docbook/xml/4.4/docbookx.dtd" [
+  <!ENTITY % general-entities SYSTEM "../general.ent">
+  %general-entities;
+]>
+
+<sect1 id="ch07-since-last-release">
+  <title>Advisories since the last release.</title>
+  <?dbhtml filename="since-last-release.html"?>
+
+  <para>
+    There are separate pages for LFS and BLFS where we list our advisories
+    since our last release. These pages are in alphabetical order, with
+    newer advisories coming before older ones for the same package.
+  </para>
+
+  <para>
+    In both LFS and BLFS the page is labelled with the number of our current
+    release, so 10.1.html from March 2021 until we release our next version.
+  </para>
+
+  <para>
+    You will see there is a commented &lt;h3&gt;PackageName&lt;h3&gt; as a guide.
+    The &lt;h4&gt; line should be copied from the entry you created in
+    <filename>consolidated.html</filename>. Follow that with a short paragraph
+    summarising the problem and how to fix it (or in exceptional cases other
+    actions to work around the problem). Add a sentence linking to the
+    advisory in <filename>consolidated.html</filename>.
+  </para>
+
+  <para>
+    Some packages get extra information, e.g. Thunderbird has an italic paragraph
+    explaining how the vulnerabilities are in a browser-like context. If this is
+    the first advisory for Thunderbird in this release, copy that part from the
+    previous advisories. Similarly, in LFS glibc gets different information
+    because the only supported upgrade path in LFS is to build a new LFS: give
+    information to let users decide how serious the vulnerabilit{y,ies} is/are
+    for their use-case (many are quite old).
+  </para>
+
+</sect1>

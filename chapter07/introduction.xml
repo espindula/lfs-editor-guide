@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.4//EN" "http://www.oasis-open.org/docbook/xml/4.4/docbookx.dtd" [
+  <!ENTITY % general-entities SYSTEM "../general.ent">
+  %general-entities;
+]>
+
+<sect1 id="ch07-introduction">
+  <title>Introduction</title>
+  <?dbhtml filename="introduction.html"?>
+
+  <para>
+    In both LFS and BLFS we try to advise our users of security
+    vulnerabilities. Sometimes vulnerabilities are mentioned in a release
+    announcement, at other times they are noticed later.
+  </para>
+
+  <para>
+    The current advisories point to the development books, with past advisories
+     pointing to the numbered books (rather than to'stable' ). You will probably
+    need to create some symlinks in wherever you render the books so that both
+    versions of the current LFS and BLFS books point to your local copies so that
+    you can check them before pushing. If you have local renders of the current
+    released books you can also link to those. Because
+    <filename>consolidated.html</filename> is located in the BLFS book, you will
+    need to make a special symlink to get to that from your local LFS advisories.
+  </para>
+
+  <para>
+    For historical reasons, the links at rivendell point to 'svn' and 'systemd'
+    for the current books.
+  </para>
+
+  <para>
+    Normally we will raise a security advisory once we have a tested fix in the
+    appropriate book (LFS or BLFS), i.e. a newer version, or a patch. However
+    sometimes a vulnerability remains open for a long time and we may choose to
+    suggest a workaround such as "do not use this feature of the package".
+  </para>
+
+  <para>
+    We try to provide enough details to enable users to decide if they need to
+    update as soon as possible, including a vulnerability assessment and any
+    details we can find. If upstream provides an assessment of the severity we
+    will normally use that. Otherwise we must search around for details. If
+    details of a CVE are publically visible there might be a rating at
+    <ulink url="https://nvd.nist.gov/vuln/search"/> although sometimes that site
+    regards issues as Moderate when a rating of High might be appropriate. If in
+    doubt, our default rating is High.
+  </para>
+
+  <para>
+    In theory, a user of a recent past version of the book can look at our
+    current and previous vulnerabilities and see every fixed vulnerability which
+    affects a package. In practice it is not always clear that a newer version
+    has fixed a vulnerability - if that comes to light after we have made a
+    release with a newer version of the package such items might be ignored on
+    the grounds that most users have already looked at the previous
+    vulnerabilities and are unlikely to notice new additions - for example
+    a vulenrability in flac-3.2 was fixed in flac-3.3 but not publically
+    mentioned. In such cases we can add a 'Late Advisories' section between the
+    advisories for the current book and the previous advisories - see 10.0-102
+    in <filename>consolidated.html</filename> and the corresponding entry in
+    <filename>10.0.html</filename>. In these cases, the best way to alert users
+    is to announce the advisory on the lfs-support and blfs-support lists.
+  </para>
+
+  <para>
+    From time to time we may become aware that the details of an advisory should
+    be changed, e.g. it might be that it is invalid for some reason (e.g. never
+    in a released version, or only applicable to windows). When this happens we
+    can modify the existing item and change the 'Date' entry to 'Updated' with
+    the current date.
+  </para>
+
+  <para>For day to day updates to advisories the files are organized into:</para>
+
+  <itemizedlist>
+    <listitem>
+      <para>
+        <filename>blfs/advisories/consolidated.html</filename> (shared between
+        LFS and BLFS).
+      </para>
+    </listitem>
+    <listitem>
+      <para>
+        <filename>lfs/advisories/NN.N.html</filename> (for any LFS advisories
+        since the current (NN.N) release).
+      </para>
+    </listitem>
+    <listitem>
+      <para>
+        <filename>bfs/advisories/NN.N.html</filename> (for any BLFS advisories
+        since the current (NN.N) release).
+      </para>
+    </listitem>
+  </itemizedlist>
+
+  <para>There are two parts to creating an advisory:</para>
+
+  <itemizedlist>
+    <listitem>
+      <para>
+        Taking the next available number to create an entry in
+        <filename>consolidated.html</filename> containing the necessary details.
+      </para>
+    </listitem>
+    <listitem>
+      <para>
+        Adding summary advisory details for this version of LFS or BLFS.
+      </para>
+    </listitem>
+  </itemizedlist>
+
+  <para>
+    <emphasis>Much of any new item will be copied from a template or from an
+    earlier advisory. It is important to take your time when reviewing what
+    you have created, to see that it reads and links correctly.</emphasis>
+  </para>
+
+</sect1>

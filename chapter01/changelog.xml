@@ -37,6 +37,15 @@ first a summary, then a detailed log.</para>
 
  <listitem><para>Changelog Entries:</para>
   <itemizedlist>
+
+   <listitem><para>April 29, 2021</para>
+     <itemizedlist>
+       <listitem>
+         <para>[ken] Add chapter 7: Security Advisories.</para>
+       </listitem>
+     </itemizedlist>
+   </listitem>
+
    <listitem><para>March 31, 2021</para>
      <itemizedlist>
        <listitem>

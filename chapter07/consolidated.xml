@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.4//EN" "http://www.oasis-open.org/docbook/xml/4.4/docbookx.dtd" [
+  <!ENTITY % general-entities SYSTEM "../general.ent">
+  %general-entities;
+]>
+
+<sect1 id="ch07-consolidated">
+  <title>Consolidated.html</title>
+  <?dbhtml filename="consolidated.html"?>
+
+  <para>
+    The consolidated page provides a list of our advisories since we began
+    to create them. They are numbered within releases, in each case newest
+    first. This page lives in <filename
+    class="directory">blfs/advisories</filename> but it is common to both
+    LFS and BLFS.
+  </para>
+
+  <para>
+    Create the details for the next available advisory number. The top part
+    of the page contains a lot of commented items which can be used as a
+    template, but if there are previous advisories for this package it may be
+    easier to copy details from one of those.
+  </para>
+
+  <para>
+    As well as the number, and the sa-NN.N-nnn link, each entry has a date and
+    a severity. Where upstream has assigned a severity we normally go with that.
+    If a source such as NVD has assigned a severity, consider if it is
+    appropriate (our default is 'High' even for Denial of Service on non-server
+    programs).
+  </para>
+
+  <para>
+    Where one or more CVEs have been issued, it may be useful to link to NVD if
+    that provides details, or else to any other reliable source which explains
+    the vulnerability (i.e. google for it). If the details are not public, you
+    might not be able to find a suitable external link. But for packages which
+    provide their own advisories it is good to link to those.
+  </para>
+
+  <para>
+    Render the page, check that the links (external to applications, and internal
+    to the sysv and systemd books) work correctly and that what you have written
+    and pasted makes sense.
+  </para>
+
+  <para>
+    It might be beneficial to commit the change to consolidated.html at this
+    point, so that you own the advisory number (e.g. if you think other people
+    may also be updating advisories). In that case it is probably best to do only
+    one if you have several, and to then update the page for the current release.
+  </para>
+
+</sect1>
