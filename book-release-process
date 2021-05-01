@@ -14,6 +14,14 @@
 
     git checkout -b x.y      # for releases
 
+2.5 For final (not rc) releases, create a tag for the last commit in trunk
+    of this release:
+
+    git tag -a rx.y
+
+    Write the description of the tag, for example "the last commit in trunk
+    of x.y".
+
 3.  Edit general.ent
     a - Change "version" entity to x.y or x.y-rcz for a rc
     b - Change "short-version" entity to x.y, only for release, not for rc
@@ -37,6 +45,10 @@
     otherwise, just:
 
     git push
+
+    And, push rx.y tag to ensure git-version.sh work correctly:
+
+    git push origin rx.y
 
 8.  Upload the built bootscript tarball to your home on rivendell
 
