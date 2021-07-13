@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.4//EN" "http://www.oasis-open.org/docbook/xml/4.4/docbookx.dtd" [
+  <!ENTITY % general-entities SYSTEM "../general.ent">
+  %general-entities;
+]>
+
+<sect1 id="ch08-server">
+  <title>Processes on the main server</title>
+  <?dbhtml filename="server.html"?>
+
+  <sect2>
+    <title>Scripts</title>
+
+    <para>
+      Useful scripts to automate the daily rendering of the books
+      are located in <filename class="directory">/usr/local/bin</filename>.
+    </para>
+    
+    <para>
+      TODO: Describe the scripts ... blah...
+    </para>
+
+  </sect2>
+  
+  <sect2>
+    <title>Cronjobs</title>
+    
+    <para>
+      TODO: Describe cronjobs ... blah...
+    </para>
+
+  </sect2>
+
+</sect1>

@@ -16,7 +16,7 @@
   <itemizedlist>
 
   <listitem><para>Go to Trac's query page at <ulink
-    url="http://wiki.linuxfromscratch.org/lfs/report"/></para>  </listitem>
+    url="&trac-root;/lfs/report"/></para>  </listitem>
 
   <listitem><para>Choose Active Tickets and look for the name of the package.</para>
   </listitem>

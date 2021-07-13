@@ -33,7 +33,7 @@
 
   <para>
     The Trac ticketing system for LFS can be found at
-    <ulink url="http://wiki.linuxfromscratch.org/lfs"/>. In order to be able
+    <ulink url="&trac-root;/lfs"/>. In order to be able
     to add, remove and edit tickets, you need to add an account and make sure
     you are logged in whenever you wish to perform such an action.  You can
     query and read the Trac database without logging in or having a user created.

@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.4//EN" "http://www.oasis-open.org/docbook/xml/4.4/docbookx.dtd" [
+  <!ENTITY % general-entities SYSTEM "../general.ent">
+  %general-entities;
+]>
+
+<sect1 id="ch08-introduction">
+  <title>Introduction</title>
+  <?dbhtml filename="introduction.html"?>
+
+  <para>
+    This chapter describes the processes on how to convert the 
+    DocBook XML sources to HTML which are presented to the users
+    on the website. The processes are basically same on a local
+    machine when the user clones the XMLs to a local repository and
+    wants to create the HTML files there.
+  </para>
+  
+  <para>
+    Prerequisites are a small set of tools, namly
+    <ulink url="&lfs-root;/lfs/view/development/chapter08/make.html">make</ulink>,
+    <ulink url="&lfs-root;/blfs/view/svn/pst/docbook.html">DocBook XML</ulink>,
+    <ulink url="&lfs-root;/blfs/view/svn/pst/docbook-xsl.html">DocBook XSLT</ulink> and the
+    <ulink url="&lfs-root;/blfs/view/svn/general/libxslt.html">xsltproc</ulink> tools.
+    This tools are used to convert DocBook XML to other formats, most
+    used target format is HTML which can be used to present the books
+    in a nicely formatted way to the user. Other formats might be
+    PDF, but this is not part of this chapter.
+  </para>
+
+  <para>
+    This chapter is devided in some small parts:
+
+    <itemizedlist>
+      <listitem>
+        <para>Basics on convertion</para>
+        <para>Describe the basic steps to convert the XMLs to HTML
+          which are common to LFS and BLFS.</para>
+      </listitem>
+
+      <listitem>
+        <para>Specials in LFS or BLFS</para>
+        <para>Notes on specials to keep in mind when converting the
+          LFS or the BLFS book.</para>
+      </listitem>
+
+      <listitem>
+        <para>Processes on the server</para>
+        <para>Notes for editors and admins maintaining the book
+          convertion on the main LFS server.</para>
+      </listitem>
+    </itemizedlist>
+
+  </para>
+  
+</sect1>

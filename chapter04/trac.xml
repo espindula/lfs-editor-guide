@@ -10,7 +10,7 @@
 
   <para>The final part of updating the book is to update the ticket. This is
     usually as easy as going to the wiki (<ulink
-    url="http://wiki4.linuxfromscratch.org/lfs"/>), going to the ticket and choosing
+    url="&trac-root;/lfs"/>), going to the ticket and choosing
     resolve, changing resolution to fixed.
   </para>
 

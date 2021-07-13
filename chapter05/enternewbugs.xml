@@ -18,7 +18,7 @@
 
   <listitem>
     <para>
-      Go to <ulink url="http://wiki4.linuxfromscratch.org/lfs/newticket"/>
+      Go to <ulink url="&trac-root;/lfs/newticket"/>
     </para>
   </listitem>
 

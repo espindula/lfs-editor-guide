@@ -13,7 +13,10 @@
     are valid.
   </para>
 
-  <para>If this checks out, then you're done with the package update.</para>
+  <para>If this checks out, then you're done with the package update.
+    For more information about how to build the HTML files from the
+    book sources, refer to <emphasis>Chapter 8</emphasis>.
+  </para>
 
   <para>Commit your changes to the Git repository.</para>
 </sect1>

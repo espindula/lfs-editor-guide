@@ -6,7 +6,6 @@
 ]>
 <book>
 
-
 <xi:include xmlns:xi="http://www.w3.org/2003/XInclude" href="prologue/bookinfo.xml"/>
 
 <xi:include xmlns:xi="http://www.w3.org/2003/XInclude" href="prologue/dedication.xml"/>
@@ -15,6 +14,8 @@
 
 <xi:include xmlns:xi="http://www.w3.org/2003/XInclude" href="chapter01/chapter01.xml"/>
 
+<part>
+  <title>Basic Source Management</title>
 <xi:include xmlns:xi="http://www.w3.org/2003/XInclude" href="chapter02/chapter02.xml"/>
 
 <xi:include xmlns:xi="http://www.w3.org/2003/XInclude" href="chapter03/chapter03.xml"/>
@@ -26,5 +27,11 @@
 <xi:include xmlns:xi="http://www.w3.org/2003/XInclude" href="chapter06/chapter06.xml"/>
 
 <xi:include xmlns:xi="http://www.w3.org/2003/XInclude" href="chapter07/chapter07.xml"/>
+</part>
+
+<part>
+  <title>Automatization</title>
+<xi:include xmlns:xi="http://www.w3.org/2003/XInclude" href="chapter08/chapter08.xml"/>
+</part>
 
 </book>

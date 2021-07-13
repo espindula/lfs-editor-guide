@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.4//EN" "http://www.oasis-open.org/docbook/xml/4.4/docbookx.dtd" [
+  <!ENTITY % general-entities SYSTEM "../general.ent">
+  %general-entities;
+]>
+
+<sect1 id="ch08-basics">
+  <title>Basics</title>
+  <?dbhtml filename="basics.html"?>
+
+  <sect2>
+    <title>Rendering books</title>
+  
+    <para>
+      When a book has been checked out (cloned), change into the
+      top level directory of the book. The creation of
+      the HTML files is started with following command:
+    </para>
+
+<screen><userinput>make</userinput></screen>
+
+    <para>
+      By default, the sysv version of the book will be rendered. To
+      create the systemd version issue:
+    </para>
+
+<screen><userinput>make REV=systemd</userinput></screen>
+
+    <para>
+      The only allowed values for REV are <literal>sysv</literal> or
+      <literal>systemd</literal>. Any other value - while sysv is the
+      default when nothing is specified - will cause an error.
+    </para>
+
+    <para>
+      The output location is depending on the type of the book, it will
+      be different when building the LFS, the BLFS or any other book. 
+      Usually, the output is a drectory in the HOME directory of the
+      current user. As time of writing, the directories are
+      
+      <variablelist>
+        <?dbfo list-presentation="list"?>
+        <?dbhtml list-presentation="table"?>
+
+        <varlistentry>
+          <term><emphasis>Type</emphasis></term>
+          <listitem><para><emphasis>Directory</emphasis></para></listitem>
+        </varlistentry>
+
+        <varlistentry>
+          <term>LFS (sysv)</term>
+          <listitem><para>~/lfs-book</para></listitem>
+        </varlistentry>
+        <varlistentry>
+          <term>LFS (systemd)</term>
+          <listitem><para>~/lfs-systemd</para></listitem>
+        </varlistentry>
+        
+        <varlistentry>
+          <term>BLFS (sysv)</term>
+          <listitem><para>~/public_html/blfs-book</para></listitem>
+        </varlistentry>
+        <varlistentry>
+          <term>BLFS (systemd)</term>
+          <listitem><para>~/public_html/blfs-systemd</para></listitem>
+        </varlistentry>
+        
+        <varlistentry>
+          <term>Editors guide (this book)</term>
+          <listitem><para>~/lfs-editors-guide-output</para></listitem>
+        </varlistentry>
+        
+      </variablelist>
+
+    </para>
+    
+    <para>
+      To specify a different output directory, use the BASEDIR parameter:
+    </para>
+
+<screen><userinput>make BASEDIR=&lt;path/to/put/the/htmls&gt;</userinput></screen>
+
+    <para>
+      Of course, a combination of REV and BASEDIR is allowed.
+    </para>
+
+    <sect3>
+      <title>Other common parameters</title>
+
+      <para>
+        To control whether the build process should show all executed
+        commands in detail, use a non-empty parameter V:
+      </para>
+
+<screen><userinput>make V=1</userinput></screen>
+
+      <para>
+        The build process of LFS or BLFS books requires the production
+        of some temporary data. Parameter RENDERTMP defines where to
+        store such temporary files. The default is
+        <filename class="directory">$HOME/tmp</filename> and can be
+        set to any other directory but it should be different to BASEDIR:
+      </para>
+
+<screen><userinput>make RENDERTMP=&lt;path/to/put/temp/files&gt;</userinput></screen>
+
+    </sect3>
+
+  </sect2>
+
+  <sect2>
+    <title>Bootscripts / Service files</title>
+  
+    <para>
+      TODO: Describe what to do when bootscripts has been changed.
+      Edit chglog, update general.ent in LFS, ..., copy over to anduin, ...
+    </para>
+
+  </sect2>
+  
+</sect1>

@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.4//EN" "http://www.oasis-open.org/docbook/xml/4.4/docbookx.dtd" [
+  <!ENTITY % general-entities SYSTEM "../general.ent">
+  %general-entities;
+]>
+
+<sect1 id="ch08-specials">
+  <title>Specials</title>
+  <?dbhtml filename="specials.html"?>
+
+  <sect2>
+    <title>Specials</title>
+
+    <para>
+      This section describes some extensions and variations available
+      for some type of books.
+    </para>
+
+    <sect3>
+      <title>LFS - Multilib version</title>
+
+      <para>
+        There is a special branch of the LFS book which includes
+        additional instructions for those users who like to build a 
+        system which supports 32bit binaries and not only 64bit.
+        For more details about how and why, refer to that book, here
+        only the parameters required to build the ML book are
+        discussed.
+      </para>
+      
+      <para>
+        In order to use the multilib version of the book, the
+        repository must be switched to the branch <literal>multilib</literal>
+        by using git:
+      </para>
+      
+<screen><userinput>git checkout multilib</userinput></screen>
+
+      <para>
+        To control if and which multilib version of the book will be
+        created, use the ARCH parameter.
+      </para>
+      
+<screen><userinput>make ARCH=ml_32</userinput></screen>
+
+      <para>
+        Possible values for ARCH are
+        <literal>ml_32</literal> to include instructions to support
+        the m32 binaries or <literal>ml_x32</literal> for the mx32
+        architecture. <literal>ml_default</literal> which is used when
+        ARCH is not given, includes none of the additional instructions
+        and the resulting book is nearly identical to the book when
+        the <literal>trunk</literal> branch is used. <literal>ml_all</literal>
+        includes both <literal>ml_32</literal> and <literal>ml_x32</literal>
+        instructions.
+      </para>
+      
+    </sect3>
+    
+  </sect2>
+
+</sect1>

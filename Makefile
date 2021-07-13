@@ -2,7 +2,6 @@ BASEDIR=~/lfs-editors-guide-output
 CHUNK_QUIET=1
 PDF_OUTPUT=LFS-EDITORS-GUIDE.pdf
 NOCHUNKS_OUTPUT=LFS-EDITORS-GUIDE.html
-LFSTRUNK=~/LFS/trunk/BOOK
 LFSXSL=stylesheets
 
 ifdef V
@@ -42,7 +41,7 @@ lfs:
 
 	@echo "Files are in $(BASEDIR)"
 pdf:
-	@echo "Generating pdt..."  
+	@echo "Generating pdf..."
 	$(Q)xsltproc --xinclude \
                 --nonet \
                 --output $(BASEDIR)/lfs-pdf.fo \

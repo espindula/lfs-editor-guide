@@ -14,7 +14,7 @@
   LFS editing is (unsurprisingly) the LFS repository. A complete list of the
   modules which are available can be found using the Trac source browser
   interface at
-  <ulink url="https://wiki4.linuxfromscratch.org/lfs/browser"/>.
+  <ulink url="&trac-root;/lfs/browser"/>.
 </para>
 
 <para>
