@@ -46,8 +46,6 @@ help:
 	@echo "                       the name of the HTML file."
 	@echo ""
 	@echo "  validate             Runs validation checks on the XML files."
-	@echo "                       This target is run by every other targets to"
-	@echo "                       make sure that the XML files are usable."
 	@echo ""
 
 lfs:
