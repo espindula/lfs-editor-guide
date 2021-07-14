@@ -10,7 +10,45 @@ else
   Q = @
 endif
 
+default: lfs
 
+help:
+	@echo ""
+	@echo "make <parameters> <targets>"
+	@echo ""
+	@echo "Parameters:"
+	@echo "  BASEDIR=<dir>        Put the output in directory <dir>."
+	@echo "                       Defaults to '~/lfs-editors-guide-output'."
+	@echo ""
+	@echo "  V=<val>              If <val> is a non-empty value, all"
+	@echo "                       steps to produce the output is shown."
+	@echo "                       Default is unset."
+	@echo ""
+	@echo "Targets:"
+	@echo "  help                 Show this help text."
+	@echo ""
+	@echo "  default              Executes the default target which is"
+	@echo "                       currently 'lfs'."
+	@echo ""
+	@echo "  lfs                  Builds the HTML pages of the book."
+	@echo ""
+	@echo "  pdf                  Builds the PDF representation of the book."
+	@echo "                       'fop' must be installed to work."
+	@echo ""
+	@echo "                       Parameter PDF_OUTPUT=<filename> controls"
+	@echo "                       the name of the PDF file."
+	@echo ""
+	@echo "  nochunks             Builds the book as a one-pager. The output"
+	@echo "                       is a large single HTML page containing the"
+	@echo "                       whole book."
+	@echo ""
+	@echo "                       Parameter NOCHUNKS_OUTPUT=<filename> controls"
+	@echo "                       the name of the HTML file."
+	@echo ""
+	@echo "  validate             Runs validation checks on the XML files."
+	@echo "                       This target is run by every other targets to"
+	@echo "                       make sure that the XML files are usable."
+	@echo ""
 
 lfs:
 	@echo "Generating chunked XHTML files..."  
@@ -40,6 +78,7 @@ lfs:
 	done;
 
 	@echo "Files are in $(BASEDIR)"
+
 pdf:
 	@echo "Generating pdf..."
 	$(Q)xsltproc --xinclude \
