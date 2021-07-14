@@ -17,8 +17,59 @@
     </para>
     
     <para>
-      TODO: Describe the scripts ... blah...
+      Following a list of scripts which might be of interest for
+      rendering and installing the books on the main server:
     </para>
+      
+    <itemizedlist>
+      <listitem>
+        <para>build-lfs-edguide.sh</para>
+        <para>(no parameters)</para>
+        <para>This script creates the Editors Guide as a "one-pager"
+        - meaning the whole guide is in one HTML page.</para>
+        <para>The result can be viewed at <ulink url="&lfs-root;/lfs/LFS-EDITORS-GUIDE.html"/>.</para>
+      </listitem>
+
+      <listitem>
+        <para>check-blfs-files.sh</para>
+        <para>...</para>
+      </listitem>
+
+      <listitem>
+        <para>render-blfs-book-systemd.sh</para>
+        <para>...</para>
+      </listitem>
+
+      <listitem>
+        <para>render-blfs-book.sh</para>
+        <para>...</para>
+      </listitem>
+
+      <listitem>
+        <para>render-lfs-book-dev.sh</para>
+        <para>...</para>
+      </listitem>
+
+      <listitem>
+        <para>render-lfs-book-systemd.sh</para>
+        <para>...</para>
+      </listitem>
+
+      <listitem>
+        <para>update-hints.sh</para>
+        <para>...</para>
+      </listitem>
+
+      <listitem>
+        <para>update-patches.sh</para>
+        <para>...</para>
+      </listitem>
+
+      <listitem>
+        <para>update-website.sh</para>
+        <para>...</para>
+      </listitem>
+    </itemizedlist>
 
   </sect2>
   
@@ -26,7 +77,18 @@
     <title>Cronjobs</title>
     
     <para>
-      TODO: Describe cronjobs ... blah...
+      There are several cronjobs (tasks executed automatically at a
+      specific time). Those tasks automated the rendering of the books
+      as well as the handling of files like patches, bootscripts and
+      so on.
+    </para>
+      
+    <para>
+      Following a list of cronjobs defined on the main server:
+    </para>
+      
+    <para>
+      ...
     </para>
 
   </sect2>
