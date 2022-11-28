@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.4//EN" "http://www.oasis-open.org/docbook/xml/4.4/docbookx.dtd" [
+  <!ENTITY % general-entities SYSTEM "../general.ent">
+  %general-entities;
+]>
+
+<!--
+
+Direitos autorais (Copyright): (c) 2022 Jamenson Ferreira Espindula de Almeida Melo (<jafesp@gmail.com>).
+
+Direitos autorais da versão modificada traduzida para a língua 
+portuguesa escrita e falada no Brasil: (c) 2022 Jamenson Ferreira 
+Espindula de Almeida Melo (<jafesp@gmail.com>).
+
+  Este trabalho de tradução do livro "Manual do Editor do Linux From 
+  Scratch" é classificado pela Free Software Foundation como sendo uma 
+  "versão modificada" do mencionado livro.  Em assim sendo, na qualidade 
+  de tradutor, produtor da "versão modificada" e titular dos direitos 
+  autorais sobre a versão traduzida para a língua portuguesa do livro 
+  "Manual do Editor do Linux From Scratch", concede-se a seguinte 
+  permissão:
+
+  É concedida permissão para copiar, distribuir e (ou) modificar este 
+  livro "Manual do Editor do Linux From Scratch", versão traduzida para 
+  a língua portuguesa, sob os termos da Licença de Documentação Livre 
+  GNU, versão 1.3 ou qualquer versão posterior publicada pela Free 
+  Software Foundation; sem Seções Invariantes, sem Textos de Capa 
+  Frontal e sem Textos de Quarta Capa.  Uma cópia da licença está 
+  incluída na seção intitulada "Licença de Documentação Livre GNU".
+
+# Atenção: todos os documentos aqui publicados são distribuídos sem qualquer garantia, implícita e (ou) explícita.
+
+  Permission is granted to copy, distribute and (or) modify this book 
+  "Linux From Scratch Editor's Manual", translated into Brazilian 
+  Portuguese, under the terms of the GNU Free Documentation License, 
+  Version 1.3 or any later version published by the Free Software 
+  Foundation; with no Invariant Sections, no Front-Cover Texts, and no 
+  Back-Cover Texts.  A copy of the license is included in the section 
+  entitled "GNU Free Documentation License".
+
+# Warning: all the files herein published are released with no warranty, implicit and (or) explicit.
+-->
+
+<sect1 id="ch02-gitssh">
+<title>Acesso SSH Git (para editores(as))</title>
+<?dbhtml filename="gitssh-pt_br.html"?>
+
+<para>
+  Para editores(as), o acesso é ligeiramente mais complicado.  Você 
+  primeiro precisa gerar um par de chaves ssh.  Para gerar as chaves 
+  execute:
+</para>
+
+<para><screen><userinput>ssh-keygen -t ed25519</userinput></screen></para>
+
+<note>
+  <para>
+    Dos(as) Editores(as) não é exigido ter uma conta no servidor, porém 
+    ela [a conta] talvez seja útil.
+  </para>
+</note>
+
+<para>
+  Quando perguntado(a) onde salvar elas, provavelmente é melhor deixá-las 
+  em .ssh (como <filename>id_ed25519</filename> e 
+  <filename>id_ed25519.pub</filename>).  Quando perguntado(a) por uma 
+  frase senha, apenas pressione enter, a menos que você queira dar a 
+  frase <emphasis>a cada</emphasis> vez que você sincronizar para o 
+  servidor.  Entretanto, dado que a mesma frase senha será usada quando 
+  você se logar no <emphasis>rivendell</emphasis> via ssh, talvez seja 
+  aconselhável ter alguma segurança no lugar.
+</para>
+
+<para>
+  Tendo gerado suas chaves, envie o 
+  <filename>~/.ssh/id_ed25519.pub</filename> para um(a) administrador(a) 
+  do LFS para a finalidade de ter ela adicionada ao 
+  <filename>~git/.ssh/authorized_keys</filename> 
+  <emphasis>no rivendell</emphasis>.  Se você estará obtendo uma conta de login no 
+  servidor, [então] o(a) administrador(a) usará a mesma chave para 
+  permitir a você o acesso ssh.
+</para>
+
+<para>
+  Sua cópia local do <filename>id_ed25519</filename> e 
+  <filename>id_ed25519.pub</filename> deveria permanecer intocado por 
+  esse processo.
+</para>
+
+<para>
+  Uma vez que esse processo esteja completo, tente copiar a revisão mais 
+  recente do livro LFS executando (a partir da sua máquina local):
+</para>
+
+<screen><userinput>git clone git@git.linuxfromscratch.org:lfs.git lfsbook</userinput></screen>
+
+<para>
+  Se tudo for bem, [então] você baixará uma cópia do repositório atual 
+  para o <filename class="directory">lfsbook/.git</filename> e você 
+  copiará a ramificação padrão, a qual é chamada de 
+  <emphasis>trunk</emphasis>.  Você também terá acesso de escrita, de 
+  forma que, de agora em diante, seja extra cuidadoso(sa).  Observe que 
+  <emphasis>nenhuma</emphasis> mudança será feita até que você emita um 
+  comando <userinput>git push</userinput>.
+</para>
+
+<para>
+  O acima está bom para obter a ramificação padrão, porém você talvez 
+  queira trabalhar em uma ramificação pública diferente.  Para 
+  configurar uma ramificação local que rastreie uma ramificação pública 
+  chamada <emphasis>new_branch</emphasis>, apenas emita:
+</para>
+
+<screen><userinput>git checkout --track origin/<replaceable>&lt;new_branch&gt;</replaceable></userinput></screen>
+
+<note>
+  <title>Observação para Usuários(as) do Subversion</title>
+  <para>
+    Contrariamente ao Subversion, onde você precisa copiar uma cópia 
+    funcional nova da ramificação remota, com o Git quase nada é 
+    baixado.  O diretório local agora reflete a ramificação nova, porém 
+    o diretório da ramificação antiga não mais existe.
+  </para>
+</note>
+
+<para>
+  Se você precisar trabalhar na ramificação padrão chamada 
+  <emphasis>trunk</emphasis>, [então] apenas comite suas mudanças (se 
+  alguma) para a ramificação nova (o commit é local), e mude de volta 
+  para trunk com:
+</para>
+
+<screen><userinput>git checkout trunk</userinput></screen>
+
+<para>
+  Dado que a ramificação nova já está configurada, se você quiser 
+  novamente trabalhar na ramificação nova, apenas faça:
+</para>
+
+<screen><userinput>git checkout <replaceable>&lt;new_branch&gt;</replaceable></userinput></screen>
+
+<para>
+  Como com o acesso anônimo, você pode atualizar seu repositório local 
+  simplesmente emitindo um <command>cd</command> para o diretório LFS e 
+  executando:
+</para>
+
+<para><screen><userinput>git pull</userinput></screen></para>
+
+</sect1>

@@ -55,7 +55,7 @@ lfs:
                 -stringparam chunk.quietly $(CHUNK_QUIET) \
                 -stringparam base.dir $(BASEDIR)/ \
                 $(LFSXSL)/lfs-chunked.xsl \
-                index-pt_br.xml
+                index.xml
 
 	$(Q)mkdir -p                   $(BASEDIR)/stylesheets
 	$(Q)cp $(LFSXSL)/lfs-xsl/*.css $(BASEDIR)/stylesheets
@@ -83,7 +83,7 @@ pdf:
                 --nonet \
                 --output $(BASEDIR)/lfs-pdf.fo \
                 $(LFSXSL)/lfs-pdf.xsl \
-                index-pt_br.xml
+                index.xml
 
 	$(Q)sed -i -e "s/inherit/all/" $(BASEDIR)/lfs-pdf.fo
 	$(Q)fop $(BASEDIR)/lfs-pdf.fo $(BASEDIR)/$(PDF_OUTPUT)
@@ -97,7 +97,7 @@ nochunks:
                 -stringparam profile.condition html    \
                 --output $(BASEDIR)/$(NOCHUNKS_OUTPUT) \
                 $(LFSXSL)/lfs-nochunks.xsl             \
-                index-pt_br.xml
+                index.xml
 
 	$(Q)tidy -config tidy.conf $(BASEDIR)/$(NOCHUNKS_OUTPUT) || true
 
@@ -105,4 +105,4 @@ nochunks:
 	@echo "File is $(BASEDIR)/$(NOCHUNKS_OUTPUT)"
 
 validate:
-	$(Q)xmllint --noout --nonet --xinclude --postvalid index-pt_br.xml
+	$(Q)xmllint --noout --nonet --xinclude --postvalid index.xml

@@ -2,7 +2,7 @@
 <!ENTITY month   "07">
 <!ENTITY day     "13">
 <!ENTITY version "&year;&month;&day;">
-<!ENTITY releasedate "13 de julho de 2021">
+<!ENTITY releasedate "July 13th 2021">
 
 <!ENTITY lfs-root  "https://www.linuxfromscratch.org">
 <!ENTITY trac-root "https://wiki.linuxfromscratch.org">
