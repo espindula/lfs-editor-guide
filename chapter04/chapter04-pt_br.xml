@@ -51,6 +51,6 @@ Espindula de Almeida Melo (<jafesp@gmail.com>).
  <xi:include xmlns:xi="http://www.w3.org/2003/XInclude" href="updatechangelog-pt_br.xml"/>
  <xi:include xmlns:xi="http://www.w3.org/2003/XInclude" href="checkfiles-pt_br.xml"/>
  <xi:include xmlns:xi="http://www.w3.org/2003/XInclude" href="commenting-pt_br.xml"/>
- <xi:include xmlns:xi="http://www.w3.org/2003/XInclude" href="commit.xml"/>
- <xi:include xmlns:xi="http://www.w3.org/2003/XInclude" href="trac.xml"/>
+ <xi:include xmlns:xi="http://www.w3.org/2003/XInclude" href="commit-pt_br.xml"/>
+ <xi:include xmlns:xi="http://www.w3.org/2003/XInclude" href="trac-pt_br.xml"/>
 </chapter>
