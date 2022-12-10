@@ -51,7 +51,7 @@ Espindula de Almeida Melo (<jafesp@gmail.com>).
     remover arquivos, você sempre deveria fazer isso com
     <command>git rm</command>.  Mover ou renomear arquivos é feito com
     <command>git mv</command>.  Adicionar um diretório e todos os filhos dele é feito 
-    com <command>git add &lt;dirname&gt;</command>.
+    com <command>git add &lt;nome_diretório&gt;</command>.
   </para>
 
   <para>
