@@ -1,0 +1,203 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.4//EN" "http://www.oasis-open.org/docbook/xml/4.4/docbookx.dtd" [
+  <!ENTITY % general-entities SYSTEM "../general.ent">
+  %general-entities;
+]>
+
+<!--
+
+Direitos autorais (Copyright): (c) 2022 Jamenson Ferreira Espindula de Almeida Melo (<jafesp@gmail.com>).
+
+Direitos autorais da versão modificada traduzida para a língua 
+portuguesa escrita e falada no Brasil: (c) 2022 Jamenson Ferreira 
+Espindula de Almeida Melo (<jafesp@gmail.com>).
+
+  Este trabalho de tradução do livro "Manual do Editor do Linux From 
+  Scratch" é classificado pela Free Software Foundation como sendo uma 
+  "versão modificada" do mencionado livro.  Em assim sendo, na qualidade 
+  de tradutor, produtor da "versão modificada" e titular dos direitos 
+  autorais sobre a versão traduzida para a língua portuguesa do livro 
+  "Manual do Editor do Linux From Scratch", concede-se a seguinte 
+  permissão:
+
+  É concedida permissão para copiar, distribuir e (ou) modificar este 
+  livro "Manual do Editor do Linux From Scratch", versão traduzida para 
+  a língua portuguesa, sob os termos da Licença de Documentação Livre 
+  GNU, versão 1.3 ou qualquer versão posterior publicada pela Free 
+  Software Foundation; sem Seções Invariantes, sem Textos de Capa 
+  Frontal e sem Textos de Quarta Capa.  Uma cópia da licença está 
+  incluída na seção intitulada "Licença de Documentação Livre GNU".
+
+# Atenção: todos os documentos aqui publicados são distribuídos sem qualquer garantia, implícita e (ou) explícita.
+
+  Permission is granted to copy, distribute and (or) modify this book 
+  "Linux From Scratch Editor's Manual", translated into Brazilian 
+  Portuguese, under the terms of the GNU Free Documentation License, 
+  Version 1.3 or any later version published by the Free Software 
+  Foundation; with no Invariant Sections, no Front-Cover Texts, and no 
+  Back-Cover Texts.  A copy of the license is included in the section 
+  entitled "GNU Free Documentation License".
+
+# Warning: all the files herein published are released with no warranty, implicit and (or) explicit.
+-->
+
+<sect1 id="ch05-filingbug">
+  <title>Registre um defeito novo</title>
+  <?dbhtml filename="enternewbug-pt_br.html"?>
+
+  <para>
+    Você encontrou um defeito ou outra pessoa encontrou um defeito e 
+    você decidiu adicioná-lo ao Trac.  Ou você quer registrar uma 
+    solicitação para uma característica que alguma pessoa tenha pedido 
+    ou uma tarefa de algum outro tipo.
+  </para>
+
+  <itemizedlist>
+
+  <listitem>
+
+    <para>
+
+      Vá para <ulink url="&trac-root;/lfs/newticket"/>
+
+    </para>
+
+  </listitem>
+
+  <listitem>
+
+    <para>
+
+      Selecione o tipo de tíquete (defeito por bugs; ou aprimoramento; 
+      ou tarefa).
+
+    </para>
+
+  </listitem>
+
+  <listitem>
+
+    <para>
+
+      O <emphasis>Sumário curto</emphasis> e a
+      <emphasis>Descrição completa</emphasis> são obrigatórios.
+
+    </para>
+
+  </listitem>
+
+  <listitem>
+
+    <para>
+
+      Selecione a <emphasis>Prioridade</emphasis>.  Use seu próprio 
+      julgamento acerca do quão importante é consertar esse defeito.  Se 
+      você não tiver certeza, [então] apenas deixe o padrão.  As 
+      prioridades periodicamente são reavaliadas e mudadas de qualquer 
+      maneira.
+
+    </para>
+
+  </listitem>
+
+  <listitem>
+
+    <para>
+
+      Selecione o <emphasis>Componente</emphasis> - as únicas opções são 
+      Book ou Bootscripts.
+
+    </para>
+
+  </listitem>
+
+  <listitem>
+
+    <para>
+
+      Selecione a <emphasis>Severidade</emphasis> conforme apropriado, 
+      algo de trivial até crítica ou bloqueadora.
+
+    </para>
+
+  </listitem>
+
+  <listitem>
+
+    <para>
+
+      Se você não quiser vincular-se imediatamente, [então] deixe o 
+      campo <emphasis>Assign To</emphasis> em branco.  Será vinculado ao 
+      <email>lfs-book@linuxfromscratch.org</email> até que um(a) 
+      editor(a) mude isso para ele(a) próprio(a).
+
+    </para>
+
+  </listitem>
+
+  <listitem>
+
+    <para>
+
+      Se você desejar, [então] selecione um
+      <emphasis>Marco histórico</emphasis>: ou a próxima versão; ou futuro.
+
+    </para>
+
+  </listitem>
+
+  <listitem>
+
+    <para>
+
+      Selecione a <emphasis>Versão</emphasis> apropriada.  Quase sempre 
+      você escolherá a versão <emphasis>SVN</emphasis>.  Não faz sentido 
+      relatar um defeito contra uma versão antiga se ela não mais está 
+      no Subversion.  Se ela estiver, então a SVN é mais nova que uma 
+      versão estável do livro lançada anteriormente.  As versões estão 
+      lá basicamente somente para pessoas que não editam o livro e quem 
+      quer relatar um defeito contra a versão do livro que tem.
+
+    </para>
+
+  </listitem>
+
+  <listitem>
+
+    <para>
+
+      Preencha os campos <emphasis>Keywords</emphasis> e 
+      <emphasis>Cc:</emphasis> se você desejar.
+
+    </para>
+
+  </listitem>
+
+  <listitem>
+
+    <para>
+
+      Se você estiver usando qualquer formatação no campo Descrição 
+      completa, [então] você talvez deseje clicar no botão 
+      <emphasis>Preview</emphasis>.
+
+    </para>
+
+  </listitem>
+
+  <listitem>
+
+    <para>
+
+      Como o último passo, clique no botão
+      <emphasis>Submit ticket</emphasis> para comitar as suas mudanças para a base de 
+      dados.  Um registro disso será enviado para a lista de discussão 
+      <email>lfs-book@linuxfromscratch.org</email>.
+
+    </para>
+
+  </listitem>
+
+</itemizedlist>
+
+</sect1>
