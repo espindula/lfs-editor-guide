@@ -48,6 +48,6 @@ Espindula de Almeida Melo (<jafesp@gmail.com>).
   <xi:include xmlns:xi="http://www.w3.org/2003/XInclude" href="introduction-pt_br.xml"/>
   <xi:include xmlns:xi="http://www.w3.org/2003/XInclude" href="addingcomments-pt_br.xml"/>
   <xi:include xmlns:xi="http://www.w3.org/2003/XInclude" href="enternewbugs-pt_br.xml"/>
-  <xi:include xmlns:xi="http://www.w3.org/2003/XInclude" href="assignbug.xml"/>
-  <xi:include xmlns:xi="http://www.w3.org/2003/XInclude" href="fixbug.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2003/XInclude" href="assignbug-pt_br.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2003/XInclude" href="fixbug-pt_br.xml"/>
 </chapter>
