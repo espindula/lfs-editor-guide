@@ -1,0 +1,231 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.4//EN" "http://www.oasis-open.org/docbook/xml/4.4/docbookx.dtd" [
+  <!ENTITY % general-entities SYSTEM "../general.ent">
+  %general-entities;
+]>
+
+<!--
+
+Direitos autorais (Copyright): (c) 2022 Jamenson Ferreira Espindula de Almeida Melo (<jafesp@gmail.com>).
+
+Direitos autorais da versão modificada traduzida para a língua 
+portuguesa escrita e falada no Brasil: (c) 2022 Jamenson Ferreira 
+Espindula de Almeida Melo (<jafesp@gmail.com>).
+
+  Este trabalho de tradução do livro "Manual do Editor do Linux From 
+  Scratch" é classificado pela Free Software Foundation como sendo uma 
+  "versão modificada" do mencionado livro.  Em assim sendo, na qualidade 
+  de tradutor, produtor da "versão modificada" e titular dos direitos 
+  autorais sobre a versão traduzida para a língua portuguesa do livro 
+  "Manual do Editor do Linux From Scratch", concede-se a seguinte 
+  permissão:
+
+  É concedida permissão para copiar, distribuir e (ou) modificar este 
+  livro "Manual do Editor do Linux From Scratch", versão traduzida para 
+  a língua portuguesa, sob os termos da Licença de Documentação Livre 
+  GNU, versão 1.3 ou qualquer versão posterior publicada pela Free 
+  Software Foundation; sem Seções Invariantes, sem Textos de Capa 
+  Frontal e sem Textos de Quarta Capa.  Uma cópia da licença está 
+  incluída na seção intitulada "Licença de Documentação Livre GNU".
+
+# Atenção: todos os documentos aqui publicados são distribuídos sem qualquer garantia, implícita e (ou) explícita.
+
+  Permission is granted to copy, distribute and (or) modify this book 
+  "Linux From Scratch Editor's Manual", translated into Brazilian 
+  Portuguese, under the terms of the GNU Free Documentation License, 
+  Version 1.3 or any later version published by the Free Software 
+  Foundation; with no Invariant Sections, no Front-Cover Texts, and no 
+  Back-Cover Texts.  A copy of the license is included in the section 
+  entitled "GNU Free Documentation License".
+
+# Warning: all the files herein published are released with no warranty, implicit and (or) explicit.
+-->
+
+<sect1 id="ch06-updateftp">
+  <title>Atualizando o Arquivamento FTP do LFS</title>
+  <?dbhtml filename="updateftp-pt_br.html"?>
+
+  <para>
+
+    Agora que o livro foi atualizado, é tempo de atualizar o 
+    arquivamento FTP do LFS, de forma que as pessoas possam baixar o 
+    pacote novo.
+
+  </para>
+
+  <itemizedlist>
+
+    <listitem>
+
+      <para>
+
+        Mova o tarball do pacote novo do seu diretório home em belgarath 
+        para o diretório
+        <filename class="directory">/home/ftp/lfs-packages/conglomeration</filename>.
+
+      </para>
+
+    </listitem>
+
+    <listitem>
+
+      <para>
+
+        Vá para o diretório
+        <filename class="directory">/home/ftp/lfs-packages/cvs</filename>.
+
+      </para>
+
+    </listitem>
+
+    <listitem>
+
+      <para>
+
+        Remova o link simbólico que aponta para o pacote antigo.
+
+      </para>
+
+    </listitem>
+
+    <listitem>
+
+      <para>
+
+        Crie um link simbólico novo que aponte para o pacote novo 
+        executando um comando como
+        <userinput>ln -s ../conglomeration/package-newversion.tar.bz2</userinput>
+
+      </para>
+
+    </listitem>
+
+    <listitem>
+
+      <para>
+
+        Remova o arquivo <filename>lfs-packages-cvs-*</filename>.
+
+      </para>
+
+    </listitem>
+
+    <listitem>
+
+      <para>
+
+        Recrie o arquivo <filename>00MD5SUMS</filename> executando:
+
+      </para>
+
+      <para>
+
+        <screen><userinput>rm 00MD5SUMS &amp;&amp; md5sum * > 00MD5SUMS</userinput></screen>
+
+      </para>
+
+    </listitem>
+
+    <listitem>
+
+      <para>
+
+        Execute o <userinput>date</userinput> para obter a data e hora 
+        atuais no servidor.
+
+      </para>
+
+    </listitem>
+
+    <listitem>
+
+      <para>
+
+        Vá para o diretório
+        <filename class="directory">/home/ftp/lfs-packages</filename> e crie um 
+        tarball novo lfs-packages executando os comandos seguintes:
+
+      </para>
+
+      <para>
+
+        <screen><userinput>cp -av cvs lfs-packages-cvs-yyyymmdd-hhmm &amp;&amp;
+tar cvfh lfs-packages-cvs-yyyymmdd-hhmm.tar lfs-packages-cvs-yyyymmdd-hhmm &amp;&amp;
+rm -r cvs &amp;&amp;
+mv lfs-packages-yyyymmdd-hhmm cvs &amp;&amp;
+mv lfs-packages-yyyymmdd-hhmm.tar cvs</userinput></screen>
+
+      </para>
+
+    </listitem>
+
+    <listitem>
+
+      <para>
+
+        Adicione o hash MD5 novo do lfs-packages ao arquivo 00MD5SUMS:
+
+      </para>
+
+      <para>
+
+<screen><userinput>cd cvs &amp;&amp;
+md5sum lfs-packages-yyyymmdd-hhmm.tar >> 00MD5SUMS</userinput></screen>
+
+      </para>
+
+    </listitem>
+
+    <listitem>
+
+      <para>
+
+        Verifique o tamanho de arquivo desse tarball novo 
+        lfs-packages-cvs e o divida por <emphasis>1024</emphasis> para 
+        obter o número de Kilobytes.  Arredonde-o para o Kilobyte mais 
+        próximo.  Divida esse número por <emphasis>1024</emphasis> para 
+        obter o número de Megabytes e arredonde-o para dois dígitos após 
+        o ponto decimal.
+
+      </para>
+
+    </listitem>
+
+    <listitem>
+
+      <para>
+
+        Volte ao Livro LFS e edite o arquivo 
+        <filename>index.xml</filename>.
+
+      </para>
+
+    </listitem>
+
+    <listitem>
+
+      <para>
+
+        Atualize a entidade <emphasis>all-version</emphasis> e informe a 
+        sequência de caracteres nova da versão no formato 
+        <emphasis>cvs-yyyymmdd-hhmm</emphasis>.
+
+      </para>
+
+    </listitem>
+
+    <listitem>
+
+      <para>
+
+        Atualize as entidades <emphasis>all-size-kb</emphasis> e 
+        <emphasis>all-size-mb</emphasis> com os valores que você 
+        calculou acima.
+
+      </para>
+
+    </listitem>
+
+  </itemizedlist>
+
+</sect1>

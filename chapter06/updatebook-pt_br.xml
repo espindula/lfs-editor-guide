@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.4//EN" "http://www.oasis-open.org/docbook/xml/4.4/docbookx.dtd" [
+  <!ENTITY % general-entities SYSTEM "../general.ent">
+  %general-entities;
+]>
+
+<!--
+
+Direitos autorais (Copyright): (c) 2022 Jamenson Ferreira Espindula de Almeida Melo (<jafesp@gmail.com>).
+
+Direitos autorais da versão modificada traduzida para a língua 
+portuguesa escrita e falada no Brasil: (c) 2022 Jamenson Ferreira 
+Espindula de Almeida Melo (<jafesp@gmail.com>).
+
+  Este trabalho de tradução do livro "Manual do Editor do Linux From 
+  Scratch" é classificado pela Free Software Foundation como sendo uma 
+  "versão modificada" do mencionado livro.  Em assim sendo, na qualidade 
+  de tradutor, produtor da "versão modificada" e titular dos direitos 
+  autorais sobre a versão traduzida para a língua portuguesa do livro 
+  "Manual do Editor do Linux From Scratch", concede-se a seguinte 
+  permissão:
+
+  É concedida permissão para copiar, distribuir e (ou) modificar este 
+  livro "Manual do Editor do Linux From Scratch", versão traduzida para 
+  a língua portuguesa, sob os termos da Licença de Documentação Livre 
+  GNU, versão 1.3 ou qualquer versão posterior publicada pela Free 
+  Software Foundation; sem Seções Invariantes, sem Textos de Capa 
+  Frontal e sem Textos de Quarta Capa.  Uma cópia da licença está 
+  incluída na seção intitulada "Licença de Documentação Livre GNU".
+
+# Atenção: todos os documentos aqui publicados são distribuídos sem qualquer garantia, implícita e (ou) explícita.
+
+  Permission is granted to copy, distribute and (or) modify this book 
+  "Linux From Scratch Editor's Manual", translated into Brazilian 
+  Portuguese, under the terms of the GNU Free Documentation License, 
+  Version 1.3 or any later version published by the Free Software 
+  Foundation; with no Invariant Sections, no Front-Cover Texts, and no 
+  Back-Cover Texts.  A copy of the license is included in the section 
+  entitled "GNU Free Documentation License".
+
+# Warning: all the files herein published are released with no warranty, implicit and (or) explicit.
+-->
+
+<sect1 id="ch06-updatebook">
+  <title>Atualize o Livro</title>
+  <?dbhtml filename="updatebook-pt_br.html"?>
+
+  <para>
+
+    Quando você for atualizar o livro para adicionar um pacote novo a 
+    ele, aqui está como você faz isso:
+
+  </para>
+
+  <itemizedlist>
+
+    <listitem>
+
+      <para>
+
+        Vincule-se ao tíquete para esse pacote novo.
+
+      </para>
+
+    </listitem>
+
+    <listitem>
+
+      <para>
+
+        Construa um sistema LFS de teste para ter a certeza de que esse 
+        pacote compila adequadamente em um ambiente LFS.  Não use o seu 
+        ambiente regular da estação de trabalho - ele talvez esteja 
+        suficientemente diferente para afetar os procedimentos de 
+        construção.  Um pacote talvez dependa de alguma coisa que você 
+        tenha instalado, porém a qual não vem com o Livro LFS.  Tenha em 
+        mente também que alguns pacotes são usados mais que uma vez no 
+        processo de construção do LFS.
+
+      </para>
+
+    </listitem>
+
+    <listitem>
+
+      <para>
+
+        Atualize as instruções de instalação no livro, se necessário.
+
+      </para>
+
+    </listitem>
+
+    <listitem>
+
+      <para>
+
+        Quando o pacote compilar adequadamente e o pacote também 
+        funcionar (não der falha de segmentação ou exibir outros erros 
+        quando se tentar executar aplicativos a partir dele), então abra 
+        o <filename>packages.ent</filename> em um editor.
+
+      </para>
+
+    </listitem>
+
+    <listitem>
+
+      <para>
+
+        Encontre a entidade <emphasis>package-version</emphasis> e 
+        atualize o valor dela para a versão nova.
+
+      </para>
+
+    </listitem>
+
+    <listitem>
+
+      <para>
+
+        Atualize a lista dos arquivos instalados pela versão nova do 
+        pacote.  Isso pode ser obtido trivialmente usando o 
+        <command>find</command> imediatamente antes de e imediatamente 
+        depois que instalar a versão nova e comparar com o 
+        <command>diff</command> as duas saídas geradas.
+
+      </para>
+
+    </listitem>
+
+  </itemizedlist>
+
+</sect1>
