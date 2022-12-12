@@ -1,0 +1,229 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.4//EN" "http://www.oasis-open.org/docbook/xml/4.4/docbookx.dtd" [
+  <!ENTITY % general-entities SYSTEM "../general.ent">
+  %general-entities;
+]>
+
+<!--
+
+Direitos autorais (Copyright): (c) 2022 Jamenson Ferreira Espindula de Almeida Melo (<jafesp@gmail.com>).
+
+Direitos autorais da versão modificada traduzida para a língua 
+portuguesa escrita e falada no Brasil: (c) 2022 Jamenson Ferreira 
+Espindula de Almeida Melo (<jafesp@gmail.com>).
+
+  Este trabalho de tradução do livro "Manual do Editor do Linux From 
+  Scratch" é classificado pela Free Software Foundation como sendo uma 
+  "versão modificada" do mencionado livro.  Em assim sendo, na qualidade 
+  de tradutor, produtor da "versão modificada" e titular dos direitos 
+  autorais sobre a versão traduzida para a língua portuguesa do livro 
+  "Manual do Editor do Linux From Scratch", concede-se a seguinte 
+  permissão:
+
+  É concedida permissão para copiar, distribuir e (ou) modificar este 
+  livro "Manual do Editor do Linux From Scratch", versão traduzida para 
+  a língua portuguesa, sob os termos da Licença de Documentação Livre 
+  GNU, versão 1.3 ou qualquer versão posterior publicada pela Free 
+  Software Foundation; sem Seções Invariantes, sem Textos de Capa 
+  Frontal e sem Textos de Quarta Capa.  Uma cópia da licença está 
+  incluída na seção intitulada "Licença de Documentação Livre GNU".
+
+# Atenção: todos os documentos aqui publicados são distribuídos sem qualquer garantia, implícita e (ou) explícita.
+
+  Permission is granted to copy, distribute and (or) modify this book 
+  "Linux From Scratch Editor's Manual", translated into Brazilian 
+  Portuguese, under the terms of the GNU Free Documentation License, 
+  Version 1.3 or any later version published by the Free Software 
+  Foundation; with no Invariant Sections, no Front-Cover Texts, and no 
+  Back-Cover Texts.  A copy of the license is included in the section 
+  entitled "GNU Free Documentation License".
+
+# Warning: all the files herein published are released with no warranty, implicit and (or) explicit.
+-->
+
+<sect1 id="ch07-introduction">
+  <title>Introdução</title>
+  <?dbhtml filename="introduction-pt_br.html"?>
+
+  <para>
+
+    Em ambos LFS e BLFS nós tentamos avisar nossos(as) usuários(as) das 
+    vulnerabilidades de segurança.  As vezes, vulnerabilidades são 
+    mencionadas em um anúncio de lançamento; outras vezes elas são 
+    divulgadas posteriormente.
+
+  </para>
+
+  <para>
+
+    Os avisos atuais apontam para os livros de desenvolvimento, com os 
+    avisos anteriores apontando para os livros numerados (em vez de 
+    'estáveis').  Provavelmente você precisará criar alguns links 
+    simbólicos onde quer que você renderize os livros para que ambas as 
+    versões dos livros LFS e BLFS atuais apontem para suas cópias 
+    locais, de forma que você possa verificá-las antes de enviar.  Se 
+    você tiver renderizações locais dos livros lançados atualmente, 
+    [então] também poderá criar um link para eles.  Como 
+    <filename>consolidated.html</filename> está localizado no livro 
+    BLFS, você precisará criar um link simbólico especial para chegar a 
+    ele a partir dos seus avisos locais do LFS.
+
+  </para>
+
+  <para>
+
+    Por razões históricas, os links no rivendell apontam para 'svn' e 
+    'systemd' para os livros atuais.
+
+  </para>
+
+  <para>
+
+    Normalmente, emitiremos um aviso de segurança assim que tivermos uma 
+    correção testada no livro apropriado (LFS ou BLFS), ou seja, uma 
+    versão mais recente ou um patch.  No entanto, as vezes, uma 
+    vulnerabilidade permanece aberta por muito tempo e nós talvez 
+    optemos por sugerir uma solução alternativa, como
+    "não use essa característica do pacote".
+
+  </para>
+
+  <para>
+
+    Nós tentamos fornecer detalhes suficientes para habilitar os(as) 
+    usuários(as) a decidirem se precisam atualizar o mais rápido 
+    possível, incluindo uma avaliação de vulnerabilidade e quaisquer 
+    detalhes que possamos encontrar.  Se o(a) desenvolvedor(a) fornecer 
+    uma avaliação da gravidade, [então] normalmente usaremos essa.  Do 
+    contrário, precisamos procurar por aí por detalhes.  Se os detalhes 
+    de um CVE estiverem visíveis publicamente, [então] existiria uma 
+    classificação em <ulink url="https://nvd.nist.gov/vuln/search"/>, 
+    apesar de, as vezes, esse sítio rotular os problemas como Moderados 
+    quando uma classificação de Alta seria apropriado.  Se em dúvida, 
+    [então] nossa classificação padrão é Alta.
+
+  </para>
+
+  <para>
+
+    Na teoria, um(a) usuário(a) de uma versão anterior recente do livro 
+    pode examinar nossas vulnerabilidades atuais e anteriores e ver cada 
+    vulnerabilidade corrigida a qual afeta um pacote.  Na prática, nem 
+    sempre fica claro que uma versão mais recente corrigiu a 
+    vulnerabilidade - se isso vier à tona depois que tenhamos feito um 
+    lançamento com uma versão mais recente do pacote, [então] tais itens 
+    seriam ignorados na presunção de que a maioria dos(as) usuários(as) 
+    já consultou as vulnerabilidades anteriores e é improvável que note 
+    adições novas - por exemplo, uma vulnerabilidade no flac-3.2 foi 
+    corrigida no flac-3.3, porém não mencionada publicamente.  Em tais 
+    casos, nós podemos adicionar uma seção 'Avisos Tardios' entre os 
+    avisos para o livro atual e os avisos anteriores - veja-se 10.0-102 
+    no <filename>consolidated.html</filename> e a entrada correspondente 
+    no <filename>10.0.html</filename>.  Nesses casos, a melhor maneira 
+    para alertar os(as) usuários(as) é a de anunciar o aviso nas listas 
+    lfs-support e blfs-support.
+
+  </para>
+
+  <para>
+
+    De tempos em tempos, nós talvez fiquemos cientes de que os detalhes 
+    de um aviso deveriam ser mudados, por exemplo, aconteceria de ele 
+    ser inválido por alguma razão (por exemplo, nunca em uma versão 
+    lançada; ou aplicável somente ao Windows).  Quando isso acontecer, 
+    nós podemos modificar o item existente e mudar a entrada 'Data' para 
+    'Atualizado' com a data atual.
+
+  </para>
+
+  <para>
+
+    Para atualizações diárias dos avisos, os arquivos estão organizados 
+    em:
+
+  </para>
+
+  <itemizedlist>
+
+    <listitem>
+
+      <para>
+
+        <filename>blfs/advisories/consolidated.html</filename> 
+        (compartilhado entre o LFS e o BLFS).
+
+      </para>
+
+    </listitem>
+
+    <listitem>
+
+      <para>
+
+        <filename>lfs/advisories/NN.N.html</filename> (para quaisquer 
+        avisos do LFS desde o lançamento (NN.N) atual).
+
+      </para>
+
+    </listitem>
+
+    <listitem>
+
+      <para>
+
+        <filename>bfs/advisories/NN.N.html</filename> (para quaisquer 
+        avisos do BLFS desde o lançamento (NN.N) atual).
+
+      </para>
+
+    </listitem>
+
+  </itemizedlist>
+
+  <para>
+
+    Existem duas partes para se criar um aviso:
+
+  </para>
+
+  <itemizedlist>
+
+    <listitem>
+
+      <para>
+
+        Pegar o próximo número disponível para criar uma entrada no 
+        <filename>consolidated.html</filename> contendo os detalhes 
+        necessários.
+
+      </para>
+
+    </listitem>
+
+    <listitem>
+
+      <para>
+
+        Adicionar detalhes resumidos do aviso para esta versão do LFS ou 
+        do BLFS.
+
+      </para>
+
+    </listitem>
+
+  </itemizedlist>
+
+  <para>
+
+    <emphasis>
+
+      Grande parte de qualquer item novo será copiado a partir de um 
+      modelo ou a partir de um aviso anterior.  É importante investir 
+      tempo quando revisar o que você criou, para ver se ele lê e 
+      vincula corretamente.
+
+    </emphasis>
+
+  </para>
+
+</sect1>
