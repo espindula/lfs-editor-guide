@@ -1,0 +1,3710 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content=
+    "application/xhtml+xml; charset=iso-8859-1" />
+    <title>
+      Manual do Editor do Linux From Scratch
+    </title>
+    <meta name="generator" content="DocBook XSL Stylesheets Vsnapshot" />
+    <meta name="description" content=
+    "Este manual ensina a você como editar adequadamente o Livro LFS." />
+    <style type="text/css">
+    /*<![CDATA[*/
+    /* Global settings */
+    body {
+    font-family: verdana, tahoma, helvetica, arial, sans-serif;
+    text-align: left;
+    background: #fff;
+    color: #222;
+    margin: 1em;
+    padding: 0;
+    font-size: 1em;
+    line-height: 1.2em
+    }
+
+
+    /* Links */
+    a:link { color: #22b; }
+    a.ulink:link { font-weight: bold; color: #55f; }
+    a:visited { color: #7e4988 ! important; }
+    a:hover, a:focus { color: #d30e08 ! important; }
+    a:active { color: #6b77b1 ! important;}
+
+
+    /* Book titlepage */
+    .book {
+    margin: 0px auto;
+    padding: 0 1em;
+    }
+
+    .book h1, .book .authorgroup, .book .copyright, .book .legalnotice .revhistory {
+    background: #f5f6f7;
+    margin: 0px auto;
+    padding: .1em 1em;
+    }
+
+    .book hr {
+    background: #dbddec;
+    background-color: #fff;
+    height: .3em;
+    border: 0px;
+    margin: 0;
+    padding: 0;
+    }
+
+    /* Sections */
+    div.sect1, div.appendix {
+    padding-left: .3em;
+    }
+
+    .package, .kernel, .installation, .commands, .testing, .configuration, .content {
+    padding: 0 .5em .2em 0;
+    margin: 0;
+    }
+
+    .lfs .package {
+    background: #f5f6f7;
+    border-bottom: 0.2em solid #dbddec;
+    padding-top: .1em;
+    margin-top: 0;
+    }
+
+    .lfs .configuration {
+    background:   #fefefe;
+    border-top: 0.2em solid #dbddec;
+    }
+
+    .lfs .content {
+    background: #f5f6f7;
+    border-top: 0.2em solid #dbddec;
+    border-bottom: 0.2em solid #dbddec;
+    padding-bottom: .1em;
+    margin-bottom: 0;
+    }
+
+
+    /* Headers */
+    h1, h2, h3, h4, h5, h6, b, .strong {
+    color: #000;
+    font-weight: bold;
+    line-height: 1em;
+    }
+
+    h1 {
+    font-size: 173%;
+    /*text-align: center;*/
+    }
+
+    .book h1 {
+    margin: 0;
+    padding: 0.4em;
+    }
+
+    .book .dedication {
+    background: #fff;
+    border: 0.2em;
+    }
+
+    h1.title sup {
+    font-size: small;
+    }
+
+    h2 {
+    font-size: 144%;
+    }
+
+    .preface h2, .part h1, .chapter h2, .appendix h2, .index h1, .sect1 h2 {
+    /*background: #f5f6f7;
+    border-top: .2em solid #dbddec;
+    border-bottom: .2em solid #dbddec;*/
+    margin-bottom: 1em;
+    margin-top: 1em;
+    padding: .4em;
+    /*text-align: center;*/
+    }
+
+    .sect1 h2, .appendix h2 {
+    margin-left: -.2em;
+    }
+
+    .wrap h2 {
+    background: #f5f6f7;
+    border-bottom: 0;
+    margin-top: 1em;
+    margin-bottom: 0;
+    padding-top: .4em;
+    }
+
+    .book h2.subtitle {
+    /*text-align: center;*/
+    text-align: left;
+    background: #dbddec;
+    margin: 0;
+    padding: 0.4em;
+    }
+
+    h3 {
+    font-size: 120%;
+    }
+
+    .appendix h3 {
+    font-size: 133%;
+    margin-top: .8em;
+    margin-bottom: 0.2em;
+    }
+
+    h4 {
+    font-size: 110%;
+    }
+
+    .package h4, h5, h6 {
+    font-size: 100%;
+    font-style: italic;
+    }
+
+
+    /* TOC */
+    div.toc ul, div.index ul, div.navheader ul, div.navfooter ul {
+    list-style: none;
+    }
+
+    div.toc {
+    padding-left: 1em;
+    }
+
+    li.preface, .part li.appendix {
+    margin-left: 1em;
+    }
+
+    div.toc h3 {
+    margin: 1em 0 .3em 0;
+    }
+
+    li.appendix h3, li.glossary h3, li.index h3 {
+    margin: .5em
+    }
+
+    div.toc h4 {
+    margin: .6em 0 .2em 0;
+    }
+
+    li.chapter h4 a {
+    display: block;
+    margin-bottom: .4em
+    }
+
+    .dummy {
+    display: block;
+    font-weight: bold;
+    font-size: 110%;
+    margin: .6em 0 .2em 0;
+    }
+
+
+    /* Index */
+    .item {
+    float: left;
+    margin-right: 1em
+    }
+
+    .secitem {
+    font-weight: normal;
+    float: left;
+    margin-right: 1em
+    }
+
+    .indexref {
+    display: block;
+    }
+
+    .item + .indexref {
+    margin-left: 20em;
+    }
+
+    .secitem + .indexref {
+    margin-left: 19em;
+    }
+
+
+    /* Admonitions */
+    div.admon h3 {
+    padding-left: 2.5em;
+    padding-top: 1em;
+    }
+
+    div.admon p {
+    margin-left: .5em;
+    }
+
+    div.admon pre {
+    margin: 0.5em 3em;
+    }
+
+    div.note, div.tip {
+    background-color: #fffff6;
+    border: 2px solid #dbddec;
+    width: 90%;
+    margin: .5em auto;
+    }
+
+    div.important, div.warning, div.caution {
+    background-color: #fffff6;
+    border: medium solid #400;
+    width: 90%;
+    margin: .5em auto;
+    color: #600;
+    }
+
+    div.important h3, div.warning h3, div.caution h3 {
+    color: #900;
+    }
+
+    div.important em, div.warning em, div.caution em {
+    color: #000;
+    font-weight: bold;
+    }
+
+
+    /* table */
+    .table p.title {
+    text-align: center;
+    margin-top: 0;
+    margin-bottom: .3em;
+    }
+
+    .table table {
+    margin-left: auto;
+    margin-right: auto;
+    }
+
+    .table table th, .table table td {
+    padding: 0.2em 2em 0.2em 2em;
+    text-align: left;
+    }
+
+    .revhistory {
+    padding-left: 1em;
+    }
+
+    .revhistory th {
+    line-height: 2em;
+    text-align: left;
+    }
+
+    .revhistory td {
+    padding-right: 1em;
+    }
+
+
+    /* variablelist as table */
+    .variablelist table {
+    width: auto;
+    margin: 0 1em 0 1em;
+    }
+
+    .variablelist td {
+    vertical-align: top;
+    }
+
+    .variablelist td span, td p {
+    margin: 0.25em;
+    }
+
+    .variablelist td p {
+    margin-top: 0;
+    }
+
+
+    /* variablelist as list */
+    dl {
+    padding-left: 1em
+    }
+
+    dt {
+    font-weight: bold;
+    margin-left: 1em;
+    }
+
+    dd {
+    margin-bottom: .6em;
+    margin-left: 1em;
+    }
+
+    dd p {
+    margin-top: 0;
+    margin-bottom: 0;
+    padding-top: 0;
+    padding-bottom: 0;
+    }
+
+    div.materials dt {
+    display: list-item;
+    }
+
+    div.materials dd {
+    margin-left: 0;
+    padding-left: 0;
+    }
+
+
+    /* segmentedlist */
+    .appendix .segmentedlist {
+    padding-left: 1em;
+    }
+
+    .package .seg {
+    margin-bottom: 0em;
+    margin-top: 0em;
+    clear: left;
+    }
+
+    .content .seg {
+    margin-bottom: .4em;
+    margin-top: .4em;
+    clear: left;
+    }
+
+    .segtitle {
+    float: left;
+    }
+
+    .package .segbody, .appendix .segbody {
+    display: block;
+    padding-left: 14em;
+    }
+
+    .content .segbody {
+    display: block;
+    padding-left: 12em;
+    }
+
+
+    /* itemizedlist */
+    ul {
+    padding-left: 1em
+    }
+
+    .itemizedlist ul {
+    margin-left: 1em
+    }
+
+    .itemizedlist li ul {
+    margin-bottom: 1.2em;
+    }
+
+    .itemizedlist li ul li p {
+    margin-top: .5em;
+    margin-bottom: .5em;
+    }
+
+    .itemizedlist li ul li:first-child p:first-child {
+    margin-top: -.6em;
+    }
+
+    ul.compact {
+    list-style: none;
+    }
+
+    .blfs ul.compact {
+    list-style: disc;
+    }
+
+    ul.compact li {
+    margin: 0em;
+    padding: 0em;
+    }
+
+    ul.compact li p {
+    padding: 0.3em;
+    margin: 0em;
+    }
+
+    .blfs ul.compact li p {
+    background-color: #f0fff0;
+    }
+
+    /* orderedlist */
+    ol {
+    list-style: decimal;
+    }
+
+    ol ol {
+    list-style: lower-alpha;
+    }
+
+    ol ol ol {
+    list-style: lower-roman;
+    }
+
+    ol.compact li {
+    margin: 0em;
+    padding: 0em;
+    }
+
+    ol.compact li p {
+    padding: 0.3em;
+    margin: 0em;
+    }
+
+
+    /* Indented blocks */
+    p, blockquote {
+    padding-left: 1em;
+    padding-right: 1em;
+    }
+
+
+    /* Monospaced elements */
+    tt, code, kbd, pre, .command {
+    font-family: monospace;
+    }
+
+    .systemitem {
+    font-style: italic;
+    }
+
+    pre {
+    background-color: #e5e5e5;
+    border: 1px solid #050505;
+    padding: .5em 1em;
+    margin: 0 2em .5em 2em;
+    font-weight: bold;
+    }
+
+    pre.userinput {
+    color: #101310;
+    }
+
+    pre.root {
+    color: #101310;
+    border: 1px solid #11a;
+    }
+
+    pre.screen {
+    color: #000;
+    background-color: #e9e9e9;
+    font-weight: normal;
+    }
+
+    .literal, .prompt {
+    font-weight: normal;
+    }
+
+
+    /* Mixed tags */
+    p.usernotes {
+    margin-left: -1em;
+    font-size: small;
+    font-weight: bold;
+    font-style: italic;
+    }
+
+    .underlined {
+    text-decoration: underline;
+    }
+
+
+    /* Last edited info */
+    p.updated {
+    font-size: small;
+    font-weight: bold;
+    font-style: italic;
+    }
+
+
+    /* Special colored blocks */
+    /* OrangeRed4 */
+    .feature-ssp {
+    color: #8B2500;
+    }
+
+    /* RoyalBlue3 */
+    .feature-aslr {
+    color: #3A5FCD;
+    }
+
+    /* NavyBlue */
+    .feature-pax {
+    color: #000080;
+    }
+
+    /* VioletRed */
+    .feature-hardened_tmp {
+    color: #d02090;
+    }
+
+    /* PaleTurquoise4 */
+    .feature-warnings {
+    color: #668b8b;
+    }
+
+    /* RosyBrown */
+    .feature-misc {
+    color: #bc8f8f;
+    }
+
+    /* Sienna*/
+    .feature-blowfish {
+    color: #8E6B23
+    }
+    /*]]>*/
+    </style>
+  </head>
+  <body class="lfs" id="lfs-20210713">
+    <div xml:lang="pt_br" class="book" lang="pt_br">
+      <div class="titlepage">
+        <div>
+          <div>
+            <h1 class="title">
+              <a id="idm1" name="idm1"></a>Manual do Editor do Linux From
+              Scratch
+            </h1>
+          </div>
+          <div>
+            <h2 class="subtitle">
+              Versão 20210713
+            </h2>
+          </div>
+          <div>
+            <div class="authorgroup">
+              <div class="author">
+                <h3 class="author">
+                  <span class="firstname">Versão Inicial: Gerard</span>
+                  <span class="surname">Beekmans</span>
+                </h3>
+              </div>
+              <div class="author">
+                <h3 class="author">
+                  <span class="firstname">Versão Git: Pierre</span>
+                  <span class="surname">Labastie</span>
+                </h3>
+              </div>
+            </div>
+          </div>
+          <div>
+            <p class="copyright">
+              Copyright © 2004-2021 Gerard Beekmans
+            </p>
+          </div>
+          <div>
+            <div class="legalnotice">
+              <a id="idm15" name="idm15"></a>
+              <p>
+                Todos os direitos reservados.
+              </p>
+              <p>
+                A redistribuição e o uso, nas formas de fonte ou binário, com
+                ou sem modificação, são permitidas desde que as seguintes
+                condições sejam atendidas:
+              </p>
+              <div class="itemizedlist">
+                <ul>
+                  <li class="listitem">
+                    <p>
+                      As redistribuições em qualquer forma precisam manter o
+                      aviso de direitos autorais acima; esta lista de
+                      condições; e a seguinte isenção de responsabilidade.
+                    </p>
+                  </li>
+                  <li class="listitem">
+                    <p>
+                      Nem o nome do "Linux From Scratch" nem os nomes dos(as)
+                      colaboradores(as) dele podem ser usados para endossar
+                      ou promover produtos derivados a partir deste material
+                      sem permissão escrita específica e prévia.
+                    </p>
+                  </li>
+                  <li class="listitem">
+                    <p>
+                      Qualquer material derivado a partir do Linux From
+                      Scratch precisa conter uma referência ao projeto "Linux
+                      From Scratch".
+                    </p>
+                  </li>
+                </ul>
+              </div>
+              <p>
+                ESTE SOFTWARE É FORNECIDO PELO TITULAR DOS DIREITOS AUTORAIS
+                E COLABORADORES(AS) ``NO ESTADO EM QUE SE ENCONTRA'' E
+                QUAISQUER GARANTIAS EXPLÍCITAS OU IMPLÍCITAS, INCLUINDO,
+                PORÉM NÃO LIMITADA A, AS GARANTIAS IMPLÍCITAS DE
+                COMERCIALIZAÇÃO E DE ADEQUAÇÃO PARA UM PROPÓSITO PARTICULAR
+                SÃO NEGADAS. EM NENHUMA CIRCUNSTÂNCIA OS(AS) ORIENTADORES(AS)
+                OU COLABORADORES(AS) SÃO RESPONSÁVEIS POR QUAISQUER DANOS
+                DIRETOS, INDIRETOS, INCIDENTAIS, ESPECIAIS, EXEMPLARES OU
+                CONSEQUENCIAIS (INCLUINDO, PORÉM NÃO LIMITADA A, COMPRA DE
+                BENS OU SERVIÇOS SUBSTITUTOS; PERDA DO USO, DADOS, OU LUCROS;
+                OU INTERRUPÇÃO DE NEGÓCIOS) DE QUALQUER CAUSA E EM QUALQUER
+                TEORIA DE RESPONSABILIDADE, SEJA EM CONTRATO,
+                RESPONSABILIDADE ESTRITA OU ILÍCITO (INCLUINDO NEGLIGÊNCIA OU
+                DE OUTRA FORMA) DECORRENTE DE QUALQUER FORMA DO USO DESTE
+                SOFTWARE, MESMO SE AVISADO(A) DA POSSIBILIDADE DE TAIS DANOS.
+              </p>
+            </div>
+          </div>
+          <div>
+            <div class="abstract">
+              <p class="title">
+                <strong>Resumo</strong>
+              </p>
+              <p>
+                Este manual ensina a você como editar adequadamente o Livro
+                LFS.
+              </p>
+            </div>
+          </div>
+        </div>
+        <hr />
+      </div>
+      <div class="dedication">
+        <div class="titlepage">
+          <div>
+            <div>
+              <h1 class="title">
+                <a id="idm28" name="idm28"></a>Dedicação
+              </h1>
+            </div>
+          </div>
+        </div>
+        <p>
+          Este livro é dedicado para todos(as) os(as) editores(as) do LFS,
+          quem tem mantido o projeto do LFS vivo ao longo de todos esses
+          anos.
+        </p>
+      </div>
+      <div class="toc">
+        <h3>
+          Índice
+        </h3>
+        <ul>
+          <li class="preface">
+            <h4>
+              Bem vindo(a) ao Manual do Editor do LFS
+            </h4>
+          </li>
+          <li class="chapter">
+            <h4>
+              1. Desenvolvimento do LFS
+            </h4>
+            <ul>
+              <li class="sect1">
+                <a href="#ch01-introduction">Introdução</a>
+              </li>
+              <li class="sect1">
+                <a href="#ch-scatter-changelog">Registro das mudanças</a>
+              </li>
+            </ul>
+          </li>
+          <li class="part">
+            <h3>
+              I. Gerenciamento Básico do Fonte
+            </h3>
+            <ul>
+              <li class="chapter">
+                <h4>
+                  2. Acesso Git
+                </h4>
+                <ul>
+                  <li class="sect1">
+                    <a href="#ch02-introduction">Introdução</a>
+                  </li>
+                  <li class="sect1">
+                    <a href="#ch02-anongit">Acesso Anônimo</a>
+                  </li>
+                  <li class="sect1">
+                    <a href="#ch02-gitssh">Acesso SSH Git (para
+                    editores(as))</a>
+                  </li>
+                </ul>
+              </li>
+              <li class="chapter">
+                <h4>
+                  3. Comandos Básicos do Git
+                </h4>
+                <ul>
+                  <li class="sect1">
+                    <a href="#ch03-introduction">Introdução</a>
+                  </li>
+                  <li class="sect1">
+                    <a href="#ch03-clone">git clone</a>
+                  </li>
+                  <li class="sect1">
+                    <a href="#ch03-pull">git pull</a>
+                  </li>
+                  <li class="sect1">
+                    <a href="#ch03-add">git add</a>
+                  </li>
+                  <li class="sect1">
+                    <a href="#ch03-delmov">git rm e git mv</a>
+                  </li>
+                  <li class="sect1">
+                    <a href="#ch03-status">git status</a>
+                  </li>
+                  <li class="sect1">
+                    <a href="#ch03-commit">git commit</a>
+                  </li>
+                  <li class="sect1">
+                    <a href="#ch03-log">git log</a>
+                  </li>
+                  <li class="sect1">
+                    <a href="#ch03-push">git push</a>
+                  </li>
+                  <li class="sect1">
+                    <a href="#ch03-checkout">git checkout</a>
+                  </li>
+                  <li class="sect1">
+                    <a href="#ch03-merge">git merge</a>
+                  </li>
+                  <li class="sect1">
+                    <a href="#ch03-rebase">git rebase</a>
+                  </li>
+                </ul>
+              </li>
+              <li class="chapter">
+                <h4>
+                  4. Comitando Mudanças - Política
+                </h4>
+                <ul>
+                  <li class="sect1">
+                    <a href="#ch04-introduction">Introdução</a>
+                  </li>
+                  <li class="sect1">
+                    <a href="#ch04-test">Teste as instruções</a>
+                  </li>
+                  <li class="sect1">
+                    <a href="#ch04-updategeneralent">Atualizando o
+                    general.ent</a>
+                  </li>
+                  <li class="sect1">
+                    <a href="#ch04-updatechangelog">Atualize o
+                    chapter01/changelog.xml</a>
+                  </li>
+                  <li class="sect1">
+                    <a href="#ch04-checkfiles">Verifique todos os Arquivos
+                    Relevantes</a>
+                  </li>
+                  <li class="sect1">
+                    <a href="#ch04-commenting">Comentando alguma coisa</a>
+                  </li>
+                  <li class="sect1">
+                    <a href="#ch04-commit">Consigne!</a>
+                  </li>
+                  <li class="sect1">
+                    <a href="#ch04-trac">Atualize o Trac</a>
+                  </li>
+                </ul>
+              </li>
+              <li class="chapter">
+                <h4>
+                  5. Usando o Trac
+                </h4>
+                <ul>
+                  <li class="sect1">
+                    <a href="#ch05-introduction">Introdução</a>
+                  </li>
+                  <li class="sect1">
+                    <a href="#ch05-addingcomments">Adicionando
+                    comentários</a>
+                  </li>
+                  <li class="sect1">
+                    <a href="#ch05-filingbug">Registre um defeito novo</a>
+                  </li>
+                  <li class="sect1">
+                    <a href="#ch05-assignbug">Vinculando Tíquetes</a>
+                  </li>
+                  <li class="sect1">
+                    <a href="#ch05-fixbug">Sinalize um Problema como
+                    Consertado</a>
+                  </li>
+                </ul>
+              </li>
+              <li class="chapter">
+                <h4>
+                  6. Procedimentos de Atualização de Pacote
+                </h4>
+                <ul>
+                  <li class="sect1">
+                    <a href="#ch06-introduction">Introdução</a>
+                  </li>
+                  <li class="sect1">
+                    <a href="#ch06-updatetrac">Atualizando o Trac</a>
+                  </li>
+                  <li class="sect1">
+                    <a href="#ch06-updatebook">Atualize o Livro</a>
+                  </li>
+                  <li class="sect1">
+                    <a href="#ch06-renderchecklinks">Renderize o Livro e
+                    Verifique os Links</a>
+                  </li>
+                </ul>
+              </li>
+              <li class="chapter">
+                <h4>
+                  7. Avisos de Segurança
+                </h4>
+                <ul>
+                  <li class="sect1">
+                    <a href="#ch07-introduction">Introdução</a>
+                  </li>
+                  <li class="sect1">
+                    <a href="#ch07-consolidated">Consolidated.html</a>
+                  </li>
+                  <li class="sect1">
+                    <a href="#ch07-since-last-release">Avisos desde o
+                    lançamento anterior.</a>
+                  </li>
+                  <li class="sect1">
+                    <a href="#ch07-when-we-release">O que fazer quando nós
+                    aprontamos um lançamento.</a>
+                  </li>
+                </ul>
+              </li>
+            </ul>
+          </li>
+          <li class="part">
+            <h3>
+              II. Automatização
+            </h3>
+            <ul>
+              <li class="chapter">
+                <h4>
+                  8. Processos
+                </h4>
+                <ul>
+                  <li class="sect1">
+                    <a href="#ch08-introduction">Introdução</a>
+                  </li>
+                  <li class="sect1">
+                    <a href="#ch08-basics">Básicos</a>
+                  </li>
+                  <li class="sect1">
+                    <a href="#ch08-specials">Especiais</a>
+                  </li>
+                  <li class="sect1">
+                    <a href="#ch08-server">Processos no servidor
+                    principal</a>
+                  </li>
+                </ul>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+      <div class="preface" lang="pt-br" xml:lang="pt-br">
+        <div class="titlepage">
+          <div>
+            <div>
+              <h1 class="title">
+                <a id="preface" name="preface"></a>Bem vindo(a) ao Manual do
+                Editor do LFS
+              </h1>
+            </div>
+          </div>
+        </div>
+        <p>
+          Este manual ensinará a você o que você precisa saber para editar
+          adequadamente o Livro do LFS. Ele cobrirá alguns problemas básicos
+          como acessar o Git via SSH e os comandos do Git que você usará. Ele
+          também discutirá a sequência apropriada de fazer coisas como
+          atualizar um pacote e como trabalhar com a base de dados de
+          rastreio de defeito.
+        </p>
+        <div class="literallayout">
+          <p>
+            <br />
+            --<br />
+            Gerard&nbsp;Beekmans<br />
+            gerard@linuxfromscratch.org<br />
+            Pierre&nbsp;Labastie<br />
+            pierre@linuxfromscratch.org<br />
+            &nbsp;&nbsp;
+          </p>
+        </div>
+      </div>
+      <div class="chapter" lang="pt-br" xml:lang="pt-br">
+        <div class="titlepage">
+          <div>
+            <div>
+              <h1 class="title">
+                <a id="chapter01" name="chapter01"></a>Capítulo 1.
+                Desenvolvimento do LFS
+              </h1>
+            </div>
+          </div>
+        </div>
+        <div class="sect1" lang="pt-br" xml:lang="pt-br">
+          <div class="titlepage">
+            <div>
+              <div>
+                <h2 class="title">
+                  <a id="ch01-introduction" name="ch01-introduction"></a>1.1.
+                  Introdução
+                </h2>
+              </div>
+            </div>
+          </div>
+          <p>
+            O desenvolvimento do LFS toma lugar usando três sistemas
+            principais. Primeiro, as listas de discussão <code class=
+            "email">&lt;<a class="email" href=
+            "mailto:lfs-book@lists.linuxfromscratch.org">lfs-book@lists.linuxfromscratch.org</a>&gt;</code>;
+            <code class="email">&lt;<a class="email" href=
+            "mailto:lfs-dev@lists.linuxfromscratch.org">lfs-dev@lists.linuxfromscratch.org</a>&gt;</code>;
+            e (em menor extensão) <code class="email">&lt;<a class="email"
+            href=
+            "mailto:lfs-support@lists.linuxfromscratch.org">lfs-support@lists.linuxfromscratch.org</a>&gt;</code>.
+            Segundo, o sistema de rastreio de defeito Trac; e terceiro, o
+            servidor Git onde o próprio livro é armazenado. Todos esses
+            serviços são fornecidos pelo servidor <strong class=
+            "userinput"><code>linuxfromscratch.org</code></strong>, também
+            conhecido como <strong class=
+            "userinput"><code>rivendell.linuxfromscratch.org</code></strong>
+            ou, mais usualmente, <strong class=
+            "userinput"><code>rivendell</code></strong>. Esse único servidor
+            fornece listas de discussão, hospedagem web, hospedagem Git, Trac
+            e basicamente tudo o que nós usamos para trabalhar no projeto
+            LFS.
+          </p>
+          <p>
+            O livro LFS é escrito usando Docbook-XML 4.5 e é dividido em um
+            número de arquivos XML. Os diretórios na árvore do fonte
+            representam os capítulos do livro e cada arquivo XML dentro de um
+            diretório tipicamente contém o texto para uma seção dentro
+            daquele capítulo. Essa estrutura é concebida para habilitar um(a)
+            colaborador(a) a rapidamente localizar a área particular do livro
+            que eles(as) querem editar.
+          </p>
+          <p>
+            O sistema de bilhetagem Trac para o LFS pode ser encontrado em
+            <a class="ulink" href=
+            "https://wiki.linuxfromscratch.org/lfs">https://wiki.linuxfromscratch.org/lfs</a>.
+            Para a finalidade de estar apto(a) para adicionar, remover e
+            editar tíquetes, você precisa adicionar uma conta e ter certeza
+            de que você está logado(a) quando desejar realizar uma tal ação.
+            Você pode consultar e ler a base de dados do Trac sem se logar ou
+            ter um(a) usuário(a) criado(a). Observe que todas as mensagens de
+            tíquetes são copiadas para a lista de discussão <code class=
+            "email">&lt;<a class="email" href=
+            "mailto:lfs-book@lists.linuxfromscratch.org">lfs-book@lists.linuxfromscratch.org</a>&gt;</code>
+            e que todos(as) os(as) editores(as) deveriam estar inscritos(as)
+            nessa e na lista <code class="email">&lt;<a class="email" href=
+            "mailto:lfs-dev@lists.linuxfromscratch.org">lfs-dev@lists.linuxfromscratch.org</a>&gt;</code>
+            no mínimo.
+          </p>
+          <p>
+            Veja-se <a class="xref" href="#chapter05" title=
+            "Capítulo 5. Usando o Trac">Usando o Trac</a> para informação
+            acerca de como ter um(a) usuário(a) criado(a) com as permissões
+            de atualização apropriadas para o sistema Trac.
+          </p>
+          <p>
+            Finalmente, existe o servidor Git o qual será discutido nos
+            capítulos seguintes.
+          </p>
+        </div>
+        <div class="sect1" lang="pt-br" xml:lang="pt-br">
+          <div class="titlepage">
+            <div>
+              <div>
+                <h2 class="title">
+                  <a id="ch-scatter-changelog" name=
+                  "ch-scatter-changelog"></a>1.2. Registro das mudanças
+                </h2>
+              </div>
+            </div>
+          </div>
+          <p>
+            Esta é a versão 20210713 do Manual do(a) Editor(a) do Linux From
+            Scratch, datada de 13 de julho de 2021.
+          </p>
+          <p>
+            Abaixo está uma lista das mudanças feitas desde a versão Git mais
+            recente do livro, primeiro um sumário, então um registro
+            detalhado.
+          </p>
+          <div class="itemizedlist">
+            <ul>
+              <li class="listitem">
+                <p>
+                  Adicionado:
+                </p>
+                <div class="itemizedlist">
+                  <ul>
+                    <li class="listitem">
+                      <p>
+                        Adicionadas folhas de estilo do LFS atuais.
+                      </p>
+                    </li>
+                    <li class="listitem">
+                      <p>
+                        Adicionada entrada para git log.
+                      </p>
+                    </li>
+                    <li class="listitem">
+                      <p>
+                        Adicionada entrada para git status.
+                      </p>
+                    </li>
+                    <li class="listitem">
+                      <p>
+                        Adicionada entrada para git push.
+                      </p>
+                    </li>
+                    <li class="listitem">
+                      <p>
+                        Adicionada entrada para git clone.
+                      </p>
+                    </li>
+                    <li class="listitem">
+                      <p>
+                        Adicionada entrada para git pull.
+                      </p>
+                    </li>
+                  </ul>
+                </div>
+              </li>
+              <li class="listitem">
+                <p>
+                  Removido:
+                </p>
+                <div class="itemizedlist">
+                  <ul>
+                    <li class="listitem">
+                      <p>
+                        Removida a entrada para svn diff.
+                      </p>
+                    </li>
+                    <li class="listitem">
+                      <p>
+                        Removida a entrada para svn update.
+                      </p>
+                    </li>
+                    <li class="listitem">
+                      <p>
+                        Renomeadas todas as outras entradas svn xxx para git
+                        xxx.
+                      </p>
+                    </li>
+                    <li class="listitem">
+                      <p>
+                        Removidas folhas de estilo antigas.
+                      </p>
+                    </li>
+                  </ul>
+                </div>
+              </li>
+              <li class="listitem">
+                <p>
+                  Entradas de Registro das Mudanças:
+                </p>
+                <div class="itemizedlist">
+                  <ul>
+                    <li class="listitem">
+                      <p>
+                        13 de julho de 2021
+                      </p>
+                      <div class="itemizedlist">
+                        <ul>
+                          <li class="listitem">
+                            <p>
+                              [thomas] Adicionado capítulo 8: Processos para
+                              construir os livros.
+                            </p>
+                          </li>
+                        </ul>
+                      </div>
+                    </li>
+                    <li class="listitem">
+                      <p>
+                        29 de abril de 2021
+                      </p>
+                      <div class="itemizedlist">
+                        <ul>
+                          <li class="listitem">
+                            <p>
+                              [ken] Adicionado capítulo 7: Avisos de
+                              Segurança.
+                            </p>
+                          </li>
+                        </ul>
+                      </div>
+                    </li>
+                    <li class="listitem">
+                      <p>
+                        31 de março de 2021
+                      </p>
+                      <div class="itemizedlist">
+                        <ul>
+                          <li class="listitem">
+                            <p>
+                              [bdubbs] Mudanças na redação.
+                            </p>
+                          </li>
+                        </ul>
+                      </div>
+                    </li>
+                    <li class="listitem">
+                      <p>
+                        10 de janeiro de 2021
+                      </p>
+                      <div class="itemizedlist">
+                        <ul>
+                          <li class="listitem">
+                            <p>
+                              [pierre] capítulo01/introdução: Uns poucos
+                              consertos mais no nome do servidor e na versão
+                              do DocBook que nós estamos usando.
+                            </p>
+                          </li>
+                          <li class="listitem">
+                            <p>
+                              [pierre] folhas de estilo: remover anotações
+                              $LastChangedBy e $Date que são inúteis no git.
+                            </p>
+                          </li>
+                          <li class="listitem">
+                            <p>
+                              [pierre] Capítulo 4: adaptar "commit it!" para
+                              o git.
+                            </p>
+                          </li>
+                        </ul>
+                      </div>
+                    </li>
+                    <li class="listitem">
+                      <p>
+                        09 de janeiro de 2021
+                      </p>
+                      <div class="itemizedlist">
+                        <ul>
+                          <li class="listitem">
+                            <p>
+                              [pierre] Capítulo 4: adaptar "check relevant
+                              files" para o git.
+                            </p>
+                          </li>
+                          <li class="listitem">
+                            <p>
+                              [pierre] Capítulo 4 atualizando o registro das
+                              mudanças: mostra como ter uma entrada de
+                              registro das mudanças correspondendo à somente
+                              uma revisão do livro.
+                            </p>
+                          </li>
+                          <li class="listitem">
+                            <p>
+                              [pierre] Capítulo 4: adaptar a introdução para
+                              o git.
+                            </p>
+                          </li>
+                          <li class="listitem">
+                            <p>
+                              [pierre] Capítulo 3: reescrever o comando push
+                              para o git.
+                            </p>
+                          </li>
+                        </ul>
+                      </div>
+                    </li>
+                    <li class="listitem">
+                      <p>
+                        08 de janeiro de 2021
+                      </p>
+                      <div class="itemizedlist">
+                        <ul>
+                          <li class="listitem">
+                            <p>
+                              [bdubbs] Capítulo 3: copiar folhas de estilo e
+                              imagens a partir do livro lfs.
+                            </p>
+                          </li>
+                          <li class="listitem">
+                            <p>
+                              [pierre] Capítulo 3: reescrever o comando
+                              status para o git.
+                            </p>
+                          </li>
+                          <li class="listitem">
+                            <p>
+                              [pierre] Capítulos 2 e 3: remover referências à
+                              ramificação master e substituir com trunk.
+                            </p>
+                          </li>
+                          <li class="listitem">
+                            <p>
+                              [pierre] Capítulo 3: remover diff.xml.
+                              Adicionar log.xml e status.xml.
+                            </p>
+                          </li>
+                          <li class="listitem">
+                            <p>
+                              [pierre] Capítulo 3: Adicionar atributos
+                              xreflabel para comandos do git; reescrever a
+                              introdução usando xref.
+                            </p>
+                          </li>
+                          <li class="listitem">
+                            <p>
+                              [pierre] Capítulo 3: reescrever os comandos
+                              diff, merge, pull, push e rebase para o git.
+                            </p>
+                          </li>
+                        </ul>
+                      </div>
+                    </li>
+                    <li class="listitem">
+                      <p>
+                        07 de janeiro de 2021
+                      </p>
+                      <div class="itemizedlist">
+                        <ul>
+                          <li class="listitem">
+                            <p>
+                              [pierre] Capítulo 3: adicionar push.xml.
+                            </p>
+                          </li>
+                          <li class="listitem">
+                            <p>
+                              [pierre] reescrever os comandos add, checkout,
+                              clone, commit, rm e mv para o git.
+                            </p>
+                          </li>
+                        </ul>
+                      </div>
+                    </li>
+                    <li class="listitem">
+                      <p>
+                        05 de janeiro de 2021
+                      </p>
+                      <div class="itemizedlist">
+                        <ul>
+                          <li class="listitem">
+                            <p>
+                              [pierre] Capítulo 3: Reescrever a introdução
+                              para o git.
+                            </p>
+                          </li>
+                          <li class="listitem">
+                            <p>
+                              [pierre] Capítulo 3: Remover update.xml,
+                              moving.xml e delete.xml. Adicionar clone.xml,
+                              pull.xml, delmov.xml e rebase.xml (modelos).
+                            </p>
+                          </li>
+                          <li class="listitem">
+                            <p>
+                              [pierre] Folhas de estilo: Remover e usar
+                              aquelas do livro lfs.
+                            </p>
+                          </li>
+                          <li class="listitem">
+                            <p>
+                              [pierre] Makefile: Criar variáveis de forma que
+                              usar um esquema local seja mais fácil.
+                              Consertar alguns comandos obsoletos.
+                            </p>
+                          </li>
+                          <li class="listitem">
+                            <p>
+                              [pierre] Capítulo 2: Mudar nomes de arquivos,
+                              reescrever coisas de forma que os comandos se
+                              refiram ao git em vez do svn. Consertar nomes
+                              de host.
+                            </p>
+                          </li>
+                        </ul>
+                      </div>
+                    </li>
+                    <li class="listitem">
+                      <p>
+                        04 de janeiro de 2021
+                      </p>
+                      <div class="itemizedlist">
+                        <ul>
+                          <li class="listitem">
+                            <p>
+                              [pierre] introdução: Consertar nomes de host.
+                              Mudar de subversion para git. Mudar o estilo de
+                              codificação de XML.
+                            </p>
+                          </li>
+                          <li class="listitem">
+                            <p>
+                              [pierre] prólogo: reescrita leve. Mudar estilo
+                              de codificação de XML para o que nós temos nos
+                              outros livros.
+                            </p>
+                          </li>
+                          <li class="listitem">
+                            <p>
+                              [pierre] etiqueta Last_SVN_Version.
+                            </p>
+                          </li>
+                        </ul>
+                      </div>
+                    </li>
+                  </ul>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="part">
+        <div class="titlepage">
+          <div>
+            <div>
+              <h1 class="title">
+                <a id="idm167" name=
+                "idm167"></a>Parte&nbsp;I.&nbsp;Gerenciamento Básico do Fonte
+              </h1>
+            </div>
+          </div>
+        </div>
+        <div class="chapter" lang="pt-br" xml:lang="pt-br">
+          <div class="titlepage">
+            <div>
+              <div>
+                <h2 class="title">
+                  <a id="chapter02" name="chapter02"></a>Capítulo 2. Acesso
+                  Git
+                </h2>
+              </div>
+            </div>
+          </div>
+          <div class="sect1" lang="pt-br" xml:lang="pt-br">
+            <div class="titlepage">
+              <div>
+                <div>
+                  <h2 class="title">
+                    <a id="ch02-introduction" name=
+                    "ch02-introduction"></a>2.1. Introdução
+                  </h2>
+                </div>
+              </div>
+            </div>
+            <p>
+              O servidor Git rivendell fornece repositórios para todos os
+              projetos *LFS (e alguns outros). O repositório no qual nós
+              estamos interessados para edição LFS é (não surpreendentemente)
+              o repositório LFS. Uma lista completa dos módulos os quais
+              estão disponíveis pode ser encontrada usando a interface do
+              navegador do fonte do Trac em <a class="ulink" href=
+              "https://wiki.linuxfromscratch.org/lfs/browser">https://wiki.linuxfromscratch.org/lfs/browser</a>.
+            </p>
+            <p>
+              Existem dois tipos de acesso Git para a árvore do LFS.
+              Primeiro, existe o acesso somente leitura anônimo o qual
+              qualquer pessoa pode usar. Segundo, existe o acesso leitura e
+              escrita concedido para editores(as) ativos(as).
+            </p>
+            <div class="admon note">
+              <h3>
+                Observação para Usuários(as) do Subversion
+              </h3>
+              <p>
+                Subversion é um sistema de controle de versão centralizado, o
+                que significa que existe um repositório único no servidor, e
+                que usuários(as) podem <span class=
+                "emphasis"><em>copiar</em></span> esse repositório para um
+                diretório de trabalho na máquina local deles(as). Os(As)
+                usuários(as) com acesso de escrita podem então <span class=
+                "emphasis"><em>comitar</em></span> as modificações deles(as)
+                para o repositório no servidor.
+              </p>
+              <p>
+                Git é um sistema de controle de versão distribuído, o que
+                significa que todos(as) os(as) usuários(as) tem os
+                repositórios próprios deles(as). O repositório no servidor
+                não é nada mais que os outros, exceto que um acesso público é
+                concedido até ele. A ação de copiar o repositório a partir do
+                servidor para a máquina local é chamada de <span class=
+                "emphasis"><em>clonagem</em></span>. Copiar e comitar assim
+                ocorre somente localmente. A ação de sincronizar o
+                repositório público com o local é chamada de <span class=
+                "emphasis"><em>pull</em></span> (público para local) ou
+                <span class="emphasis"><em>push</em></span> (local para
+                público para usuários(as) com acesso de escrita).
+              </p>
+            </div>
+          </div>
+          <div class="sect1" lang="pt-br" xml:lang="pt-br">
+            <div class="titlepage">
+              <div>
+                <div>
+                  <h2 class="title">
+                    <a id="ch02-anongit" name="ch02-anongit"></a>2.2. Acesso
+                    Anônimo
+                  </h2>
+                </div>
+              </div>
+            </div>
+            <p>
+              Para obter acesso anônimo, simplesmente use o comando seguinte
+              (observe que isto assume que você está usando o bash ou um
+              shell similar):
+            </p>
+            <pre class="userinput"><kbd class=
+            "command">git clone git://git.linuxfromscratch.org/lfs.git lfs-git</kbd></pre>
+            <p>
+              Isso copiará o repositório público para um subdiretório chamado
+              <code class="filename">.git</code> no diretório <code class=
+              "filename">lfs-git</code> e então copiará a ramificação padrão
+              para esse diretório. Ele [o comando] também configurará o
+              repositório local para rastrear a ramificação padrão do
+              repositório público, de forma que você pode atualizar seu
+              repositório local simplesmente executando (depois de mudar para
+              o diretório <code class="filename">lfs-git</code>):
+            </p>
+            <pre class="userinput"><kbd class="command">git pull</kbd></pre>
+            <p>
+              Observe que para o livro LFS, a ramificação padrão é chamada de
+              <span class="emphasis"><em>trunk</em></span>.
+            </p>
+          </div>
+          <div class="sect1" lang="pt-br" xml:lang="pt-br">
+            <div class="titlepage">
+              <div>
+                <div>
+                  <h2 class="title">
+                    <a id="ch02-gitssh" name="ch02-gitssh"></a>2.3. Acesso
+                    SSH Git (para editores(as))
+                  </h2>
+                </div>
+              </div>
+            </div>
+            <p>
+              Para editores(as), o acesso é ligeiramente mais complicado.
+              Você primeiro precisa gerar um par de chaves ssh. Para gerar as
+              chaves execute:
+            </p>
+            <pre class="userinput"><kbd class=
+            "command">ssh-keygen -t ed25519</kbd></pre>
+            <div class="admon note">
+              <h3>
+                Nota
+              </h3>
+              <p>
+                Dos(as) Editores(as) não é exigido ter uma conta no servidor,
+                porém ela [a conta] talvez seja útil.
+              </p>
+            </div>
+            <p>
+              Quando perguntado(a) onde salvar elas, provavelmente é melhor
+              deixá-las em .ssh (como <code class=
+              "filename">id_ed25519</code> e <code class=
+              "filename">id_ed25519.pub</code>). Quando perguntado(a) por uma
+              frase senha, apenas pressione enter, a menos que você queira
+              dar a frase <span class="emphasis"><em>a cada</em></span> vez
+              que você sincronizar para o servidor. Entretanto, dado que a
+              mesma frase senha será usada quando você se logar no
+              <span class="emphasis"><em>rivendell</em></span> via ssh,
+              talvez seja aconselhável ter alguma segurança no lugar.
+            </p>
+            <p>
+              Tendo gerado suas chaves, envie o <code class=
+              "filename">~/.ssh/id_ed25519.pub</code> para um(a)
+              administrador(a) do LFS para a finalidade de ter ela adicionada
+              ao <code class="filename">~git/.ssh/authorized_keys</code>
+              <span class="emphasis"><em>no rivendell</em></span>. Se você
+              estará obtendo uma conta de login no servidor, [então] o(a)
+              administrador(a) usará a mesma chave para permitir a você o
+              acesso ssh.
+            </p>
+            <p>
+              Sua cópia local do <code class="filename">id_ed25519</code> e
+              <code class="filename">id_ed25519.pub</code> deveria permanecer
+              intocado por esse processo.
+            </p>
+            <p>
+              Uma vez que esse processo esteja completo, tente copiar a
+              revisão mais recente do livro LFS executando (a partir da sua
+              máquina local):
+            </p>
+            <pre class="userinput"><kbd class=
+            "command">git clone git@git.linuxfromscratch.org:lfs.git lfsbook</kbd></pre>
+            <p>
+              Se tudo for bem, [então] você baixará uma cópia do repositório
+              atual para o <code class="filename">lfsbook/.git</code> e você
+              copiará a ramificação padrão, a qual é chamada de <span class=
+              "emphasis"><em>trunk</em></span>. Você também terá acesso de
+              escrita, de forma que, de agora em diante, seja extra
+              cuidadoso(sa). Observe que <span class=
+              "emphasis"><em>nenhuma</em></span> mudança será feita até que
+              você emita um comando <strong class="userinput"><code>git
+              push</code></strong>.
+            </p>
+            <p>
+              O acima está bom para obter a ramificação padrão, porém você
+              talvez queira trabalhar em uma ramificação pública diferente.
+              Para configurar uma ramificação local que rastreie uma
+              ramificação pública chamada <span class=
+              "emphasis"><em>new_branch</em></span>, apenas emita:
+            </p>
+            <pre class="userinput"><kbd class=
+            "command">git checkout --track origin/<em class=
+            "replaceable"><code>&lt;new_branch&gt;</code></em></kbd></pre>
+            <div class="admon note">
+              <h3>
+                Observação para Usuários(as) do Subversion
+              </h3>
+              <p>
+                Contrariamente ao Subversion, onde você precisa copiar uma
+                cópia funcional nova da ramificação remota, com o Git quase
+                nada é baixado. O diretório local agora reflete a ramificação
+                nova, porém o diretório da ramificação antiga não mais
+                existe.
+              </p>
+            </div>
+            <p>
+              Se você precisar trabalhar na ramificação padrão chamada
+              <span class="emphasis"><em>trunk</em></span>, [então] apenas
+              comite suas mudanças (se alguma) para a ramificação nova (o
+              commit é local), e mude de volta para trunk com:
+            </p>
+            <pre class="userinput"><kbd class=
+            "command">git checkout trunk</kbd></pre>
+            <p>
+              Dado que a ramificação nova já está configurada, se você quiser
+              novamente trabalhar na ramificação nova, apenas faça:
+            </p>
+            <pre class="userinput"><kbd class=
+            "command">git checkout <em class=
+            "replaceable"><code>&lt;new_branch&gt;</code></em></kbd></pre>
+            <p>
+              Como com o acesso anônimo, você pode atualizar seu repositório
+              local simplesmente emitindo um <span class=
+              "command"><strong>cd</strong></span> para o diretório LFS e
+              executando:
+            </p>
+            <pre class="userinput"><kbd class="command">git pull</kbd></pre>
+          </div>
+        </div>
+        <div class="chapter" lang="pt-br" xml:lang="pt-br">
+          <div class="titlepage">
+            <div>
+              <div>
+                <h2 class="title">
+                  <a id="chapter03" name="chapter03"></a>Capítulo 3. Comandos
+                  Básicos do Git
+                </h2>
+              </div>
+            </div>
+          </div>
+          <div class="sect1" lang="pt-br" xml:lang="pt-br">
+            <div class="titlepage">
+              <div>
+                <div>
+                  <h2 class="title">
+                    <a id="ch03-introduction" name=
+                    "ch03-introduction"></a>3.1. Introdução
+                  </h2>
+                </div>
+              </div>
+            </div>
+            <p>
+              Vamos nos tornar familiarizados(as) com o conjunto básico de
+              comandos os quais todos(as) os(as) editores(as) usarão em uma
+              quase sempre base diária. Existem muitas mais opções
+              disponíveis que as listadas aqui, de forma que você desejará
+              ler a documentação do Git (<a class="ulink" href=
+              "https://git-scm.com/book/en/v2">Pro Git</a>) em algum ponto.
+              <span class="command"><strong>git <code class=
+              "option">help</code></strong></span> também fornece uma
+              referência rápida útil para os comandos do Git. As vezes
+              <span class="command"><strong>git status</strong></span> mostra
+              um par de comandos que um(a) usuário(a) poderia querer executar
+              no atual estado do repositório.
+            </p>
+            <div class="admon note">
+              <h3>
+                Nota para os(as) Usuários(as) do Subversion
+              </h3>
+              <p>
+                Como já foi dito, o repositório Git está na máquina local.
+                Mais precisamente, o diretório mantém uma cópia funcional de
+                alguma ramificação do repositório, e o próprio repositório
+                está armazenado sob o diretório <code class=
+                "filename">.git</code> juntamente com várias definições de
+                configuração. O comando <a class="xref" href="#ch03-checkout"
+                title="3.10. git checkout">git checkout</a> é usado para
+                alternar entre ramificações.
+              </p>
+              <p>
+                Além do repositório local, o git mantém uma área de teste que
+                é conhecida como o índice. O comando <a class="xref" href=
+                "#ch03-add" title="3.4. git add">git add</a> povoa essa área
+                de teste e <a class="xref" href="#ch03-commit" title=
+                "3.7. git commit">git commit</a> é usado para transferir o
+                conteúdo do índice para o repositório. Isso permite um bom
+                controle do que é comitado, porém muitos atalhos podem ser
+                usados. Ao contrário do subversion, <span class=
+                "command"><strong>git add</strong></span> não é usado apenas
+                para adicionar arquivos, mas também para armazenar
+                modificações para os arquivos existentes.
+              </p>
+            </div>
+          </div>
+          <div class="sect1" lang="pt-br" xml:lang="pt-br">
+            <div class="titlepage">
+              <div>
+                <div>
+                  <h2 class="title">
+                    <a id="ch03-clone" name="ch03-clone"></a>3.2. git clone
+                  </h2>
+                </div>
+              </div>
+            </div>
+            <p>
+              <strong class="userinput"><code>git clone</code></strong>. Esse
+              comando é usado para copiar um repositório público para a
+              máquina local e fazer um checkout da ramificação padrão
+              (<span class="emphasis"><em>trunk</em></span> para o LFS). Você
+              deveria precisar fazer isso somente uma vez. Várias opções
+              permitem a criação de um repositório <span class=
+              "quote">&ldquo;<span class="quote">raso</span>&rdquo;</span>
+              que não contém o histórico completo ou todas as ramificações.
+              Veja-se <span class="command"><strong>git help
+              clone</strong></span>.
+            </p>
+            <h5>
+              <a id="idm272" name="idm272"></a>Exemplos
+            </h5>
+            <p>
+              Para clonar o repositório do LFS com acesso somente leitura:
+            </p>
+            <pre class="userinput"><kbd class=
+            "command">git clone git://git.linuxfromscratch.org/lfs.git lfsbook</kbd></pre>
+            <p>
+              Para clonar com acesso leitura/escrita:
+            </p>
+            <pre class="userinput"><kbd class=
+            "command">git clone @git.linuxfromscratch.org:lfs.git lfsbook</kbd></pre>
+          </div>
+          <div class="sect1" lang="pt-br" xml:lang="pt-br">
+            <div class="titlepage">
+              <div>
+                <div>
+                  <h2 class="title">
+                    <a id="ch03-pull" name="ch03-pull"></a>3.3. git pull
+                  </h2>
+                </div>
+              </div>
+            </div>
+            <p>
+              <strong class="userinput"><code>git pull</code></strong>. Esse
+              comando sincroniza seu repositório local. Se você tiver feito
+              mudanças locais, [então] o Git tentará mesclar quaisquer
+              mudanças no servidor com as mudanças que você tiver comitado
+              <span class="emphasis"><em>na sua máquina</em></span>. Se as
+              mudanças no servidor sobrepuserem com as mudanças locais não
+              comitadas, [então] a mesclagem é cancelada, e a árvore de
+              trabalho permanecerá intacta.
+            </p>
+            <p>
+              Diferente de <span class="command"><strong>svn <code class=
+              "option">up</code></strong></span>, quando o Git mescla seus
+              commits locais com as mudanças no servidor, ele produzirá um
+              commit de mesclagem. Muitos commits de mesclagem talvez causem
+              confusão no histórico. Como uma alternativa, uma pessoa pode
+              passar <code class="option">--rebase</code> para <span class=
+              "command"><strong>git <code class=
+              "option">pull</code></strong></span>, dizendo ao Git para fazer
+              o rebase de seus commits locais nas mudanças no servidor.
+              Leia-se <a class="xref" href="#ch03-rebase" title=
+              "3.12. git rebase">git rebase</a> para os detalhes acerca de
+              rebasing.
+            </p>
+            <p>
+              Para tornar um histórico limpo, os(as) editores(as) deveriam
+              usar rebasing em vez de mesclagem para sincronizar as mudanças
+              no servidor se você tiver alguns commits locais. Para tornar
+              <code class="option">--rebase</code> o padrão para <span class=
+              "command"><strong>git pull</strong></span>, emita: <span class=
+              "command"><strong>git config pull.rebase true</strong></span>.
+            </p>
+            <p>
+              Você deveria sempre fazer um <span class="command"><strong>git
+              <code class="option">pull</code></strong></span> manual antes
+              de tentar enviar mudanças para a finalidade de assegurar que
+              não existem conflitos com mudanças que tenham sido feitas desde
+              que você iniciou seu trabalho. Observe que <span class=
+              "command"><strong>git <code class=
+              "option">push</code></strong></span> advertirá você se existir
+              um conflito e você se esquecer se realizar um <span class=
+              "command"><strong>git <code class=
+              "option">pull</code></strong></span>.
+            </p>
+          </div>
+          <div class="sect1" lang="pt-br" xml:lang="pt-br">
+            <div class="titlepage">
+              <div>
+                <div>
+                  <h2 class="title">
+                    <a id="ch03-add" name="ch03-add"></a>3.4. git add
+                  </h2>
+                </div>
+              </div>
+            </div>
+            <p>
+              <strong class="userinput"><code>git add [<em class=
+              "replaceable"><code>arquivos-modificados</code></em>]</code></strong>.
+              Isso prepara as modificações para todos os <code class=
+              "filename">arquivos-modificados</code> (incluindo arquivos
+              criados recentemente) para o índice. Se você especificar um
+              diretório em <code class=
+              "filename">arquivos-modificados</code>, [então] todos os
+              arquivos modificados nesse diretório ou nos subdiretórios dele
+              serão preparados. A mudança não está no repositório local até
+              que você faça um <strong class="userinput"><code>git
+              commit</code></strong>. Nós tocaremos mais nisso conforme
+              continuemos no capítulo.
+            </p>
+            <p>
+              Esse comando pode ser usado de uma maneira muito flexível
+              usando-se a opção <code class="option">-p</code>. Você pode
+              selecionar cada pedaço do diff que está preparado dentro do
+              índice. Isso permite testar uma mudança completa e então divide
+              os commits em pequenos pedaços <span class=
+              "quote">&ldquo;<span class=
+              "quote">atômicos</span>&rdquo;</span> que são mais fáceis para
+              revisar e entender.
+            </p>
+          </div>
+          <div class="sect1" lang="pt-br" xml:lang="pt-br">
+            <div class="titlepage">
+              <div>
+                <div>
+                  <h2 class="title">
+                    <a id="ch03-delmov" name="ch03-delmov"></a>3.5. git rm e
+                    git mv
+                  </h2>
+                </div>
+              </div>
+            </div>
+            <p>
+              <strong class="userinput"><code>git rm</code></strong>. Isso
+              remove um arquivo e deixa o Git saber acerca dele. Várias
+              opções permitem selecionar quando o arquivo é deletado somente
+              no índice ou em ambos no índice e no diretório de trabalho.
+              Observe que você precisa comitar (e possivelmente realizar um
+              push) para a remoção aparecer no repositório.
+            </p>
+            <p>
+              <strong class="userinput"><code>git mv</code></strong>. Isso
+              renomeia ou move um arquivo e deixa o Git saber acerca dele.
+              Novamente, você precisa comitar (e possivelmente realizar um
+              push) para a mudança aparecer no repositório.
+            </p>
+          </div>
+          <div class="sect1" lang="pt-br" xml:lang="pt-br">
+            <div class="titlepage">
+              <div>
+                <div>
+                  <h2 class="title">
+                    <a id="ch03-status" name="ch03-status"></a>3.6. git
+                    status
+                  </h2>
+                </div>
+              </div>
+            </div>
+            <p>
+              <strong class="userinput"><code>git status</code></strong>.
+              Esse provavelmente é o comando que você usará mais
+              frequentemente. Ele imprime os arquivos que foram modificados
+              no diretório de trabalho, e que não estão no índice; ou que
+              estão no índice e não comitados ainda. Ele também mostra o
+              estado do repositório local respectivo ao remoto.
+            </p>
+            <p>
+              Uma característica muito útil é a de que ele mostra uma lista
+              de comandos que podem ser usados no contexto atual.
+            </p>
+          </div>
+          <div class="sect1" lang="pt-br" xml:lang="pt-br">
+            <div class="titlepage">
+              <div>
+                <div>
+                  <h2 class="title">
+                    <a id="ch03-commit" name="ch03-commit"></a>3.7. git
+                    commit
+                  </h2>
+                </div>
+              </div>
+            </div>
+            <p>
+              <span class="command"><strong>git <code class=
+              "option">commit</code></strong></span>. Esse comando armazena
+              suas mudanças para o repositório <span class=
+              "emphasis"><em>local</em></span>. Normalmente ele comita
+              mudanças preparadas no índice, porém várias opções permitem que
+              você contorne a preparação. Observe que nada é mudado no
+              servidor até que você emita <strong class="userinput"><code>git
+              push</code></strong>. As opções <code class="option">-m</code>
+              e <code class="option">-F</code> podem ser usadas para passar
+              uma mensagem de registro para o comando. Se você não
+              especificar uma opção <span class="emphasis"><em>-m
+              "MENSAGEM"</em></span> ou <span class="emphasis"><em>-F
+              "Nomearquivo"</em></span>, [então] o Git abrirá o editor padrão
+              e solicitará que você digite uma mensagem de registro. O editor
+              padrão é especificado pelas variáveis de ambiente, <code class=
+              "envar">GIT_EDITOR</code>; ou <code class=
+              "envar">VISUAL</code>; ou <code class="envar">EDITOR</code>
+              (verificadas nessa ordem); ou por um parâmetro de configuração
+              em <code class="filename">~/.git/config</code>. Por exemplo,
+              para configurar seu editor padrão para o vim, execute:
+            </p>
+            <pre class="userinput"><kbd class=
+            "command">export GIT_EDITOR=vim</kbd></pre>
+            <p>
+              ou:
+            </p>
+            <pre class="userinput"><kbd class=
+            "command">git config --global core.editor vim</kbd></pre>
+            <p>
+              Não use mensagens de registro vazias (veja-se posteriormente
+              neste documento acerca da política que as rege).
+            </p>
+          </div>
+          <div class="sect1" lang="pt-br" xml:lang="pt-br">
+            <div class="titlepage">
+              <div>
+                <div>
+                  <h2 class="title">
+                    <a id="ch03-log" name="ch03-log"></a>3.8. git log
+                  </h2>
+                </div>
+              </div>
+            </div>
+            <p>
+              <strong class="userinput"><code>git log</code></strong>. Gera o
+              registro do commit da ramificação atualmente no diretório de
+              trabalho. Várias opções permitem personalizar o nível da
+              informação dada para cada commit. Os(As) Editores(as) são
+              fortemente aconselhados(as) a executar esse comando antes de
+              realizar um push para o repositório remoto ou mesclagem. Se o
+              histórico for muito complicado, [então] talvez seja necessário
+              executar <a class="xref" href="#ch03-rebase" title=
+              "3.12. git rebase">git rebase</a> para a finalidade de
+              simplificá-lo. Seus(uas) coeditores(as) odiarão você se você
+              mudar o histórico depois de realizar um push dele.
+            </p>
+            <div class="admon note">
+              <h3>
+                Nota para Usuários(as) do Subversion
+              </h3>
+              <p>
+                A saída é automaticamente passada para um paginador, de forma
+                que não é necessário canalizá-la para o <span class=
+                "command"><strong>less</strong></span>. Além disso, nenhum
+                acesso ao repositório remoto é necessário, de forma que
+                usualmente é muito mais rápido obter um registro longo.
+              </p>
+            </div>
+          </div>
+          <div class="sect1" lang="pt-br" xml:lang="pt-br">
+            <div class="titlepage">
+              <div>
+                <div>
+                  <h2 class="title">
+                    <a id="ch03-push" name="ch03-push"></a>3.9. git push
+                  </h2>
+                </div>
+              </div>
+            </div>
+            <p>
+              <strong class="userinput"><code>git push</code></strong>. Esse
+              comando sincroniza o repositório público no servidor com o seu
+              local. Você deveria ter certeza de que você quer publicar todos
+              os commits que você tenha feito. As vezes, talvez seja útil
+              executar <strong class="userinput"><code>git rebase
+              -i</code></strong> para a finalidade de simplificar o
+              histórico. Também, para prevenir conflitos quando se realizar
+              um push, é melhor primeiro usar <strong class=
+              "userinput"><code>git pull</code></strong> antes de realizar um
+              push e resolver quaisquer conflitos localmente.
+            </p>
+          </div>
+          <div class="sect1" lang="pt-br" xml:lang="pt-br">
+            <div class="titlepage">
+              <div>
+                <div>
+                  <h2 class="title">
+                    <a id="ch03-checkout" name="ch03-checkout"></a>3.10. git
+                    checkout
+                  </h2>
+                </div>
+              </div>
+            </div>
+            <p>
+              <strong class="userinput"><code>git checkout</code></strong>.
+              Esse comando é usado para tornar uma ramificação do repositório
+              local visível no diretório de trabalho.
+            </p>
+            <div class="admon note">
+              <h3>
+                Nota para Usuários(as) do Subversion
+              </h3>
+              <p>
+                <strong class="userinput"><code>git checkout</code></strong>
+                as vezes é confuso para usuários(as) do subversion, pois ele
+                é muito diferente do <strong class="userinput"><code>svn
+                checkout</code></strong>. Aquele está mais próximo do
+                <strong class="userinput"><code>svn switch</code></strong>.
+                Quando usar o Git, você se encontrará criando ramificações
+                bastante frequentemente, e usar <strong class=
+                "userinput"><code>git checkout</code></strong> para alternar
+                entre elas é um comando bastante comum.
+              </p>
+            </div>
+          </div>
+          <div class="sect1" lang="pt-br" xml:lang="pt-br">
+            <div class="titlepage">
+              <div>
+                <div>
+                  <h2 class="title">
+                    <a id="ch03-merge" name="ch03-merge"></a>3.11. git merge
+                  </h2>
+                </div>
+              </div>
+            </div>
+            <p>
+              <strong class="userinput"><code>git merge</code></strong>. Isso
+              é útil para aplicar mudanças originárias de outra ramificação
+              (ou várias ramificações) para a atual. Por padrão, as mudanças
+              resultantes são comitadas. Isso pode ser evitado com a opção
+              <code class="option">--no-commit</code>, a qual dá a você uma
+              chance para inspecionar e ajustar ainda mais o resultado da
+              mesclagem antes de comitar.
+            </p>
+            <p>
+              Em alguns casos, a mesclagem resulta em conflitos que tem de
+              ser resolvidos manualmente. Observe que as edições deveriam
+              mesclar apenas para uma ramificação limpa, isto é, após comitar
+              todas as mudanças.
+            </p>
+            <div class="admon note">
+              <h3>
+                Nota para Usuários(as) do Subversion
+              </h3>
+              <p>
+                Ao contrário do subversion, não existe opção <code class=
+                "option">--dry-run</code> para <strong class=
+                "userinput"><code>git merge</code></strong>. Porém, um
+                repositório sempre pode ser restaurado para um estado
+                anterior com <strong class="userinput"><code>git reset --hard
+                &lt;commit-id&gt;</code></strong>.
+              </p>
+            </div>
+          </div>
+          <div class="sect1" lang="pt-br" xml:lang="pt-br">
+            <div class="titlepage">
+              <div>
+                <div>
+                  <h2 class="title">
+                    <a id="ch03-rebase" name="ch03-rebase"></a>3.12. git
+                    rebase
+                  </h2>
+                </div>
+              </div>
+            </div>
+            <p>
+              <strong class="userinput"><code>git rebase</code></strong>.
+              Isso é útil para ter a ramificação atual iniciada a partir de
+              outro ponto no histórico. Por exemplo, se você tiver:
+            </p>
+            <pre class="screen"><code class=
+            "literal">                              B1---B2---B3    my_branch
+                             /
+                            A---C1---C2       trunk
+</code></pre>
+            <p>
+              realizar um rebase de my_branch para a trunk produzirá:
+            </p>
+            <pre class="screen"><code class=
+            "literal">                              B'1---B'2---B'3 my_branch
+                             /
+                   A---C1---C2                trunk
+</code></pre>
+            <p>
+              onde o estado alcançado depois do commit B'3 é o mesmo que era
+              em B3.
+            </p>
+            <p>
+              Porém, o comando mais útil é o <strong class=
+              "userinput"><code>git rebase -i</code></strong> que permite a
+              você reescrever o histórico quando você tiver feito commits
+              confusos.
+            </p>
+          </div>
+        </div>
+        <div class="chapter" lang="pt-br" xml:lang="pt-br">
+          <div class="titlepage">
+            <div>
+              <div>
+                <h2 class="title">
+                  <a id="chapter04" name="chapter04"></a>Capítulo 4.
+                  Comitando Mudanças - Política
+                </h2>
+              </div>
+            </div>
+          </div>
+          <div class="sect1" lang="pt-br" xml:lang="pt-br">
+            <div class="titlepage">
+              <div>
+                <div>
+                  <h2 class="title">
+                    <a id="ch04-introduction" name=
+                    "ch04-introduction"></a>4.1. Introdução
+                  </h2>
+                </div>
+              </div>
+            </div>
+            <p>
+              Aqui está uma lista do sumário das coisas a fazer antes de
+              comitar mudanças:
+            </p>
+            <div class="itemizedlist">
+              <ul>
+                <li class="listitem">
+                  <p>
+                    Teste as instruções que você está adicionando.
+                  </p>
+                </li>
+                <li class="listitem">
+                  <p>
+                    Atualize <code class="filename">general.ent</code> com a
+                    nova data.
+                  </p>
+                </li>
+                <li class="listitem">
+                  <p>
+                    Atualize <code class=
+                    "filename">chapter01/changelog.xml</code>.
+                  </p>
+                </li>
+                <li class="listitem">
+                  <p>
+                    Verifique se todos os arquivos relevantes foram
+                    adicionados com <strong class="userinput"><code>git
+                    add</code></strong> ou removidos com <strong class=
+                    "userinput"><code>git rm</code></strong>.
+                  </p>
+                </li>
+                <li class="listitem">
+                  <p>
+                    Verifique a validade do XML.
+                  </p>
+                </li>
+                <li class="listitem">
+                  <p>
+                    Verifique se o livro renderiza adequadamente.
+                  </p>
+                </li>
+                <li class="listitem">
+                  <p>
+                    Comite; volte ao início se você tiver outro conjunto de
+                    mudanças que você desejar fazer.
+                  </p>
+                </li>
+                <li class="listitem">
+                  <p>
+                    Realize um push assim que você terminar com todas as suas
+                    mudanças.
+                  </p>
+                </li>
+                <li class="listitem">
+                  <p>
+                    Atualize o Trac para refletir as mudanças.
+                  </p>
+                </li>
+              </ul>
+            </div>
+            <p>
+              Você normalmente deveria restringir um commit a um conjunto de
+              mudanças, de forma que se você estiver atualizando as versões
+              de três pacotes, [então] usualmente você fará isso em três
+              commits. Claramente, o que forma um "conjunto" é uma questão
+              para seu julgamento. Sempre pense que um conjunto terá que ser
+              mesclado para (ao menos) a ramificação multilib. Realizar um
+              push não é obrigatório depois de cada mudança se você planeja
+              breve fazer outra. Mais uma vez, os(as) editores(as) deveriam
+              executar <strong class="userinput"><code>git
+              pull</code></strong> antes de realizar um push para a
+              finalidade de resolver qualquer conflito localmente.
+            </p>
+            <p>
+              Os(As) editores(as) do livro LFS preferem que as mudanças para
+              a data em general.ent sejam feitas como parte de uma mudança
+              <span class="emphasis"><em>real</em></span>.
+            </p>
+          </div>
+          <div class="sect1" lang="pt-br" xml:lang="pt-br">
+            <div class="titlepage">
+              <div>
+                <div>
+                  <h2 class="title">
+                    <a id="ch04-test" name="ch04-test"></a>4.2. Teste as
+                    instruções
+                  </h2>
+                </div>
+              </div>
+            </div>
+            <p>
+              Isso talvez pareça <span class=
+              "emphasis"><em>realmente</em></span> óbvio, porém é muito fácil
+              cometer um erro de digitação em mudanças de comando de
+              instalação que fazem com que a instalação quebre. Todos nós
+              cometemos; você provavelmente também cometerá eventualmente.
+              Entretanto, verifique duplamente para minimizar a chance.
+            </p>
+          </div>
+          <div class="sect1" lang="pt-br" xml:lang="pt-br">
+            <div class="titlepage">
+              <div>
+                <div>
+                  <h2 class="title">
+                    <a id="ch04-updategeneralent" name=
+                    "ch04-updategeneralent"></a>4.3. Atualizando o
+                    general.ent
+                  </h2>
+                </div>
+              </div>
+            </div>
+            <p>
+              Os seguintes elementos deveriam ser descomentados e atualizados
+              no arquivo <code class="filename">general.ent</code> quando um
+              lançamento (incluindo lançamentos -rc) for feito e as duas
+              linhas acerca do <code class="filename">version.ent</code>
+              deveriam ser comentadas:
+            </p>
+            <pre class="screen">&lt;!ENTITY version         "10.2-rc1"&gt;
+&lt;!ENTITY versiond        "10.2-rc1"&gt;
+&lt;!ENTITY releasedate     "August 26th, 2021"&gt;
+&lt;!ENTITY copyrightdate   "1999-2021"&gt;</pre>
+            <p>
+              Para instantâneos de desenvolvimento, essas entidades são
+              geradas automaticamente a partir da informação de commit do
+              Git. Assim, o <code class="filename">general.ent</code> não
+              precisa ser atualizado.
+            </p>
+          </div>
+          <div class="sect1" lang="pt-br" xml:lang="pt-br">
+            <div class="titlepage">
+              <div>
+                <div>
+                  <h2 class="title">
+                    <a id="ch04-updatechangelog" name=
+                    "ch04-updatechangelog"></a>4.4. Atualize o
+                    chapter01/changelog.xml
+                  </h2>
+                </div>
+              </div>
+            </div>
+            <p>
+              As atualizações do registro das mudanças <span class=
+              "emphasis"><em>sempre</em></span> deveriam ser fornecidas, com
+              a exceção dos pequenos consertos dos erros de digitação. Você
+              não precisa adicionar "consertado um pequeno erro de digitação
+              em XXX" ao registro das mudanças, do contrário ele crescerá
+              demais.
+            </p>
+            <p>
+              As atualizações do registro das mudanças precisam estar no
+              seguinte formato:
+            </p>
+            <pre class="screen">&lt;listitem&gt;
+  &lt;para&gt;Dia, Mês e Ano&lt;/para&gt;
+  &lt;itemizedlist&gt;
+    &lt;listitem&gt;
+      &lt;para&gt;[nome de usuário(a)] - O que você mudou.&lt;/para&gt;
+    &lt;/listitem&gt;
+&lt;!-- caso se aplique somente para a versão sysv (adapte para systemd) --&gt;
+    &lt;listitem revision="sysv"&gt;
+      &lt;para&gt;[nome de usuário(a)] - O que você mudou somente para a versão sysv.&lt;/para&gt;
+    &lt;/listitem&gt;
+    &lt;listitem&gt;
+      &lt;para&gt;[nome de usuário(a)] - Entrada anterior do registro 
+      das mudanças originária do mesmo dia, por você ou outro(a) 
+      editor(a).&lt;/para&gt;
+    &lt;/listitem&gt;
+  &lt;itemizedlist&gt;
+&lt;/listitem&gt;</pre>
+            <p>
+              Exemplo:
+            </p>
+            <pre class="screen">&lt;listitem&gt;
+  &lt;para&gt;03 de março de 2006&lt;/para&gt;
+  &lt;itemizedlist&gt;
+    &lt;listitem&gt;
+      &lt;para&gt;[renodr] - Atualização para o attr-2.5.1. Conserta
+      &lt;ulink url="&amp;lfs-ticket-root;4833"&gt;#4833&lt;/ulink&gt;.&lt;/para&gt;
+    &lt;/listitem&gt;
+  &lt;/itemizedlist&gt;
+&lt;/listitem&gt;</pre>
+            <p>
+              As entradas do registro das mudanças sempre estão no topo da
+              entrada do registro das mudanças adicionada anteriormente.
+            </p>
+          </div>
+          <div class="sect1" lang="pt-br" xml:lang="pt-br">
+            <div class="titlepage">
+              <div>
+                <div>
+                  <h2 class="title">
+                    <a id="ch04-checkfiles" name="ch04-checkfiles"></a>4.5.
+                    Verifique todos os Arquivos Relevantes
+                  </h2>
+                </div>
+              </div>
+            </div>
+            <p>
+              Se você estiver adicionando arquivos, [então] você precisa
+              executar um comando <span class="command"><strong>git
+              add</strong></span> em cada um deles. Quando você remover
+              arquivos, você sempre deveria fazer isso com <span class=
+              "command"><strong>git rm</strong></span>. Mover ou renomear
+              arquivos é feito com <span class="command"><strong>git
+              mv</strong></span>. Adicionar um diretório e todos os filhos
+              dele é feito com <span class="command"><strong>git add
+              &lt;nome_diretório&gt;</strong></span>.
+            </p>
+            <p>
+              Se você pensa que está pronto para [efetivar o] commit, [então]
+              execute <span class="command"><strong>git
+              status</strong></span> para ver o estado da cópia de trabalho.
+              O processo normal é primeiro [executar] <span class=
+              "command"><strong>git add</strong></span> [para adicionar] os
+              arquivos que estão modificados ao índice, então executar
+              <span class="command"><strong>git commit</strong></span> para
+              armazenar o conjunto de mudanças no repositório local. A saída
+              do git status se parece com isto:
+            </p>
+            <pre class="screen">On branch trunk
+Your branch is up to date with 'origin/trunk'.
+
+Changes to be committed:
+  (use "git restore --staged &lt;file&gt;..." to unstage)
+        modified:   README
+
+Changes not staged for commit:
+  (use "git add &lt;file&gt;..." to update what will be committed)
+  (use "git restore &lt;file&gt;..." to discard changes in working directory)
+        modified:   TODO</pre>
+            <p>
+              onde a [mensagem] "Changes to be committed" aparece em verde,
+              enquanto que a [mensagem] "Changes not staged for commit"
+              aparece em vermelho.
+            </p>
+          </div>
+          <div class="sect1" lang="pt-br" xml:lang="pt-br">
+            <div class="titlepage">
+              <div>
+                <div>
+                  <h2 class="title">
+                    <a id="ch04-commenting" name="ch04-commenting"></a>4.6.
+                    Comentando alguma coisa
+                  </h2>
+                </div>
+              </div>
+            </div>
+            <p>
+              As vezes, uma mudança tornará alguma coisa não mais apropriada,
+              porém você pensa que ela seria necessária no futuro. Se você
+              comentá-la da maneira normal e iniciar o comentário com um
+              marcador <code class="literal">FIXME:</code>, [então] isso será
+              realçado sempre que o arquivo for editado, ao menos se você
+              usar o vim.
+            </p>
+            <p>
+              Se você encontrar um <span class=
+              "emphasis"><em>FIXME:</em></span> em um comentário, [então] não
+              assuma automaticamente que ele possa ser deletado porque as
+              instruções seguintes agora tenham sido comentadas.
+            </p>
+            <p>
+              Observe que não existe exemplo aqui - a renderização do html
+              retira os comentários e uma caixa vazia parece idiota. Como
+              sempre, renderize a sua cópia local depois que você comentar
+              alguma coisa, de forma que você possa ver o resultado!
+            </p>
+          </div>
+          <div class="sect1" lang="pt-br" xml:lang="pt-br">
+            <div class="titlepage">
+              <div>
+                <div>
+                  <h2 class="title">
+                    <a id="ch04-commit" name="ch04-commit"></a>4.7. Consigne!
+                  </h2>
+                </div>
+              </div>
+            </div>
+            <p>
+              Tão logo você tiver certeza de que tudo renderiza e que sabe
+              quais arquivos deseja comitar, você está pronto(a). Primeiro
+              comite localmente:
+            </p>
+            <div class="itemizedlist">
+              <ul>
+                <li class="listitem">
+                  <p>
+                    Procedimento normal: permite comitar somente o que você
+                    quer
+                  </p>
+                  <div class="itemizedlist">
+                    <ul>
+                      <li class="listitem">
+                        <p>
+                          Execute <span class="command"><strong>git add
+                          <em class="replaceable"><code>&lt;arquivo1&gt;
+                          &lt;arquivo2&gt; ...</code></em></strong></span>
+                        </p>
+                      </li>
+                      <li class="listitem">
+                        <p>
+                          Depois que verificar que todos foram organizados
+                          corretamente (use <span class="command"><strong>git
+                          status</strong></span> e (ou) <span class=
+                          "command"><strong>git diff
+                          --staged</strong></span>), execute <span class=
+                          "command"><strong>git commit</strong></span> e
+                          preencha a mensagem de registro na janela do
+                          editor. Ou, para uma mensagem curta de registro,
+                          execute <span class="command"><strong>git commit -m
+                          "<em class="replaceable"><code>mensagem de
+                          registro</code></em>"</strong></span>.
+                        </p>
+                      </li>
+                    </ul>
+                  </div>
+                </li>
+                <li class="listitem">
+                  <p>
+                    Atalho para comitar todos os arquivos modificados de uma
+                    só vez:
+                  </p>
+                  <div class="itemizedlist">
+                    <ul>
+                      <li class="listitem">
+                        <p>
+                          Execute <span class="command"><strong>git commit
+                          -a</strong></span> e escreva a mensagem de registro
+                          na janela do editor. Como o acima, você pode usar a
+                          opção <code class="option">-m</code> para mensagens
+                          curtas de registro.
+                        </p>
+                      </li>
+                    </ul>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <p>
+              Agora envie seu trabalho: <span class="command"><strong>git
+              push</strong></span>. Um registro de transação de todos os
+              commits que compõem o envio será enviado por correio eletrônico
+              para a lista de discussão <code class="email">&lt;<a class=
+              "email" href=
+              "mailto:lfs-book@lists.linuxfromscratch.org">lfs-book@lists.linuxfromscratch.org</a>&gt;</code>,
+              de forma que outros(as) editores(as) possam ver imediatamente o
+              que você fez. As mensagens de correio eletrônico de commits
+              contém algumas informações básicas (registro, mudanças para
+              quais arquivos), incluindo uma saída no formato <span class=
+              "emphasis"><em>diff -u</em></span>.
+            </p>
+            <p>
+              <span class="emphasis"><em>Acerca das mensagens de
+              registro:</em></span> Devido à maneira como o <span class=
+              "command"><strong>git log</strong></span> exibe mensagens de
+              registro, por favor, mantenha o tamanho de cada linha abaixo de
+              setenta e dois (72) caracteres. Uma boa mensagem de commit é
+              composta de um sumário curto (não mais que cinquenta
+              caracteres); uma linha em branco; então detalhes, razões, etc.
+              em linhas de menos que setenta e dois (72) caracteres. As
+              mensagens de registro <span class=
+              "emphasis"><em>nunca</em></span> deveriam estar vazias. Ainda
+              que a mensagem seja apenas 'pequeno conserto de erro de
+              digitação', isso servirá. Outras mensagens usuais são
+              'atualização para o pacote-x.y.z' ou 'consertadas as instruções
+              de instalação do pacote foo'. Essa última usualmente também
+              precisa de linhas de esclarecimento conforme dito acima.
+            </p>
+            <p>
+              <span class="emphasis"><em>Exemplo</em></span>: Se você
+              modificou o <code class="filename">general.ent</code>; o
+              registro das mudanças; e consertou um erro de digitação na
+              instalação do bash do capítulo 6, [então] o fluxo de trabalho
+              poderia ser:
+            </p>
+            <pre class="userinput"><kbd class=
+            "command">git add general.ent chapter01/changelog.xml chapter06/bash.xml
+git commit -m 'consertado um erro de digitação no bash do capítulo 6'</kbd></pre>
+          </div>
+          <div class="sect1" lang="pt-br" xml:lang="pt-br">
+            <div class="titlepage">
+              <div>
+                <div>
+                  <h2 class="title">
+                    <a id="ch04-trac" name="ch04-trac"></a>4.8. Atualize o
+                    Trac
+                  </h2>
+                </div>
+              </div>
+            </div>
+            <p>
+              A parte final de atualizar o livro é atualizar o bilhete. Isso
+              usualmente é tão fácil quanto ir para a wiki (<a class="ulink"
+              href=
+              "https://wiki.linuxfromscratch.org/lfs">https://wiki.linuxfromscratch.org/lfs</a>);
+              ir ao bilhete e escolher resolver, mudando a resolução para
+              consertado.
+            </p>
+          </div>
+        </div>
+        <div class="chapter" lang="pt-br" xml:lang="pt-br">
+          <div class="titlepage">
+            <div>
+              <div>
+                <h2 class="title">
+                  <a id="chapter05" name="chapter05"></a>Capítulo 5. Usando o
+                  Trac
+                </h2>
+              </div>
+            </div>
+          </div>
+          <div class="sect1" lang="pt-br" xml:lang="pt-br">
+            <div class="titlepage">
+              <div>
+                <div>
+                  <h2 class="title">
+                    <a id="ch05-introduction" name=
+                    "ch05-introduction"></a>5.1. Introdução
+                  </h2>
+                </div>
+              </div>
+            </div>
+            <p>
+              Este capítulo cobre as coisas que você precisa fazer quando
+              estiver usando o Trac para registrar defeitos novos no sistema
+              e consertando/atualizando defeitos excepcionais.
+            </p>
+            <p>
+              Nós assumimos que você já se logou no Trac antes de fazer
+              qualquer coisa delineada nas seções seguintes.
+            </p>
+          </div>
+          <div class="sect1" lang="pt-br" xml:lang="pt-br">
+            <div class="titlepage">
+              <div>
+                <div>
+                  <h2 class="title">
+                    <a id="ch05-addingcomments" name=
+                    "ch05-addingcomments"></a>5.2. Adicionando comentários
+                  </h2>
+                </div>
+              </div>
+            </div>
+            <div class="itemizedlist">
+              <ul>
+                <li class="listitem">
+                  <p>
+                    Vá para o bilhete que você quer adicionar comentários
+                  </p>
+                </li>
+                <li class="listitem">
+                  <p>
+                    Adicione sua informação adicional na caixa <span class=
+                    "emphasis"><em>Comment</em></span>.
+                  </p>
+                </li>
+                <li class="listitem">
+                  <p>
+                    Conforme o último passo, clique no botão <span class=
+                    "emphasis"><em>Submit changes</em></span> para comitar
+                    suas mudanças para a base de dados. Um registro disso
+                    será enviado para a lista de discussão lfs-book.
+                  </p>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div class="sect1" lang="pt-br" xml:lang="pt-br">
+            <div class="titlepage">
+              <div>
+                <div>
+                  <h2 class="title">
+                    <a id="ch05-filingbug" name="ch05-filingbug"></a>5.3.
+                    Registre um defeito novo
+                  </h2>
+                </div>
+              </div>
+            </div>
+            <p>
+              Você encontrou um defeito ou outra pessoa encontrou um defeito
+              e você decidiu adicioná-lo ao Trac. Ou você quer registrar uma
+              solicitação para uma característica que alguma pessoa tenha
+              pedido ou uma tarefa de algum outro tipo.
+            </p>
+            <div class="itemizedlist">
+              <ul>
+                <li class="listitem">
+                  <p>
+                    Vá para <a class="ulink" href=
+                    "https://wiki.linuxfromscratch.org/lfs/newticket">https://wiki.linuxfromscratch.org/lfs/newticket</a>
+                  </p>
+                </li>
+                <li class="listitem">
+                  <p>
+                    Selecione o tipo de tíquete (defeito por bugs; ou
+                    aprimoramento; ou tarefa).
+                  </p>
+                </li>
+                <li class="listitem">
+                  <p>
+                    O <span class="emphasis"><em>Sumário curto</em></span> e
+                    a <span class="emphasis"><em>Descrição
+                    completa</em></span> são obrigatórios.
+                  </p>
+                </li>
+                <li class="listitem">
+                  <p>
+                    Selecione a <span class=
+                    "emphasis"><em>Prioridade</em></span>. Use seu próprio
+                    julgamento acerca do quão importante é consertar esse
+                    defeito. Se você não tiver certeza, [então] apenas deixe
+                    o padrão. As prioridades periodicamente são reavaliadas e
+                    mudadas de qualquer maneira.
+                  </p>
+                </li>
+                <li class="listitem">
+                  <p>
+                    Selecione o <span class=
+                    "emphasis"><em>Componente</em></span> - as únicas opções
+                    são Book ou Bootscripts.
+                  </p>
+                </li>
+                <li class="listitem">
+                  <p>
+                    Selecione a <span class=
+                    "emphasis"><em>Severidade</em></span> conforme
+                    apropriado, algo de trivial até crítica ou bloqueadora.
+                  </p>
+                </li>
+                <li class="listitem">
+                  <p>
+                    Se você não quiser vincular-se imediatamente, [então]
+                    deixe o campo <span class="emphasis"><em>Assign
+                    To</em></span> em branco. Será vinculado ao <code class=
+                    "email">&lt;<a class="email" href=
+                    "mailto:lfs-book@linuxfromscratch.org">lfs-book@linuxfromscratch.org</a>&gt;</code>
+                    até que um(a) editor(a) mude isso para ele(a) próprio(a).
+                  </p>
+                </li>
+                <li class="listitem">
+                  <p>
+                    Se você desejar, [então] selecione um <span class=
+                    "emphasis"><em>Marco histórico</em></span>: ou a próxima
+                    versão; ou futuro.
+                  </p>
+                </li>
+                <li class="listitem">
+                  <p>
+                    Selecione a <span class="emphasis"><em>Versão</em></span>
+                    apropriada. Quase sempre você escolherá a versão
+                    <span class="emphasis"><em>SVN</em></span>. Não faz
+                    sentido relatar um defeito contra uma versão antiga se
+                    ela não mais está no Subversion. Se ela estiver, então a
+                    SVN é mais nova que uma versão estável do livro lançada
+                    anteriormente. As versões estão lá basicamente somente
+                    para pessoas que não editam o livro e quem quer relatar
+                    um defeito contra a versão do livro que tem.
+                  </p>
+                </li>
+                <li class="listitem">
+                  <p>
+                    Preencha os campos <span class=
+                    "emphasis"><em>Keywords</em></span> e <span class=
+                    "emphasis"><em>Cc:</em></span> se você desejar.
+                  </p>
+                </li>
+                <li class="listitem">
+                  <p>
+                    Se você estiver usando qualquer formatação no campo
+                    Descrição completa, [então] você talvez deseje clicar no
+                    botão <span class="emphasis"><em>Preview</em></span>.
+                  </p>
+                </li>
+                <li class="listitem">
+                  <p>
+                    Como o último passo, clique no botão <span class=
+                    "emphasis"><em>Submit ticket</em></span> para comitar as
+                    suas mudanças para a base de dados. Um registro disso
+                    será enviado para a lista de discussão <code class=
+                    "email">&lt;<a class="email" href=
+                    "mailto:lfs-book@linuxfromscratch.org">lfs-book@linuxfromscratch.org</a>&gt;</code>.
+                  </p>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div class="sect1" lang="pt-br" xml:lang="pt-br">
+            <div class="titlepage">
+              <div>
+                <div>
+                  <h2 class="title">
+                    <a id="ch05-assignbug" name="ch05-assignbug"></a>5.4.
+                    Vinculando Tíquetes
+                  </h2>
+                </div>
+              </div>
+            </div>
+            <p>
+              Quando você estiver pronto(a) para começar a trabalhar em um
+              problema que esteja no Trac, o passo um é vinculá-lo a você
+              próprio(a). Isso informa a todos(as) os(as) editores(as) que
+              você está trabalhando no problema.
+            </p>
+            <div class="itemizedlist">
+              <ul>
+                <li class="listitem">
+                  <p>
+                    Vá para o problema sobre o qual você quer trabalhar.
+                  </p>
+                </li>
+                <li class="listitem">
+                  <p>
+                    Selecione o botão de rádio <span class=
+                    "emphasis"><em>Accept ticket</em></span>.
+                  </p>
+                </li>
+                <li class="listitem">
+                  <p>
+                    Clique no botão <span class="emphasis"><em>Submit
+                    changes</em></span>.
+                  </p>
+                </li>
+                <li class="listitem">
+                  <p>
+                    Enquanto trabalhar no problema, as vezes você talvez
+                    queira adicionar comentários a ele. Sinta livre para
+                    fazer isso.
+                  </p>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div class="sect1" lang="pt-br" xml:lang="pt-br">
+            <div class="titlepage">
+              <div>
+                <div>
+                  <h2 class="title">
+                    <a id="ch05-fixbug" name="ch05-fixbug"></a>5.5. Sinalize
+                    um Problema como Consertado
+                  </h2>
+                </div>
+              </div>
+            </div>
+            <p>
+              Tão logo você tenha consertado um problema e tenha comitado as
+              mudanças relevantes no repositório Subversion, você precisa
+              sinalizar o tíquete como consertado no Trac.
+            </p>
+            <div class="itemizedlist">
+              <ul>
+                <li class="listitem">
+                  <p>
+                    Vá para o tíquete que você consertou e o qual está
+                    vinculado a você.
+                  </p>
+                </li>
+                <li class="listitem">
+                  <p>
+                    Selecione o botão de rádio <span class=
+                    "quote">&ldquo;<span class="quote">resolve
+                    as</span>&rdquo;</span>. Então selecione a resolução
+                    adequada. Usualmente você selecionará <span class=
+                    "emphasis"><em>fixed</em></span> aqui, porém existem
+                    ocasiões quando você seleciona outros, como casos onde um
+                    problema relatado é (<span class=
+                    "emphasis"><em>invalid</em></span>); ou nós sabemos
+                    acerca dele, porém não o consertaríamos (<span class=
+                    "emphasis"><em>wontfix</em></span>); e assim por diante.
+                  </p>
+                </li>
+                <li class="listitem">
+                  <p>
+                    Clique no botão <span class="emphasis"><em>Submit
+                    changes</em></span> para comitar as mudanças para a base
+                    de dados.
+                  </p>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="chapter" lang="pt-br" xml:lang="pt-br">
+          <div class="titlepage">
+            <div>
+              <div>
+                <h2 class="title">
+                  <a id="chapter06" name="chapter06"></a>Capítulo 6.
+                  Procedimentos de Atualização de Pacote
+                </h2>
+              </div>
+            </div>
+          </div>
+          <div class="sect1" lang="pt-br" xml:lang="pt-br">
+            <div class="titlepage">
+              <div>
+                <div>
+                  <h2 class="title">
+                    <a id="ch06-introduction" name=
+                    "ch06-introduction"></a>6.1. Introdução
+                  </h2>
+                </div>
+              </div>
+            </div>
+            <p>
+              Atualizar um pacote no Livro LFS consiste do seguinte:
+            </p>
+            <div class="itemizedlist">
+              <ul>
+                <li class="listitem">
+                  <p>
+                    Atualizar o Trac para anunciar a disponibilidade de uma
+                    versão nova de um pacote.
+                  </p>
+                </li>
+                <li class="listitem">
+                  <p>
+                    Atualizar o livro para refletir a versão nova do pacote.
+                  </p>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div class="sect1" lang="pt-br" xml:lang="pt-br">
+            <div class="titlepage">
+              <div>
+                <div>
+                  <h2 class="title">
+                    <a id="ch06-updatetrac" name="ch06-updatetrac"></a>6.2.
+                    Atualizando o Trac
+                  </h2>
+                </div>
+              </div>
+            </div>
+            <p>
+              Quando um pacote novo é lançado pelos(as) mantenedores(as)
+              dele, nós sinalizamos isso no Trac. Você não precisa atualizar
+              o livro pouco depois que um pacote for lançado, porém ao menos
+              anunciá-lo.
+            </p>
+            <div class="itemizedlist">
+              <ul>
+                <li class="listitem">
+                  <p>
+                    Vá para a página de consulta do Trac em <a class="ulink"
+                    href=
+                    "https://wiki.linuxfromscratch.org/lfs/report">https://wiki.linuxfromscratch.org/lfs/report</a>
+                  </p>
+                </li>
+                <li class="listitem">
+                  <p>
+                    Escolha Active Tickets e procure pelo nome do pacote.
+                  </p>
+                </li>
+                <li class="listitem">
+                  <p>
+                    Crie um tíquete novo para a versão nova (conforme
+                    discutido anteriormente sob registrar um defeito novo).
+                    Sinalize-o como um aprimoramento. Adicione qualquer
+                    informação interessante, por exemplo, a partir das notas
+                    de lançamento. Quando você tiver colocado toda a
+                    informação que você desejar registrar, clique em
+                    <span class="emphasis"><em>Submit ticket</em></span> na
+                    maneira normal.
+                  </p>
+                </li>
+                <li class="listitem">
+                  <p>
+                    Se existir um tíquete aberto existente para uma versão
+                    anterior do pacote, [então] resolva isso como
+                    <span class="emphasis"><em>wontfix</em></span> com uma
+                    observação de que ele foi substituído pelo tíquete novo.
+                    Alternativamente, selecione <span class=
+                    "emphasis"><em>Modify Ticket</em></span> e atualize o
+                    Summary e a Description para refletir a versão nova.
+                  </p>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div class="sect1" lang="pt-br" xml:lang="pt-br">
+            <div class="titlepage">
+              <div>
+                <div>
+                  <h2 class="title">
+                    <a id="ch06-updatebook" name="ch06-updatebook"></a>6.3.
+                    Atualize o Livro
+                  </h2>
+                </div>
+              </div>
+            </div>
+            <p>
+              Quando você for atualizar o livro para adicionar um pacote novo
+              a ele, aqui está como você faz isso:
+            </p>
+            <div class="itemizedlist">
+              <ul>
+                <li class="listitem">
+                  <p>
+                    Vincule-se ao tíquete para esse pacote novo.
+                  </p>
+                </li>
+                <li class="listitem">
+                  <p>
+                    Construa um sistema LFS de teste para ter a certeza de
+                    que esse pacote compila adequadamente em um ambiente LFS.
+                    Não use o seu ambiente regular da estação de trabalho -
+                    ele talvez esteja suficientemente diferente para afetar
+                    os procedimentos de construção. Um pacote talvez dependa
+                    de alguma coisa que você tenha instalado, porém a qual
+                    não vem com o Livro LFS. Tenha em mente também que alguns
+                    pacotes são usados mais que uma vez no processo de
+                    construção do LFS.
+                  </p>
+                </li>
+                <li class="listitem">
+                  <p>
+                    Atualize as instruções de instalação no livro, se
+                    necessário.
+                  </p>
+                </li>
+                <li class="listitem">
+                  <p>
+                    Quando o pacote compilar adequadamente e o pacote também
+                    funcionar (não der falha de segmentação ou exibir outros
+                    erros quando se tentar executar aplicativos a partir
+                    dele), então abra o <code class=
+                    "filename">packages.ent</code> em um editor.
+                  </p>
+                </li>
+                <li class="listitem">
+                  <p>
+                    Encontre a entidade <span class=
+                    "emphasis"><em>package-version</em></span> e atualize o
+                    valor dela para a versão nova.
+                  </p>
+                </li>
+                <li class="listitem">
+                  <p>
+                    Atualize a lista dos arquivos instalados pela versão nova
+                    do pacote. Isso pode ser obtido trivialmente usando o
+                    <span class="command"><strong>find</strong></span>
+                    imediatamente antes de e imediatamente depois que
+                    instalar a versão nova e comparar com o <span class=
+                    "command"><strong>diff</strong></span> as duas saídas
+                    geradas.
+                  </p>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div class="sect1" lang="pt-br" xml:lang="pt-br">
+            <div class="titlepage">
+              <div>
+                <div>
+                  <h2 class="title">
+                    <a id="ch06-renderchecklinks" name=
+                    "ch06-renderchecklinks"></a>6.4. Renderize o Livro e
+                    Verifique os Links
+                  </h2>
+                </div>
+              </div>
+            </div>
+            <p>
+              Agora que você está pronto(a), tenha a certeza de que o livro
+              renderiza adequadamente e verifique os links no <span class=
+              "emphasis"><em>Capítulo 3</em></span> para ter a certeza de que
+              os links do pacote novo são válidos.
+            </p>
+            <p>
+              Se isso der certo, então você está pronto(a) com a atualização
+              do pacote. Para mais informação acerca de como construir os
+              arquivos HTML a partir dos fontes do livro, consulte o
+              <span class="emphasis"><em>Capítulo 8</em></span>.
+            </p>
+            <p>
+              Comite as suas mudanças para o repositório do Git.
+            </p>
+          </div>
+        </div>
+        <div class="chapter" lang="pt-br" xml:lang="pt-br">
+          <div class="titlepage">
+            <div>
+              <div>
+                <h2 class="title">
+                  <a id="chapter07" name="chapter07"></a>Capítulo 7. Avisos
+                  de Segurança
+                </h2>
+              </div>
+            </div>
+          </div>
+          <div class="sect1" lang="pt-br" xml:lang="pt-br">
+            <div class="titlepage">
+              <div>
+                <div>
+                  <h2 class="title">
+                    <a id="ch07-introduction" name=
+                    "ch07-introduction"></a>7.1. Introdução
+                  </h2>
+                </div>
+              </div>
+            </div>
+            <p>
+              Em ambos LFS e BLFS nós tentamos avisar ao(à)s nossos(as)
+              usuários(as) das vulnerabilidades de segurança. As vezes,
+              vulnerabilidades são mencionadas em um anúncio de lançamento;
+              outras vezes elas são divulgadas posteriormente.
+            </p>
+            <p>
+              Os avisos atuais apontam para os livros de desenvolvimento, com
+              os avisos anteriores apontando para os livros numerados (em vez
+              de 'estáveis'). Provavelmente você precisará criar alguns links
+              simbólicos onde quer que você renderize os livros para que
+              ambas as versões dos livros LFS e BLFS atuais apontem para suas
+              cópias locais, de forma que você possa verificá-las antes de
+              enviar. Se você tiver renderizações locais dos livros lançados
+              atualmente, [então] também poderá criar um link para eles. Como
+              <code class="filename">consolidated.html</code> está localizado
+              no livro BLFS, você precisará criar um link simbólico especial
+              para chegar a ele a partir dos seus avisos locais do LFS.
+            </p>
+            <p>
+              Por razões históricas, os links no rivendell apontam para 'svn'
+              e 'systemd' para os livros atuais.
+            </p>
+            <p>
+              Normalmente, emitiremos um aviso de segurança assim que
+              tivermos uma correção testada no livro apropriado (LFS ou
+              BLFS), ou seja, uma versão mais recente ou um patch. No
+              entanto, as vezes, uma vulnerabilidade permanece aberta por
+              muito tempo e nós talvez optemos por sugerir uma solução
+              alternativa, como "não use essa característica do pacote".
+            </p>
+            <p>
+              Nós tentamos fornecer detalhes suficientes para habilitar
+              os(as) usuários(as) a decidirem se precisam atualizar o mais
+              rápido possível, incluindo uma avaliação de vulnerabilidade e
+              quaisquer detalhes que possamos encontrar. Se o(a)
+              desenvolvedor(a) fornecer uma avaliação da gravidade, [então]
+              normalmente usaremos essa. Do contrário, precisamos procurar
+              por aí por detalhes. Se os detalhes de um CVE estiverem
+              visíveis publicamente, [então] existiria uma classificação em
+              <a class="ulink" href=
+              "https://nvd.nist.gov/vuln/search">https://nvd.nist.gov/vuln/search</a>,
+              apesar de, as vezes, esse sítio rotular os problemas como
+              Moderados quando uma classificação de Alta seria apropriado. Se
+              em dúvida, [então] nossa classificação padrão é Alta.
+            </p>
+            <p>
+              Na teoria, um(a) usuário(a) de uma versão anterior recente do
+              livro pode examinar nossas vulnerabilidades atuais e anteriores
+              e ver cada vulnerabilidade corrigida a qual afeta um pacote. Na
+              prática, nem sempre fica claro que uma versão mais recente
+              corrigiu a vulnerabilidade - se isso vier à tona depois que
+              tenhamos feito um lançamento com uma versão mais recente do
+              pacote, [então] tais itens seriam ignorados na presunção de que
+              a maioria dos(as) usuários(as) já consultou as vulnerabilidades
+              anteriores e é improvável que note adições novas - por exemplo,
+              uma vulnerabilidade no flac-3.2 foi corrigida no flac-3.3,
+              porém não mencionada publicamente. Em tais casos, nós podemos
+              adicionar uma seção 'Avisos Tardios' entre os avisos para o
+              livro atual e os avisos anteriores - veja-se 10.0-102 no
+              <code class="filename">consolidated.html</code> e a entrada
+              correspondente no <code class="filename">10.0.html</code>.
+              Nesses casos, a melhor maneira para alertar os(as) usuários(as)
+              é a de anunciar o aviso nas listas lfs-support e blfs-support.
+            </p>
+            <p>
+              De tempos em tempos, nós talvez fiquemos cientes de que os
+              detalhes de um aviso deveriam ser mudados, por exemplo,
+              aconteceria de ele ser inválido por alguma razão (por exemplo,
+              nunca em uma versão lançada; ou aplicável somente ao Windows).
+              Quando isso acontecer, nós podemos modificar o item existente e
+              mudar a entrada 'Data' para 'Atualizado' com a data atual.
+            </p>
+            <p>
+              Para atualizações diárias dos avisos, os arquivos estão
+              organizados em:
+            </p>
+            <div class="itemizedlist">
+              <ul>
+                <li class="listitem">
+                  <p>
+                    <code class=
+                    "filename">blfs/advisories/consolidated.html</code>
+                    (compartilhado entre o LFS e o BLFS).
+                  </p>
+                </li>
+                <li class="listitem">
+                  <p>
+                    <code class="filename">lfs/advisories/NN.N.html</code>
+                    (para quaisquer avisos do LFS desde o lançamento (NN.N)
+                    atual).
+                  </p>
+                </li>
+                <li class="listitem">
+                  <p>
+                    <code class="filename">bfs/advisories/NN.N.html</code>
+                    (para quaisquer avisos do BLFS desde o lançamento (NN.N)
+                    atual).
+                  </p>
+                </li>
+              </ul>
+            </div>
+            <p>
+              Existem duas partes para se criar um aviso:
+            </p>
+            <div class="itemizedlist">
+              <ul>
+                <li class="listitem">
+                  <p>
+                    Pegar o próximo número disponível para criar uma entrada
+                    no <code class="filename">consolidated.html</code>
+                    contendo os detalhes necessários.
+                  </p>
+                </li>
+                <li class="listitem">
+                  <p>
+                    Adicionar detalhes resumidos do aviso para esta versão do
+                    LFS ou do BLFS.
+                  </p>
+                </li>
+              </ul>
+            </div>
+            <p>
+              <span class="emphasis"><em>Grande parte de qualquer item novo
+              será copiado a partir de um modelo ou a partir de um aviso
+              anterior. É importante investir tempo quando revisar o que você
+              criou, para ver se ele lê e vincula corretamente.</em></span>
+            </p>
+          </div>
+          <div class="sect1" lang="pt-br" xml:lang="pt-br">
+            <div class="titlepage">
+              <div>
+                <div>
+                  <h2 class="title">
+                    <a id="ch07-consolidated" name=
+                    "ch07-consolidated"></a>7.2. Consolidated.html
+                  </h2>
+                </div>
+              </div>
+            </div>
+            <p>
+              A página consolidada fornece uma lista dos nossos avisos desde
+              que começamos a criá-los. Eles são numerados dentro dos
+              lançamentos, em cada caso os mais recentes primeiro. Essa
+              página existe em <code class="filename">blfs/advisories</code>,
+              porém ela é comum a ambos LFS e BLFS.
+            </p>
+            <p>
+              Crie os detalhes para o próximo número de aviso disponível. A
+              parte do topo da página contém um monte de itens comentados os
+              quais podem ser usados como um modelo, porém se existirem
+              avisos anteriores para esse pacote, [então] talvez seja mais
+              fácil copiar os detalhes a partir de um daqueles.
+            </p>
+            <p>
+              Bem como o número, e o link sa-NN.N-nnn, cada entrada tem uma
+              data e uma gravidade. Onde o(a) desenvolvedor(a) tenha
+              atribuído uma gravidade, normalmente vamos com essa. Se uma
+              fonte tal como NVD tenha atribuído uma gravidade, [então]
+              considere se ela é apropriada (nosso padrão é 'Alta' mesmo para
+              Negação de Serviço em aplicativos não servidor).
+            </p>
+            <p>
+              Onde um ou mais CVEs tenham sido divulgados, talvez seja útil
+              vincular ao NVD se isso fornecer detalhes; ou, do contrário, a
+              qualquer outra fonte confiável a qual explique a
+              vulnerabilidade (isto é, Google para ela). Se os detalhes não
+              estiverem públicos, [então] você não estaria apto(a) a
+              encontrar um link externo apropriado. Porém, para pacotes os
+              quais fornecem seus próprios avisos, é bom vincular a eles.
+            </p>
+            <p>
+              Renderize a página, verifique se os links (externos para
+              aplicativos; e internos para os livros sysv e systemd)
+              funcionam corretamente e que o que você escreveu e colou faz
+              sentido.
+            </p>
+            <p>
+              Seria benéfico confirmar a mudança para consolidated.html neste
+              ponto, de forma que a titularidade da propriedade do número do
+              aviso seja sua (por exemplo, se você pensa que outra pessoa
+              talvez esteja também atualizando avisos). Nesse caso,
+              provavelmente é melhor fazer somente um se você tiver vários;
+              e, então, atualizar a página para o lançamento atual.
+            </p>
+          </div>
+          <div class="sect1" lang="pt-br" xml:lang="pt-br">
+            <div class="titlepage">
+              <div>
+                <div>
+                  <h2 class="title">
+                    <a id="ch07-since-last-release" name=
+                    "ch07-since-last-release"></a>7.3. Avisos desde o
+                    lançamento anterior.
+                  </h2>
+                </div>
+              </div>
+            </div>
+            <p>
+              Existem páginas separadas para o LFS e para o BLFS onde nós
+              listamos nossos avisos desde nosso lançamento anterior. Essas
+              páginas estão em ordem alfabética, com os avisos mais recentes
+              vindo antes dos mais antigos para o mesmo pacote.
+            </p>
+            <p>
+              Em ambos LFS e BLFS, a página é rotulada com o número do nosso
+              lançamento atual, de forma que 10.1.html a partir de março de
+              2021 até que lancemos nossa próxima versão.
+            </p>
+            <p>
+              Você verá que existe uma &lt;h3&gt;Nome do Pacote&lt;h3&gt;
+              comentada como um guia. A linha &lt;h4&gt; deveria ser copiada
+              a partir da entrada que você criou no <code class=
+              "filename">consolidated.html</code>. Siga isso com um parágrafo
+              curto sumarizando o problema e como corrigi-lo (ou, em casos
+              excepcionais, outras ações para contornar o problema). Adicione
+              uma frase vinculando ao aviso no <code class=
+              "filename">consolidated.html</code>.
+            </p>
+            <p>
+              Alguns pacotes obtém informação extra, por exemplo, o
+              Thunderbird tem um parágrafo itálico explicando como as
+              vulnerabilidades são em um contexto semelhante a navegador. Se
+              esse for o primeiro aviso para o Thunderbird neste lançamento,
+              [então] copie essa parte a partir dos avisos anteriores.
+              Similarmente, no LFS, o glibc obtém informação diferente, pois
+              o único caminho de atualização suportado no LFS é construir um
+              LFS novo: dê a informação e deixe que os(as) usuários(as)
+              decidam o quão séria(s) é(são) a(s) vulnerabilidade(s) para o
+              caso de uso deles(as) (muitas são bastante antigas).
+            </p>
+          </div>
+          <div class="sect1" lang="pt-br" xml:lang="pt-br">
+            <div class="titlepage">
+              <div>
+                <div>
+                  <h2 class="title">
+                    <a id="ch07-when-we-release" name=
+                    "ch07-when-we-release"></a>7.4. O que fazer quando nós
+                    aprontamos um lançamento.
+                  </h2>
+                </div>
+              </div>
+            </div>
+            <p>
+              Quando um lançamento novo dos livros está pronto (isto é, os
+              diretórios novos do livro para esta versão tendo sido
+              povoados), existem observações nos arquivos <code class=
+              "filename">Notes-re-release.txt</code>:
+            </p>
+            <p>
+              Bem como para atualizar o <code class=
+              "filename">index.html</code> para o lançamento novo, e criar
+              uma página nova para a versão nova - inicialmente declarando
+              que "Não existem vulnerabilidades de segurança conhecidas" - os
+              avisos para o que é, agora, o lançamento anterior precisam ser
+              corrigidos.
+            </p>
+            <p>
+              Isso é porque os pacotes naquele lançamento foram testados para
+              as versões e pacotes naquele lançamento, e, de tempos em
+              tempos, os pacotes serão descartados; ou serão substituídos por
+              versões bifurcadas; ou mesmo movidos para uma parte diferente
+              do livro. Assim, os links deveriam ser mudados, de forma que,
+              em vez de apontarem para o livro de desenvolvimento, eles agora
+              apontem para a versão que nós lançamos recentemente.
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="part">
+        <div class="titlepage">
+          <div>
+            <div>
+              <h1 class="title">
+                <a id="idm712" name=
+                "idm712"></a>Parte&nbsp;II.&nbsp;Automatização
+              </h1>
+            </div>
+          </div>
+        </div>
+        <div class="chapter" lang="pt-br" xml:lang="pt-br">
+          <div class="titlepage">
+            <div>
+              <div>
+                <h2 class="title">
+                  <a id="chapter08" name="chapter08"></a>Capítulo 8.
+                  Processos
+                </h2>
+              </div>
+            </div>
+          </div>
+          <div class="sect1" lang="pt-br" xml:lang="pt-br">
+            <div class="titlepage">
+              <div>
+                <div>
+                  <h2 class="title">
+                    <a id="ch08-introduction" name=
+                    "ch08-introduction"></a>8.1. Introdução
+                  </h2>
+                </div>
+              </div>
+            </div>
+            <p>
+              Este capítulo descreve os processos acerca de como converter os
+              fontes XML do DocBook para HTML, os quais são apresentados para
+              os(as) usuários(as) no sítio da web. Os processos são
+              basicamente os mesmos em uma máquina local quando o(a)
+              usuário(a) clona os XMLs para um repositório local e quer criar
+              os arquivos HTML lá.
+            </p>
+            <p>
+              Os pré-requisitos são um conjunto pequeno de ferramentas,
+              nomeadamente <a class="ulink" href=
+              "https://www.linuxfromscratch.org/lfs/view/development/chapter08/make.html">
+              make</a>; <a class="ulink" href=
+              "https://www.linuxfromscratch.org/blfs/view/svn/pst/docbook.html">
+              DocBook XML</a>; <a class="ulink" href=
+              "https://www.linuxfromscratch.org/blfs/view/svn/pst/docbook-xsl.html">
+              DocBook XSLT</a>; e as ferramentas <a class="ulink" href=
+              "https://www.linuxfromscratch.org/blfs/view/svn/general/libxslt.html">
+              xsltproc</a>. Essas ferramentas são usadas para converter XML
+              do DocBook para outros formatos; o formato alvo mais usado é o
+              HTML, o qual pode ser usado para apresentar os livros de uma
+              maneira formatada bem legal para o(a) usuário(a). Outros
+              formatos seriam PDF, porém esse não é parte deste capítulo.
+            </p>
+            <p>
+              Este capítulo está dividido nas seguintes partes:
+            </p>
+            <div class="itemizedlist">
+              <ul>
+                <li class="listitem">
+                  <p>
+                    Básicos acerca da conversão
+                  </p>
+                  <p>
+                    Descreve os passos básicos para converter os XMLs para
+                    HTML, os quais são comuns para o LFS e para o BLFS.
+                  </p>
+                </li>
+                <li class="listitem">
+                  <p>
+                    Especiais no LFS ou no BLFS
+                  </p>
+                  <p>
+                    Observações acerca dos especiais a se ter em mente quando
+                    se converter o livro LFS ou o BLFS.
+                  </p>
+                </li>
+                <li class="listitem">
+                  <p>
+                    Processos no servidor
+                  </p>
+                  <p>
+                    Observações para editores(as) e administradores(as)
+                    mantendo a conversão do livro no servidor principal do
+                    LFS.
+                  </p>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div class="sect1" lang="pt-br" xml:lang="pt-br">
+            <div class="titlepage">
+              <div>
+                <div>
+                  <h2 class="title">
+                    <a id="ch08-basics" name="ch08-basics"></a>8.2. Básicos
+                  </h2>
+                </div>
+              </div>
+            </div>
+            <div class="sect2" lang="pt-br" xml:lang="pt-br">
+              <h3 class="sect2">
+                8.2.1. Renderizando livros
+              </h3>
+              <p>
+                Quando um livro tenha sido tirado (clonado), mude para o
+                diretório de nível superior do livro. A criação dos arquivos
+                HTML é iniciada com o seguinte comando:
+              </p>
+              <pre class="userinput"><kbd class="command">make</kbd></pre>
+              <p>
+                Por padrão, a versão sysv do livro será renderizada. Para
+                criar a versão systemd, emita:
+              </p>
+              <pre class="userinput"><kbd class=
+              "command">make REV=systemd</kbd></pre>
+              <p>
+                Os únicos valores permitidos para REV são <code class=
+                "literal">sysv</code> ou <code class=
+                "literal">systemd</code>. Qualquer outro valor - enquanto que
+                sysv é o padrão quando nada for especificado - causará um
+                erro.
+              </p>
+              <p>
+                O local da saída gerada é dependente do tipo do livro; será
+                diferente quando se construir o LFS; o BLFS; ou qualquer
+                outro livro. Usualmente, a saída gerada é um diretório no
+                diretório HOME do(a) usuário(a) atual. Na época da escrita
+                deste texto, os diretórios eram
+              </p>
+              <div class="variablelist">
+                <table border="0" class="variablelist">
+                  <colgroup>
+                    <col align="left" valign="top" />
+                    <col />
+                  </colgroup>
+                  <tbody>
+                    <tr>
+                      <td>
+                        <p>
+                          <span class="term"><span class=
+                          "emphasis"><em>Tipo</em></span></span>
+                        </p>
+                      </td>
+                      <td>
+                        <p>
+                          <span class="emphasis"><em>Diretório</em></span>
+                        </p>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <p>
+                          <span class="term">LFS (sysv)</span>
+                        </p>
+                      </td>
+                      <td>
+                        <p>
+                          ~/lfs-book
+                        </p>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <p>
+                          <span class="term">LFS (systemd)</span>
+                        </p>
+                      </td>
+                      <td>
+                        <p>
+                          ~/lfs-systemd
+                        </p>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <p>
+                          <span class="term">BLFS (sysv)</span>
+                        </p>
+                      </td>
+                      <td>
+                        <p>
+                          ~/public_html/blfs-book
+                        </p>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <p>
+                          <span class="term">BLFS (systemd)</span>
+                        </p>
+                      </td>
+                      <td>
+                        <p>
+                          ~/public_html/blfs-systemd
+                        </p>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <p>
+                          <span class="term">Guia dos(as) Editores(as) (este
+                          livro)</span>
+                        </p>
+                      </td>
+                      <td>
+                        <p>
+                          ~/lfs-editors-guide-output
+                        </p>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+              <p>
+                Para especificar um diretório diferente de saída gerada, use
+                o parâmetro BASEDIR:
+              </p>
+              <pre class="userinput"><kbd class=
+              "command">make BASEDIR=&lt;caminho/para/colocar/os/htmls&gt;</kbd></pre>
+              <p>
+                Certamente, uma combinação de REV e BASEDIR é permitida.
+              </p>
+              <div class="sect3">
+                <div class="titlepage">
+                  <div>
+                    <div>
+                      <h4 class="title">
+                        <a id="idm780" name="idm780"></a>8.2.1.1. Outros
+                        parâmetros comuns
+                      </h4>
+                    </div>
+                  </div>
+                </div>
+                <p>
+                  Para controlar se o processo de construção deveria exibir
+                  todos os comandos executados em detalhes, use um parâmetro
+                  V não vazio:
+                </p>
+                <pre class="userinput"><kbd class=
+                "command">make V=1</kbd></pre>
+                <p>
+                  O processo de construção dos livros LFS ou BLFS exige a
+                  produção de alguns dados temporários. O parâmetro RENDERTMP
+                  define onde armazenar tais arquivos temporários. O padrão é
+                  <code class="filename">$HOME/tmp</code> e pode ser
+                  configurado para qualquer outro diretório, porém deveria
+                  ser diferente do BASEDIR:
+                </p>
+                <pre class="userinput"><kbd class=
+                "command">make RENDERTMP=&lt;caminho/para/colocar/arquivos/temporarios&gt;</kbd></pre>
+              </div>
+            </div>
+            <div class="sect2" lang="pt-br" xml:lang="pt-br">
+              <h3 class="sect2">
+                8.2.2. Scripts de inicialização / Arquivos de serviço
+              </h3>
+              <p>
+                PARA FAZER: Descreva o que fazer quando os scripts de
+                inicialização tiverem sido mudados. Edite o registro das
+                mudanças; atualize o general.ent no LFS; ...; copie para o
+                anduin; ...
+              </p>
+            </div>
+          </div>
+          <div class="sect1" lang="pt-br" xml:lang="pt-br">
+            <div class="titlepage">
+              <div>
+                <div>
+                  <h2 class="title">
+                    <a id="ch08-specials" name="ch08-specials"></a>8.3.
+                    Especiais
+                  </h2>
+                </div>
+              </div>
+            </div>
+            <div class="sect2" lang="pt-br" xml:lang="pt-br">
+              <h3 class="sect2">
+                8.3.1. Especiais
+              </h3>
+              <p>
+                Esta seção descreve algumas extensões e variações disponíveis
+                para alguns tipos de livros.
+              </p>
+              <div class="sect3">
+                <div class="titlepage">
+                  <div>
+                    <div>
+                      <h4 class="title">
+                        <a id="idm797" name="idm797"></a>8.3.1.1. LFS -
+                        Versão multi biblioteca
+                      </h4>
+                    </div>
+                  </div>
+                </div>
+                <p>
+                  Existe uma ramificação especial do livro LFS que inclui
+                  instruções adicionais para aqueles(as) usuários(as) que
+                  gostam de construir um sistema que suporta binários de 32
+                  bits e não somente de 64 bits. Para mais detalhes acerca de
+                  como e porque, consulte aquele livro; aqui somente os
+                  parâmetros exigidos para construir o livro XML são
+                  discutidos.
+                </p>
+                <p>
+                  Para a finalidade de usar a versão multi biblioteca do
+                  livro, o repositório precisa ser comutado para a
+                  ramificação <code class="literal">multilib</code> usando-se
+                  o git:
+                </p>
+                <pre class="userinput"><kbd class=
+                "command">git checkout multilib</kbd></pre>
+                <p>
+                  Para controlar se e qual versão multi biblioteca do livro
+                  será criada, use o parâmetro ARCH.
+                </p>
+                <pre class="userinput"><kbd class=
+                "command">make ARCH=ml_32</kbd></pre>
+                <p>
+                  Os valores possíveis para ARCH são <code class=
+                  "literal">ml_32</code> para incluir instruções para
+                  suportar os binários m32; ou <code class=
+                  "literal">ml_x32</code> para a arquitetura mx32.
+                  <code class="literal">ml_default</code>, que é usado quando
+                  ARCH não for dado, inclui nenhuma das instruções adicionais
+                  e o livro resultante é praticamente idêntico ao livro
+                  quando a ramificação <code class="literal">trunk</code> é
+                  usada. <code class="literal">ml_all</code> inclui ambas as
+                  instruções <code class="literal">ml_32</code> e
+                  <code class="literal">ml_x32</code>.
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="sect1" lang="pt-br" xml:lang="pt-br">
+            <div class="titlepage">
+              <div>
+                <div>
+                  <h2 class="title">
+                    <a id="ch08-server" name="ch08-server"></a>8.4. Processos
+                    no servidor principal
+                  </h2>
+                </div>
+              </div>
+            </div>
+            <div class="sect2" lang="pt-br" xml:lang="pt-br">
+              <h3 class="sect2">
+                8.4.1. Scripts
+              </h3>
+              <p>
+                Os scripts úteis para automatizar a renderização diária dos
+                livros estão localizados em <code class=
+                "filename">/usr/local/bin</code>.
+              </p>
+              <p>
+                A seguir está uma lista dos scripts que seriam de interesse
+                para renderizar e instalar os livros no servidor principal:
+              </p>
+              <div class="itemizedlist">
+                <ul>
+                  <li class="listitem">
+                    <p>
+                      build-lfs-edguide.sh
+                    </p>
+                    <p>
+                      (sem parâmetros)
+                    </p>
+                    <p>
+                      Esse script cria o Guia dos(as) Editores(as) como um
+                      "paginador único" - significando que o guia inteiro
+                      está em uma página HTML.
+                    </p>
+                    <p>
+                      O resultado pode ser visualizado em <a class="ulink"
+                      href=
+                      "https://www.linuxfromscratch.org/lfs/LFS-EDITORS-GUIDE.html">
+                      https://www.linuxfromscratch.org/lfs/LFS-EDITORS-GUIDE.html</a>.
+                    </p>
+                  </li>
+                  <li class="listitem">
+                    <p>
+                      check-blfs-files.sh
+                    </p>
+                    <p>
+                      ...
+                    </p>
+                  </li>
+                  <li class="listitem">
+                    <p>
+                      render-blfs-book-systemd.sh
+                    </p>
+                    <p>
+                      ...
+                    </p>
+                  </li>
+                  <li class="listitem">
+                    <p>
+                      render-blfs-book.sh
+                    </p>
+                    <p>
+                      ...
+                    </p>
+                  </li>
+                  <li class="listitem">
+                    <p>
+                      render-lfs-book-dev.sh
+                    </p>
+                    <p>
+                      ...
+                    </p>
+                  </li>
+                  <li class="listitem">
+                    <p>
+                      render-lfs-book-systemd.sh
+                    </p>
+                    <p>
+                      ...
+                    </p>
+                  </li>
+                  <li class="listitem">
+                    <p>
+                      update-hints.sh
+                    </p>
+                    <p>
+                      ...
+                    </p>
+                  </li>
+                  <li class="listitem">
+                    <p>
+                      update-patches.sh
+                    </p>
+                    <p>
+                      ...
+                    </p>
+                  </li>
+                  <li class="listitem">
+                    <p>
+                      update-website.sh
+                    </p>
+                    <p>
+                      ...
+                    </p>
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <div class="sect2" lang="pt-br" xml:lang="pt-br">
+              <h3 class="sect2">
+                8.4.2. Tarefas agendadas
+              </h3>
+              <p>
+                Existem várias tarefas agendadas (tarefas executadas
+                automaticamente em uma hora específica). Essas tarefas
+                automatizaram a renderização dos livros, bem como o manuseio
+                de arquivos como patches, scripts de inicialização e assim
+                por diante.
+              </p>
+              <p>
+                A seguir está uma lista das tarefas agendadas definidas no
+                servidor principal:
+              </p>
+              <p>
+                ...
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
