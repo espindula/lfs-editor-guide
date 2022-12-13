@@ -43,7 +43,7 @@ Espindula de Almeida Melo (<jafesp@gmail.com>).
 
 <bookinfo>
   <title>Manual do Editor do Linux From Scratch</title>
-  <subtitle>Version &version;</subtitle>
+  <subtitle>Versão &version;</subtitle>
 
   <authorgroup>
     <author>
@@ -61,7 +61,7 @@ Espindula de Almeida Melo (<jafesp@gmail.com>).
 	<holder>Gerard Beekmans</holder>
   </copyright>
 
-  <xi:include xmlns:xi="http://www.w3.org/2003/XInclude" href="legalnotice.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2003/XInclude" href="legalnotice-pt_br.xml"/>
 
   <abstract>
     <para>
