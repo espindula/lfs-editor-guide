@@ -49,6 +49,6 @@ Espindula de Almeida Melo (<jafesp@gmail.com>).
   <xi:include xmlns:xi="http://www.w3.org/2003/XInclude" href="introduction-pt_br.xml"/>
   <xi:include xmlns:xi="http://www.w3.org/2003/XInclude" href="basics-pt_br.xml"/>
   <xi:include xmlns:xi="http://www.w3.org/2003/XInclude" href="specials-pt_br.xml"/>
-  <xi:include xmlns:xi="http://www.w3.org/2003/XInclude" href="server.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2003/XInclude" href="server-pt_br.xml"/>
 
 </chapter>
