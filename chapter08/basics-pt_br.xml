@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.4//EN" "http://www.oasis-open.org/docbook/xml/4.4/docbookx.dtd" [
+  <!ENTITY % general-entities SYSTEM "../general.ent">
+  %general-entities;
+]>
+
+<!--
+
+Direitos autorais (Copyright): (c) 2022 Jamenson Ferreira Espindula de Almeida Melo (<jafesp@gmail.com>).
+
+Direitos autorais da versão modificada traduzida para a língua 
+portuguesa escrita e falada no Brasil: (c) 2022 Jamenson Ferreira 
+Espindula de Almeida Melo (<jafesp@gmail.com>).
+
+  Este trabalho de tradução do livro "Manual do Editor do Linux From 
+  Scratch" é classificado pela Free Software Foundation como sendo uma 
+  "versão modificada" do mencionado livro.  Em assim sendo, na qualidade 
+  de tradutor, produtor da "versão modificada" e titular dos direitos 
+  autorais sobre a versão traduzida para a língua portuguesa do livro 
+  "Manual do Editor do Linux From Scratch", concede-se a seguinte 
+  permissão:
+
+  É concedida permissão para copiar, distribuir e (ou) modificar este 
+  livro "Manual do Editor do Linux From Scratch", versão traduzida para 
+  a língua portuguesa, sob os termos da Licença de Documentação Livre 
+  GNU, versão 1.3 ou qualquer versão posterior publicada pela Free 
+  Software Foundation; sem Seções Invariantes, sem Textos de Capa 
+  Frontal e sem Textos de Quarta Capa.  Uma cópia da licença está 
+  incluída na seção intitulada "Licença de Documentação Livre GNU".
+
+# Atenção: todos os documentos aqui publicados são distribuídos sem qualquer garantia, implícita e (ou) explícita.
+
+  Permission is granted to copy, distribute and (or) modify this book 
+  "Linux From Scratch Editor's Manual", translated into Brazilian 
+  Portuguese, under the terms of the GNU Free Documentation License, 
+  Version 1.3 or any later version published by the Free Software 
+  Foundation; with no Invariant Sections, no Front-Cover Texts, and no 
+  Back-Cover Texts.  A copy of the license is included in the section 
+  entitled "GNU Free Documentation License".
+
+# Warning: all the files herein published are released with no warranty, implicit and (or) explicit.
+-->
+
+<sect1 id="ch08-basics">
+  <title>Básicos</title>
+  <?dbhtml filename="basics-pt_br.html"?>
+
+  <sect2>
+    <title>Renderizando livros</title>
+  
+    <para>
+
+      Quando um livro tenha sido tirado (clonado), mude para o diretório 
+      de nível superior do livro.  A criação dos arquivos HTML é 
+      iniciada com o seguinte comando:
+
+    </para>
+
+<screen><userinput>make</userinput></screen>
+
+    <para>
+
+      Por padrão, a versão sysv do livro será renderizada.  Para criar a 
+      versão systemd, emita:
+
+    </para>
+
+<screen><userinput>make REV=systemd</userinput></screen>
+
+    <para>
+
+      Os únicos valores permitidos para REV são <literal>sysv</literal> 
+      ou <literal>systemd</literal>.  Qualquer outro valor - enquanto 
+      que sysv é o padrão quando nada for especificado - causará um 
+      erro.
+
+    </para>
+
+    <para>
+
+      O local da saída gerada é dependente do tipo do livro; será 
+      diferente quando se construir o LFS; o BLFS; ou qualquer outro 
+      livro.  Usualmente, a saída gerada é um diretório no diretório 
+      HOME do(a) usuário(a) atual.  Na época da escrita deste texto, os 
+      diretórios eram
+
+      <variablelist>
+        <?dbfo list-presentation="list"?>
+        <?dbhtml list-presentation="table"?>
+
+        <varlistentry>
+          <term><emphasis>Tipo</emphasis></term>
+          <listitem><para><emphasis>Diretório</emphasis></para></listitem>
+        </varlistentry>
+
+        <varlistentry>
+          <term>LFS (sysv)</term>
+          <listitem><para>~/lfs-book</para></listitem>
+        </varlistentry>
+        <varlistentry>
+          <term>LFS (systemd)</term>
+          <listitem><para>~/lfs-systemd</para></listitem>
+        </varlistentry>
+        
+        <varlistentry>
+          <term>BLFS (sysv)</term>
+          <listitem><para>~/public_html/blfs-book</para></listitem>
+        </varlistentry>
+        <varlistentry>
+          <term>BLFS (systemd)</term>
+          <listitem><para>~/public_html/blfs-systemd</para></listitem>
+        </varlistentry>
+        
+        <varlistentry>
+          <term>Guia dos(as) Editores(as) (este livro)</term>
+          <listitem><para>~/lfs-editors-guide-output</para></listitem>
+        </varlistentry>
+        
+      </variablelist>
+
+    </para>
+    
+    <para>
+
+      Para especificar um diretório diferente de saída gerada, use o 
+      parâmetro BASEDIR:
+
+    </para>
+
+<screen><userinput>make BASEDIR=&lt;caminho/para/colocar/os/htmls&gt;</userinput></screen>
+
+    <para>
+
+      Certamente, uma combinação de REV e BASEDIR é permitida.
+
+    </para>
+
+    <sect3>
+      <title>Outros parâmetros comuns</title>
+
+      <para>
+
+        Para controlar se o processo de construção deveria exibir todos 
+        os comandos executados em detalhes, use um parâmetro V não 
+        vazio:
+
+      </para>
+
+<screen><userinput>make V=1</userinput></screen>
+
+      <para>
+
+        O processo de construção dos livros LFS ou BLFS exige a produção 
+        de alguns dados temporários.  O parâmetro RENDERTMP define onde 
+        armazenar tais arquivos temporários.  O padrão é
+        <filename class="directory">$HOME/tmp</filename> e pode ser configurado 
+        para qualquer outro diretório, porém deveria ser diferente do 
+        BASEDIR:
+
+      </para>
+
+<screen><userinput>make RENDERTMP=&lt;caminho/para/colocar/arquivos/temporarios&gt;</userinput></screen>
+
+    </sect3>
+
+  </sect2>
+
+  <sect2>
+    <title>Scripts de inicialização / Arquivos de serviço</title>
+  
+    <para>
+
+      PARA FAZER: Descreva o que fazer quando os scripts de 
+      inicialização tiverem sido mudados.  Edite o registro das 
+      mudanças; atualize o general.ent no LFS; ...; copie para o anduin; 
+      ...
+
+    </para>
+
+  </sect2>
+  
+</sect1>
