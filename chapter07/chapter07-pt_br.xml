@@ -47,7 +47,7 @@ Espindula de Almeida Melo (<jafesp@gmail.com>).
  <?dbhtml dir="chapter07"?>
 
   <xi:include xmlns:xi="http://www.w3.org/2003/XInclude" href="introduction-pt_br.xml"/>
-  <xi:include xmlns:xi="http://www.w3.org/2003/XInclude" href="consolidated.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2003/XInclude" href="consolidated-pt_br.xml"/>
   <xi:include xmlns:xi="http://www.w3.org/2003/XInclude" href="since-last-release.xml"/>
   <xi:include xmlns:xi="http://www.w3.org/2003/XInclude" href="when-we-release.xml"/>
 
