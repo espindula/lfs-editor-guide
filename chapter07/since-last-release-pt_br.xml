@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.4//EN" "http://www.oasis-open.org/docbook/xml/4.4/docbookx.dtd" [
+  <!ENTITY % general-entities SYSTEM "../general.ent">
+  %general-entities;
+]>
+
+<!--
+
+Direitos autorais (Copyright): (c) 2022 Jamenson Ferreira Espindula de Almeida Melo (<jafesp@gmail.com>).
+
+Direitos autorais da versão modificada traduzida para a língua 
+portuguesa escrita e falada no Brasil: (c) 2022 Jamenson Ferreira 
+Espindula de Almeida Melo (<jafesp@gmail.com>).
+
+  Este trabalho de tradução do livro "Manual do Editor do Linux From 
+  Scratch" é classificado pela Free Software Foundation como sendo uma 
+  "versão modificada" do mencionado livro.  Em assim sendo, na qualidade 
+  de tradutor, produtor da "versão modificada" e titular dos direitos 
+  autorais sobre a versão traduzida para a língua portuguesa do livro 
+  "Manual do Editor do Linux From Scratch", concede-se a seguinte 
+  permissão:
+
+  É concedida permissão para copiar, distribuir e (ou) modificar este 
+  livro "Manual do Editor do Linux From Scratch", versão traduzida para 
+  a língua portuguesa, sob os termos da Licença de Documentação Livre 
+  GNU, versão 1.3 ou qualquer versão posterior publicada pela Free 
+  Software Foundation; sem Seções Invariantes, sem Textos de Capa 
+  Frontal e sem Textos de Quarta Capa.  Uma cópia da licença está 
+  incluída na seção intitulada "Licença de Documentação Livre GNU".
+
+# Atenção: todos os documentos aqui publicados são distribuídos sem qualquer garantia, implícita e (ou) explícita.
+
+  Permission is granted to copy, distribute and (or) modify this book 
+  "Linux From Scratch Editor's Manual", translated into Brazilian 
+  Portuguese, under the terms of the GNU Free Documentation License, 
+  Version 1.3 or any later version published by the Free Software 
+  Foundation; with no Invariant Sections, no Front-Cover Texts, and no 
+  Back-Cover Texts.  A copy of the license is included in the section 
+  entitled "GNU Free Documentation License".
+
+# Warning: all the files herein published are released with no warranty, implicit and (or) explicit.
+-->
+
+<sect1 id="ch07-since-last-release">
+  <title>Avisos desde o lançamento anterior.</title>
+  <?dbhtml filename="since-last-release-pt_br.html"?>
+
+  <para>
+
+    Existem páginas separadas para o LFS e para o BLFS onde nós listamos 
+    nossos avisos desde nosso lançamento anterior.  Essas páginas estão 
+    em ordem alfabética, com os avisos mais recentes vindo antes dos 
+    mais antigos para o mesmo pacote.
+
+  </para>
+
+  <para>
+
+    Em ambos LFS e BLFS, a página é rotulada com o número do nosso 
+    lançamento atual, de forma que 10.1.html a partir de março de 2021 
+    até que lancemos nossa próxima versão.
+
+  </para>
+
+  <para>
+
+    Você verá que existe uma &lt;h3&gt;Nome do Pacote&lt;h3&gt; 
+    comentada como um guia.  A linha &lt;h4&gt; deveria ser copiada a 
+    partir da entrada que você criou no 
+    <filename>consolidated.html</filename>.  Siga isso com um parágrafo 
+    curto sumarizando o problema e como corrigi-lo (ou, em casos 
+    excepcionais, outras ações para contornar o problema).  Adicione uma 
+    frase vinculando ao aviso no <filename>consolidated.html</filename>.
+
+  </para>
+
+  <para>
+
+    Alguns pacotes obtém informação extra, por exemplo, o Thunderbird 
+    tem um parágrafo itálico explicando como as vulnerabilidades são em 
+    um contexto semelhante a navegador.  Se esse for o primeiro aviso 
+    para o Thunderbird neste lançamento, [então] copie essa parte a 
+    partir dos avisos anteriores.  Similarmente, no LFS, o glibc obtém 
+    informação diferente, pois o único caminho de atualização suportado 
+    no LFS é construir um LFS novo: dê a informação e deixe que os(as) 
+    usuários(as) decidam o quão séria(s) é(são) a(s) vulnerabilidade(s) 
+    para o caso de uso deles(as) (muitas são bastante antigas).
+
+  </para>
+
+</sect1>
