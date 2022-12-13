@@ -67,8 +67,8 @@ Espindula de Almeida Melo (<jafesp@gmail.com>).
 </part>
 
 <part>
-  <title>Automatization</title>
-<xi:include xmlns:xi="http://www.w3.org/2003/XInclude" href="chapter08/chapter08.xml"/>
+  <title>Automatização</title>
+<xi:include xmlns:xi="http://www.w3.org/2003/XInclude" href="chapter08/chapter08-pt_br.xml"/>
 </part>
 
 </book>
