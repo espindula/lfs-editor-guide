@@ -1,6 +1,6 @@
-# Projeto de tradução do livro "Beyond Linux From Scratch" para o idioma português escrito e falado no Brasil.
+# Projeto de tradução do livro "Manual do Editor do Linux From Scratch" para o idioma português escrito e falado no Brasil.
 
-Translation project of the book "Beyond Linux From Scratch" into Brazilian Portuguese.
+Translation project of the book "Linux From Scratch Editors Manual" into Brazilian Portuguese.
 
 git clone https://github.com/espindula/lfs-editor-guide.git
 
